@@ -1,3126 +1,698 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
-    <meta name="theme-color" content="#071b3d" />
-    <meta name="description" content="Refleksi interaktif dari kisah Bu Guru Ria: mengubah masalah pembelajaran menjadi karya yang berdampak." />
-    <meta property="og:title" content="Dari Kelas, Jadi Karya" />
-    <meta property="og:description" content="Jelajahi bagaimana masalah sederhana di kelas dapat berkembang menjadi inovasi, kolaborasi, dan pemberdayaan." />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <title>Dari Kelas, Jadi Karya — Rizal Abdurrahman</title>
-    <style>
-        /* ===== RESET & BASE ===== */
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        :root {
-            --navy: #071b3d;
-            --navy-2: #0b2c5b;
-            --navy-3: #123a6e;
-            --teal: #0ea5a8;
-            --teal-2: #2dd4bf;
-            --teal-glow: rgba(14, 165, 168, .25);
-            --gold: #f7b731;
-            --gold-2: #ffd978;
-            --gold-glow: rgba(247, 183, 49, .25);
-            --cream: #f7fbff;
-            --ink: #132238;
-            --muted: #5a6f86;
-            --muted-light: #8a9db5;
-            --line: #d7e4ef;
-            --card: #ffffff;
-            --danger: #e85d75;
-            --shadow-sm: 0 4px 16px rgba(7, 27, 61, .08);
-            --shadow-md: 0 12px 40px rgba(7, 27, 61, .12);
-            --shadow-lg: 0 24px 64px rgba(7, 27, 61, .16);
-            --radius: 24px;
-            --radius-sm: 14px;
-            --radius-full: 9999px;
-            --accent: #0ea5a8;
-            --accent-soft: #dff8f5;
-            --transition: .35s cubic-bezier(.22, 1, .36, 1);
-            --font: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-        }
-        html {
-            scroll-behavior: smooth;
-            -webkit-tap-highlight-color: transparent;
-        }
-        body {
-            margin: 0;
-            font-family: var(--font);
-            color: var(--ink);
-            background: #f4f9fd;
-            line-height: 1.6;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
-        .container {
-            width: min(1120px, calc(100% - 28px));
-            margin: 0 auto;
-        }
-        button {
-            font: inherit;
-            cursor: pointer;
-            border: none;
-            background: none;
-            touch-action: manipulation;
-        }
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-        img {
-            display: block;
-            max-width: 100%;
-        }
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            border: 0;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <meta name="theme-color" content="#071b3d" />
+  <meta name="description" content="Refleksi interaktif dari kisah Bu Guru Ria: mengubah masalah pembelajaran menjadi karya yang berdampak." />
+  <meta property="og:title" content="Dari Kelas, Jadi Karya" />
+  <meta property="og:description" content="Jelajahi bagaimana masalah sederhana di kelas dapat berkembang menjadi inovasi, kolaborasi, dan pemberdayaan." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="og-card.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <title>Dari Kelas, Jadi Karya — Rizal Abdurrahman</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:#071b3d;--navy-2:#0b2c5b;--navy-3:#0f3468;--teal:#0ea5a8;--teal-2:#2dd4bf;--gold:#f7b731;--gold-2:#ffd978;--cream:#f7fbff;--ink:#132238;--muted:#5a6b82;--line:#d7e4ef;--card:#ffffff;--danger:#e85d75;
+      --shadow-sm:0 2px 8px rgba(7,27,61,.06);--shadow:0 8px 32px rgba(7,27,61,.10);--shadow-lg:0 20px 60px rgba(7,27,61,.16);
+      --radius-sm:14px;--radius:20px;--radius-lg:28px;--accent:#0ea5a8;--accent-soft:#dff8f5;
+      --transition:all .35s cubic-bezier(.4,0,.2,1);--transition-bounce:all .5s cubic-bezier(.34,1.56,.64,1);
+    }
+    *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+    body{margin:0;font-family:'Inter',ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:#f4f9fd;line-height:1.7;overflow-x:hidden;font-size:16px;}
+    button,input,textarea{font-family:inherit;font-size:16px}
+    button{cursor:pointer;touch-action:manipulation}
+    a{color:inherit;text-decoration:none}
+    .container{width:min(1120px,calc(100% - 28px));margin:auto}
 
-        /* ===== SCROLLBAR ===== */
-        ::-webkit-scrollbar {
-            width: 6px;
-            height: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: transparent;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--teal);
-            border-radius: 999px;
-        }
+    /* HERO */
+    .hero{position:relative;min-height:100dvh;display:flex;align-items:center;color:#fff;overflow:hidden;background:radial-gradient(ellipse 80% 50% at 20% 40%,rgba(14,165,168,.15),transparent 60%),radial-gradient(ellipse 60% 40% at 80% 20%,rgba(247,183,49,.12),transparent 50%),linear-gradient(160deg,var(--navy) 0%,var(--navy-2) 50%,var(--navy-3) 100%);}
+    .hero::before,.hero::after{content:"";position:absolute;border-radius:50%;filter:blur(60px);opacity:.25;pointer-events:none}
+    .hero::before{width:400px;height:400px;background:var(--teal);right:-120px;top:-80px}
+    .hero::after{width:300px;height:300px;background:var(--gold);left:-100px;bottom:-100px}
+    .grid-lines{position:absolute;inset:0;opacity:.06;background-image:linear-gradient(rgba(255,255,255,.25) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.25) 1px,transparent 1px);background-size:36px 36px;mask-image:linear-gradient(to bottom,rgba(0,0,0,.8),transparent 95%);}
+    .hero-inner{position:relative;z-index:2;padding:100px 0 60px;display:grid;grid-template-columns:1fr;gap:40px;align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;padding:10px 16px;border:1px solid rgba(255,255,255,.18);border-radius:999px;background:rgba(255,255,255,.08);font-weight:800;font-size:.85rem;backdrop-filter:blur(8px);width:fit-content;margin-bottom:20px}
+    .eyebrow-dot{width:8px;height:8px;background:var(--gold);border-radius:50%;box-shadow:0 0 0 6px rgba(247,183,49,.2);animation:pulse-dot 2s ease-in-out infinite}
+    @keyframes pulse-dot{0%,100%{box-shadow:0 0 0 0 rgba(247,183,49,.4)}50%{box-shadow:0 0 0 10px rgba(247,183,49,0)}}
+    h1{font-size:clamp(2.4rem,8vw,5.5rem);line-height:1.05;letter-spacing:-.04em;margin:0 0 20px;max-width:820px;font-weight:900}
+    h1 span{display:block;color:var(--gold);position:relative}
+    h1 span::after{content:"";position:absolute;bottom:4px;left:0;width:100%;height:8px;background:linear-gradient(90deg,var(--gold),transparent);opacity:.3;border-radius:4px}
+    .hero-copy{font-size:clamp(1.05rem,2.5vw,1.25rem);max-width:680px;color:#c8daf0;line-height:1.7;margin:0 0 28px}
+    .hero-actions{display:flex;flex-direction:column;gap:12px;margin-top:0}
+    .btn{border:0;border-radius:var(--radius);padding:16px 22px;font-weight:800;display:inline-flex;align-items:center;justify-content:center;gap:10px;transition:var(--transition);min-height:56px;width:100%;font-size:1rem;position:relative;overflow:hidden}
+    .btn::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);transform:translateX(-100%);transition:.6s}
+    .btn:active{transform:scale(.97)}
+    .btn-primary{background:linear-gradient(135deg,var(--gold),var(--gold-2));color:var(--navy);box-shadow:0 8px 28px rgba(247,183,49,.3)}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(247,183,49,.4)}
+    .btn-primary:hover::before{transform:translateX(100%)}
+    .btn-secondary{background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.2);color:#fff;backdrop-filter:blur(8px)}
+    .btn-secondary:hover{background:rgba(255,255,255,.15);transform:translateY(-2px)}
+    .hero-note{margin-top:18px;font-size:.9rem;color:#8aa4c8;font-style:italic}
 
-        /* ===== UTILITY ===== */
-        .fade-up {
-            opacity: 0;
-            transform: translateY(32px) scale(.98);
-            transition: opacity .7s cubic-bezier(.22, 1, .36, 1), transform .7s cubic-bezier(.22, 1, .36, 1);
-        }
-        .fade-up.visible {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-        }
-        .fade-up.delay-1 {
-            transition-delay: .08s;
-        }
-        .fade-up.delay-2 {
-            transition-delay: .16s;
-        }
-        .fade-up.delay-3 {
-            transition-delay: .24s;
-        }
-        .fade-up.delay-4 {
-            transition-delay: .32s;
-        }
-        .fade-up.delay-5 {
-            transition-delay: .40s;
-        }
+    .hero-map{position:relative;min-height:380px;display:grid;place-items:center;margin-top:10px}
+    .orbit{position:absolute;border:1.5px solid rgba(255,255,255,.12);border-radius:50%}
+    .orbit.one{width:280px;height:280px;animation:spin 25s linear infinite}
+    .orbit.two{width:210px;height:210px;animation:spin 18s linear infinite reverse}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .core{width:150px;height:150px;border-radius:42% 58% 55% 45% / 48% 45% 55% 52%;display:grid;place-items:center;text-align:center;padding:18px;background:linear-gradient(145deg,var(--gold),var(--gold-2));color:var(--navy);font-weight:900;font-size:1.05rem;box-shadow:0 16px 44px rgba(0,0,0,.3);animation:float 5s ease-in-out infinite;position:relative;z-index:2}
+    @keyframes float{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-12px) rotate(2deg)}}
+    .bubble{position:absolute;min-width:110px;padding:14px 16px;border-radius:18px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);backdrop-filter:blur(12px);display:flex;flex-direction:column;align-items:center;text-align:center;font-weight:800;color:#eef7ff;font-size:.8rem;box-shadow:0 10px 30px rgba(0,0,0,.15);animation:float-bubble 6s ease-in-out infinite;z-index:2}
+    .bubble b{font-size:1.6rem;display:block;margin-bottom:4px}
+    .b1{top:5%;left:2%;animation-delay:0s}.b2{top:8%;right:0%;animation-delay:1.5s}.b3{bottom:8%;left:-2%;animation-delay:3s}.b4{bottom:5%;right:2%;animation-delay:4.5s}
+    @keyframes float-bubble{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 
-        /* ===== HERO ===== */
-        .hero {
-            position: relative;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            color: #fff;
-            overflow: hidden;
-            background: linear-gradient(145deg, var(--navy) 0%, var(--navy-2) 60%, #0d3a6e 100%);
-        }
-        .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background:
-                radial-gradient(circle at 20% 30%, rgba(14, 165, 168, .25) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(247, 183, 49, .15) 0%, transparent 40%);
-            pointer-events: none;
-        }
-        .hero-grid {
-            position: absolute;
-            inset: 0;
-            opacity: .06;
-            background-image:
-                linear-gradient(rgba(255, 255, 255, .4) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, .4) 1px, transparent 1px);
-            background-size: 48px 48px;
-            mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
-            -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
-            pointer-events: none;
-        }
-        .hero-floating {
-            position: absolute;
-            border-radius: 50%;
-            pointer-events: none;
-            filter: blur(60px);
-            opacity: .30;
-        }
-        .hero-floating.f1 {
-            width: 500px;
-            height: 500px;
-            background: var(--teal);
-            right: -200px;
-            top: -200px;
-            animation: floatBlob 12s ease-in-out infinite alternate;
-        }
-        .hero-floating.f2 {
-            width: 350px;
-            height: 350px;
-            background: var(--gold);
-            left: -150px;
-            bottom: -150px;
-            animation: floatBlob 16s ease-in-out infinite alternate-reverse;
-        }
-        @keyframes floatBlob {
-            0% {
-                transform: translate(0, 0) scale(1);
-            }
-            100% {
-                transform: translate(40px, -30px) scale(1.2);
-            }
-        }
+    /* QUICK NAV */
+    .quick-nav-wrap{position:sticky;top:0;z-index:50;background:rgba(244,249,253,.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(215,228,239,.8);padding:0}
+    .quick-nav{display:flex;gap:8px;overflow-x:auto;padding:12px 0;scrollbar-width:none;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory}
+    .quick-nav::-webkit-scrollbar{display:none}
+    .quick-nav a{flex:0 0 auto;scroll-snap-align:start;text-decoration:none;border:1.5px solid var(--line);background:#fff;color:var(--navy);padding:10px 16px;border-radius:999px;font-size:.82rem;font-weight:800;transition:var(--transition);white-space:nowrap;touch-action:manipulation}
+    .quick-nav a:hover,.quick-nav a:active{background:var(--navy);color:#fff;border-color:var(--navy);transform:translateY(-1px)}
 
-        .hero-inner {
-            position: relative;
-            z-index: 2;
-            padding: 72px 0 56px;
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 40px;
-        }
-        @media(min-width:900px) {
-            .hero-inner {
-                grid-template-columns: 1.1fr .9fr;
-                padding: 96px 0 80px;
-                gap: 56px;
-            }
-        }
+    /* SECTIONS */
+    section{padding:70px 0}
+    .section-head{max-width:800px;margin:0 auto 40px;text-align:center;padding:0 8px}
+    .kicker{color:var(--accent);font-weight:900;text-transform:uppercase;letter-spacing:.14em;font-size:.78rem;margin-bottom:12px;display:block}
+    h2{font-size:clamp(1.8rem,5.5vw,3.2rem);line-height:1.1;letter-spacing:-.03em;margin:0 0 14px;font-weight:900}
+    .section-head p{color:var(--muted);font-size:1rem;line-height:1.7;margin:0}
 
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 8px 16px 8px 12px;
-            border: 1px solid rgba(255, 255, 255, .15);
-            border-radius: var(--radius-full);
-            background: rgba(255, 255, 255, .06);
-            backdrop-filter: blur(8px);
-            font-weight: 700;
-            font-size: .82rem;
-            letter-spacing: .02em;
-            width: fit-content;
-        }
-        .hero-badge .dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: var(--gold);
-            box-shadow: 0 0 0 6px rgba(247, 183, 49, .15);
-            animation: pulseDot 2s ease-in-out infinite;
-        }
-        @keyframes pulseDot {
-            0%,
-            100% {
-                box-shadow: 0 0 0 0 rgba(247, 183, 49, .3);
-            }
-            50% {
-                box-shadow: 0 0 0 8px rgba(247, 183, 49, .08);
-            }
-        }
+    /* STORY */
+    .story-section{padding-top:60px;background:linear-gradient(180deg,#f4f9fd 0%,#fff 60%)}
+    .story-track{display:flex;gap:12px;overflow-x:auto;padding:8px 4px 20px;scrollbar-width:none;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory}
+    .story-track::-webkit-scrollbar{display:none}
+    .story-card{flex:0 0 280px;scroll-snap-align:center;position:relative;z-index:2;border:1.5px solid var(--line);background:#fff;border-radius:var(--radius-lg);padding:20px 18px;text-align:left;min-height:170px;box-shadow:var(--shadow-sm);transition:var(--transition);display:flex;flex-direction:column}
+    .story-card:hover,.story-card.active{transform:translateY(-6px) scale(1.02);border-color:var(--accent);box-shadow:var(--shadow-lg);z-index:3}
+    .story-card.active .story-step{background:linear-gradient(135deg,var(--gold),var(--gold-2));color:var(--navy);transform:scale(1.1)}
+    .story-step{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;margin-bottom:18px;background:var(--navy);color:#fff;font-weight:950;font-size:1.1rem;box-shadow:0 4px 16px rgba(7,27,61,.15);transition:var(--transition-bounce)}
+    .story-card h3{font-size:1.05rem;line-height:1.25;margin:0 0 8px;font-weight:800}.story-card p{font-size:.88rem;line-height:1.5;color:var(--muted);margin:0}
+    .story-detail{margin-top:24px;border-radius:var(--radius-lg);padding:24px;background:linear-gradient(145deg,var(--navy),var(--navy-2));color:#fff;display:grid;grid-template-columns:60px 1fr;gap:16px;align-items:start;box-shadow:var(--shadow-lg);opacity:0;transform:translateY(20px);animation:fadeUp .6s ease forwards}
+    @keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+    .story-detail-icon{width:56px;height:56px;border-radius:18px;background:rgba(255,255,255,.12);display:grid;place-items:center;font-size:1.7rem;backdrop-filter:blur(4px)}
+    .story-detail h3{font-size:1.2rem;margin:0 0 8px;font-weight:800}.story-detail p{color:#b8cce4;margin:0;line-height:1.6;font-size:.95rem}.story-detail .lesson{margin-top:14px;color:#fff;font-weight:800;padding:12px 14px;background:rgba(247,183,49,.15);border-radius:12px;border-left:3px solid var(--gold);font-size:.92rem}
 
-        .hero h1 {
-            font-size: clamp(2.6rem, 10vw, 6rem);
-            line-height: .92;
-            letter-spacing: -.05em;
-            margin: 20px 0 16px;
-            font-weight: 900;
-        }
-        .hero h1 span {
-            display: block;
-            color: var(--gold);
-            background: linear-gradient(135deg, var(--gold), var(--gold-2));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .hero p.lead {
-            font-size: clamp(1rem, 1.8vw, 1.3rem);
-            color: #c8dcef;
-            max-width: 600px;
-            line-height: 1.7;
-        }
-        .hero-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 28px;
-        }
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 14px 24px;
-            border-radius: var(--radius-sm);
-            font-weight: 800;
-            font-size: .95rem;
-            transition: var(--transition);
-            min-height: 52px;
-            border: 0;
-            text-decoration: none;
-            position: relative;
-            overflow: hidden;
-        }
-        .btn::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: rgba(255, 255, 255, .1);
-            opacity: 0;
-            transition: opacity .3s;
-        }
-        .btn:active::after {
-            opacity: 1;
-        }
-        .btn-primary {
-            background: var(--gold);
-            color: var(--navy);
-            box-shadow: 0 12px 32px rgba(247, 183, 49, .30);
-        }
-        .btn-primary:hover {
-            transform: translateY(-2px) scale(1.02);
-            box-shadow: 0 18px 44px rgba(247, 183, 49, .35);
-        }
-        .btn-secondary {
-            background: rgba(255, 255, 255, .08);
-            border: 1px solid rgba(255, 255, 255, .18);
-            color: #fff;
-            backdrop-filter: blur(4px);
-        }
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, .16);
-            transform: translateY(-2px);
-        }
-        .btn-dark {
-            background: var(--navy);
-            color: #fff;
-        }
-        .btn-dark:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-        .btn-light {
-            background: var(--accent-soft);
-            color: var(--navy);
-        }
-        .btn-light:hover {
-            transform: translateY(-2px);
-            background: #c8f0ec;
-        }
-        .btn .arrow {
-            transition: transform .3s;
-        }
-        .btn:hover .arrow {
-            transform: translateX(4px);
-        }
-        .hero-note {
-            margin-top: 18px;
-            font-size: .9rem;
-            color: #a0bcdb;
-        }
+    /* MIND MAP */
+    .map-section{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:70px 0}
+    .mindmap-shell{position:relative;min-height:auto;max-width:1000px;margin:auto;border-radius:var(--radius-lg);background:radial-gradient(circle at 50% 30%,rgba(14,165,168,.06),transparent 16rem),linear-gradient(145deg,#f7fbff,#edf7fb);border:1.5px solid var(--line);overflow:hidden;box-shadow:var(--shadow);padding:24px;display:flex;flex-direction:column;gap:14px}
+    .mindmap-svg{display:none}
+    .map-core{position:relative;width:100%;min-height:140px;border:0;border-radius:var(--radius-lg);background:linear-gradient(145deg,var(--navy),var(--navy-2));color:#fff;padding:22px;text-align:center;box-shadow:var(--shadow-lg);z-index:3;animation:mapPulse 4s ease-in-out infinite;order:0;display:flex;flex-direction:column;justify-content:center}
+    @keyframes mapPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.02);box-shadow:0 24px 55px rgba(7,27,61,.3)}}
+    .map-core span{display:block;color:var(--gold);font-size:.72rem;text-transform:uppercase;letter-spacing:.14em;font-weight:900;margin-bottom:8px}.map-core strong{font-size:1.25rem;line-height:1.15;display:block;font-weight:800}.map-core small{display:block;color:#9ab3cc;margin-top:10px;font-size:.85rem}
+    .map-node{position:relative;width:100%;min-height:auto;border:1.5px solid var(--line);border-radius:var(--radius-lg);background:#fff;padding:18px;text-align:left;box-shadow:var(--shadow-sm);z-index:3;transition:var(--transition);order:1;touch-action:manipulation}
+    .map-node:hover,.map-node.active{transform:translateY(-3px);border-color:var(--accent);box-shadow:var(--shadow)}
+    .map-node.active{background:linear-gradient(135deg,#fff,var(--accent-soft))}
+    .map-node .map-label{font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;font-weight:950;color:var(--accent);margin-bottom:6px;display:block}
+    .map-node h3{font-size:1.1rem;line-height:1.2;margin:0 0 6px;font-weight:800}.map-node p{font-size:.88rem;line-height:1.5;color:var(--muted);margin:0}
+    .map-node.problem{order:1}.map-node.obstacle{order:2}.map-node.resolution{order:3}.map-node.impact-node{order:4}
+    .map-detail{max-width:1000px;margin:16px auto 0;background:#fff;border:1.5px solid var(--line);border-radius:var(--radius-lg);padding:22px;box-shadow:var(--shadow-sm);display:grid;grid-template-columns:1fr;gap:18px;opacity:0;transform:translateY(16px);animation:fadeUp .5s ease forwards}
+    .map-detail h3{font-size:1.25rem;margin:0 0 8px;font-weight:800}.map-detail p{color:var(--muted);margin:0;line-height:1.6;font-size:.95rem}.map-detail ul{margin:0;padding-left:20px}.map-detail li{margin-bottom:10px;line-height:1.6;color:var(--ink);font-size:.94rem}.map-detail li::marker{color:var(--accent)}
+    .map-detail-quote{margin-top:14px;padding:14px 16px;border-left:4px solid var(--gold);background:linear-gradient(90deg,#fff8e7,transparent);border-radius:0 14px 14px 0;font-weight:800;font-size:.95rem;color:var(--navy);line-height:1.6}
 
-        /* Hero visual */
-        .hero-visual {
-            position: relative;
-            min-height: 340px;
-            display: grid;
-            place-items: center;
-        }
-        @media(min-width:900px) {
-            .hero-visual {
-                min-height: 480px;
-            }
-        }
-        .orbit-ring {
-            position: absolute;
-            border: 1px solid rgba(255, 255, 255, .10);
-            border-radius: 50%;
-            animation: spin linear infinite;
-        }
-        .orbit-ring.r1 {
-            width: 320px;
-            height: 320px;
-            animation-duration: 20s;
-        }
-        .orbit-ring.r2 {
-            width: 240px;
-            height: 240px;
-            animation-duration: 14s;
-            animation-direction: reverse;
-        }
-        .orbit-ring.r3 {
-            width: 400px;
-            height: 400px;
-            animation-duration: 26s;
-            border-color: rgba(255, 255, 255, .06);
-        }
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
-        }
+    /* INSIGHTS */
+    .insight-section{background:linear-gradient(180deg,#fff,#f4f9fd);padding:70px 0}
+    .insight-grid{display:grid;grid-template-columns:1fr;gap:14px}
+    .insight-card{position:relative;background:#fff;border:1.5px solid var(--line);border-radius:var(--radius-lg);padding:22px;overflow:hidden;box-shadow:var(--shadow-sm);transition:var(--transition);touch-action:manipulation}
+    .insight-card:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:var(--shadow)}
+    .insight-no{position:absolute;right:12px;top:2px;font-size:4.2rem;font-weight:900;line-height:1;color:var(--accent-soft);opacity:.7}
+    .insight-icon{width:48px;height:48px;border-radius:16px;display:grid;place-items:center;background:var(--accent-soft);font-size:1.4rem;margin-bottom:16px;position:relative;z-index:2;transition:var(--transition-bounce)}
+    .insight-card:hover .insight-icon{transform:scale(1.1) rotate(-5deg)}
+    .insight-card h3{font-size:1.08rem;line-height:1.25;margin:0 0 8px;position:relative;z-index:2;font-weight:800}.insight-card p{color:var(--muted);margin:0;position:relative;z-index:2;font-size:.92rem;line-height:1.6}
+    .insight-link{display:inline-flex;gap:6px;align-items:center;margin-top:14px;color:var(--accent);font-size:.85rem;font-weight:900;text-decoration:none;position:relative;z-index:2}
+    .insight-link::after{content:"→";transition:var(--transition)}
+    .insight-link:hover::after{transform:translateX(4px);display:inline-block}
+    .resume-callout{margin-top:24px;padding:22px;border-radius:var(--radius-lg);background:linear-gradient(135deg,#fff6da,#fff);border:1.5px solid #f3d98c;display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:center;box-shadow:var(--shadow-sm)}
+    .resume-callout .icon{font-size:2rem}.resume-callout strong{display:block;font-size:1.05rem;font-weight:800}.resume-callout p{margin:4px 0 0;color:var(--muted);font-size:.92rem;line-height:1.6}
 
-        .core-node {
-            width: 160px;
-            height: 160px;
-            border-radius: 38% 62% 57% 43% / 47% 43% 57% 53%;
-            display: grid;
-            place-items: center;
-            text-align: center;
-            padding: 20px;
-            background: linear-gradient(145deg, var(--gold), var(--gold-2));
-            color: var(--navy);
-            font-weight: 900;
-            font-size: 1.1rem;
-            box-shadow: 0 20px 60px rgba(247, 183, 49, .30);
-            animation: floatCore 4s ease-in-out infinite;
-            position: relative;
-            z-index: 2;
-            line-height: 1.3;
-        }
-        @media(min-width:600px) {
-            .core-node {
-                width: 190px;
-                height: 190px;
-                font-size: 1.3rem;
-            }
-        }
-        @keyframes floatCore {
-            0%,
-            100% {
-                transform: translateY(0) rotate(0deg);
-            }
-            50% {
-                transform: translateY(-10px) rotate(1deg);
-            }
-        }
+    /* AUDIENCES */
+    .audiences{display:grid;grid-template-columns:1fr;gap:14px}
+    .audience-card{position:relative;background:var(--card);border:1.5px solid var(--line);border-radius:var(--radius-lg);padding:22px;text-align:left;box-shadow:var(--shadow-sm);transition:var(--transition);overflow:hidden;touch-action:manipulation;border-left:4px solid transparent}
+    .audience-card::after{content:"";position:absolute;width:100px;height:100px;border-radius:50%;background:var(--accent-soft);right:-35px;top:-40px;opacity:.6}
+    .audience-card:hover,.audience-card.active{transform:translateY(-4px);border-color:var(--accent);border-left-color:var(--accent);box-shadow:var(--shadow)}
+    .audience-icon{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;font-size:1.6rem;background:var(--accent-soft);margin-bottom:18px;position:relative;z-index:2;transition:var(--transition-bounce)}
+    .audience-card.active .audience-icon{transform:scale(1.1)}
+    .audience-card h3{font-size:1.15rem;margin:0 0 6px;font-weight:800}.audience-card p{margin:0;color:var(--muted);font-size:.9rem;line-height:1.6}
+    .select-mark{display:inline-flex;margin-top:16px;font-weight:800;color:var(--accent);align-items:center;gap:6px;font-size:.88rem}
 
-        .orbit-bubble {
-            position: absolute;
-            padding: 12px 16px;
-            border-radius: 18px;
-            background: rgba(255, 255, 255, .08);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, .12);
-            font-weight: 700;
-            font-size: .78rem;
-            color: #eef7ff;
-            text-align: center;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, .15);
-            animation: floatBubble 5s ease-in-out infinite;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .orbit-bubble .emoji {
-            font-size: 1.2rem;
-        }
-        .orbit-bubble.b1 {
-            top: 2%;
-            left: 0;
-            animation-delay: 0s;
-        }
-        .orbit-bubble.b2 {
-            top: 6%;
-            right: 0;
-            animation-delay: 1.2s;
-        }
-        .orbit-bubble.b3 {
-            bottom: 4%;
-            left: 2%;
-            animation-delay: 2.4s;
-        }
-        .orbit-bubble.b4 {
-            bottom: 0;
-            right: 2%;
-            animation-delay: .6s;
-        }
-        @keyframes floatBubble {
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-8px);
-            }
-        }
-        @media(max-width:500px) {
-            .orbit-bubble {
-                font-size: .7rem;
-                padding: 8px 12px;
-            }
-            .orbit-bubble .emoji {
-                font-size: 1rem;
-            }
-            .orbit-ring.r1 {
-                width: 240px;
-                height: 240px;
-            }
-            .orbit-ring.r2 {
-                width: 180px;
-                height: 180px;
-            }
-            .orbit-ring.r3 {
-                width: 300px;
-                height: 300px;
-            }
-            .core-node {
-                width: 130px;
-                height: 130px;
-                font-size: .95rem;
-            }
-        }
+    /* JOURNEY */
+    .journey-wrap{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:70px 0}
+    .journey-shell{display:grid;grid-template-columns:1fr;gap:24px;align-items:start}
+    .journey-sidebar{position:relative;top:0;background:linear-gradient(160deg,var(--navy),var(--navy-2));color:#fff;padding:24px;border-radius:var(--radius-lg);box-shadow:var(--shadow-lg)}
+    .journey-sidebar .tag{display:inline-flex;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.12);font-weight:800;font-size:.78rem;backdrop-filter:blur(4px)}
+    .journey-sidebar h3{font-size:1.5rem;line-height:1.15;margin:18px 0 10px;font-weight:800}.journey-sidebar p{color:#a8bed6;font-size:.92rem;line-height:1.6;margin:0}
+    .progress{height:8px;background:rgba(255,255,255,.1);border-radius:999px;overflow:hidden;margin:20px 0 8px}
+    .progress-bar{height:100%;width:12.5%;background:linear-gradient(90deg,var(--teal-2),var(--gold));border-radius:inherit;transition:width .5s cubic-bezier(.4,0,.2,1);box-shadow:0 0 10px rgba(247,183,49,.3)}
+    .progress-label{font-size:.82rem;color:#8aa4c8;font-weight:600}
+    .small-source{margin-top:20px;padding-top:18px;border-top:1px solid rgba(255,255,255,.1);font-size:.82rem;color:#7a9ab8;line-height:1.6}
+    .small-source a{text-decoration:underline;text-underline-offset:4px;color:#a8bed6}
 
-        /* ===== QUICK NAV ===== */
-        .quick-nav-wrap {
-            position: sticky;
-            top: 0;
-            z-index: 40;
-            background: rgba(244, 249, 253, .92);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(215, 228, 239, .7);
-            transition: box-shadow .3s;
-        }
-        .quick-nav-wrap.scrolled {
-            box-shadow: 0 4px 24px rgba(7, 27, 61, .08);
-        }
-        .quick-nav {
-            display: flex;
-            gap: 6px;
-            padding: 10px 0;
-            overflow-x: auto;
-            scrollbar-width: none;
-            -webkit-overflow-scrolling: touch;
-        }
-        .quick-nav::-webkit-scrollbar {
-            display: none;
-        }
-        .quick-nav a {
-            flex: 0 0 auto;
-            padding: 8px 16px;
-            border-radius: var(--radius-full);
-            font-size: .78rem;
-            font-weight: 800;
-            color: var(--muted);
-            background: transparent;
-            border: 1px solid transparent;
-            transition: var(--transition);
-            white-space: nowrap;
-        }
-        .quick-nav a:hover,
-        .quick-nav a:focus-visible {
-            color: var(--navy);
-            background: #fff;
-            border-color: var(--line);
-            box-shadow: var(--shadow-sm);
-        }
-        .quick-nav a.active {
-            color: #fff;
-            background: var(--navy);
-            border-color: var(--navy);
-        }
-        @media(max-width:500px) {
-            .quick-nav a {
-                font-size: .7rem;
-                padding: 6px 12px;
-            }
-        }
+    .flow{position:relative;display:grid;gap:14px}
+    .flow::before{content:"";position:absolute;left:28px;top:36px;bottom:36px;width:3px;background:linear-gradient(var(--accent),var(--gold));border-radius:999px;opacity:.35}
+    .node{position:relative;display:grid;grid-template-columns:56px 1fr 40px;gap:12px;align-items:center;background:#fff;border:1.5px solid var(--line);border-radius:var(--radius-lg);padding:16px 14px;box-shadow:var(--shadow-sm);transition:var(--transition);touch-action:manipulation}
+    .node:hover,.node.active{border-color:var(--accent);transform:translateX(4px);box-shadow:var(--shadow)}
+    .node.active{background:linear-gradient(90deg,#fff,var(--accent-soft))}
+    .node-num{position:relative;z-index:2;width:42px;height:42px;border-radius:14px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-weight:950;font-size:1rem;border:3px solid #fff;box-shadow:0 4px 14px rgba(0,0,0,.08);transition:var(--transition-bounce)}
+    .node.active .node-num{background:linear-gradient(135deg,var(--accent),var(--teal-2));color:#fff;transform:scale(1.1)}
+    .node h4{font-size:1rem;margin:0 0 4px;font-weight:800;line-height:1.3}.node p{margin:0;color:var(--muted);font-size:.88rem;line-height:1.5}
+    .node-btn{width:40px;height:40px;border-radius:12px;border:0;background:#eef6fb;color:var(--navy);font-size:1.2rem;transition:var(--transition);display:grid;place-items:center}
+    .node-btn:hover{background:var(--accent);color:#fff}
+    .node-detail{display:none;grid-column:2 / 4;padding:16px;background:var(--accent-soft);border-radius:14px;border-left:4px solid var(--accent);margin-top:4px}
+    .node.active .node-detail{display:block;animation:reveal .35s cubic-bezier(.4,0,.2,1)}
+    @keyframes reveal{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+    .node-detail strong{display:block;margin-bottom:6px;color:var(--navy);font-size:.92rem}.node-detail .reflection{margin-top:10px;padding-top:10px;border-top:1.5px dashed color-mix(in srgb,var(--accent) 30%,transparent);font-style:italic;color:var(--muted);font-size:.9rem;line-height:1.6}
 
-        /* ===== SECTION BASE ===== */
-        section {
-            padding: 64px 0;
-        }
-        @media(min-width:768px) {
-            section {
-                padding: 88px 0;
-            }
-        }
-        .section-head {
-            max-width: 780px;
-            margin: 0 auto 40px;
-            text-align: center;
-        }
-        .kicker {
-            display: inline-block;
-            color: var(--accent);
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: .14em;
-            font-size: .75rem;
-            background: var(--accent-soft);
-            padding: 4px 14px;
-            border-radius: var(--radius-full);
-            margin-bottom: 12px;
-        }
-        h2 {
-            font-size: clamp(1.8rem, 5vw, 3.4rem);
-            line-height: 1.05;
-            letter-spacing: -.04em;
-            margin: 8px 0 16px;
-            font-weight: 900;
-        }
-        .section-head p {
-            color: var(--muted);
-            font-size: 1.05rem;
-            max-width: 640px;
-            margin: 0 auto;
-        }
+    .impact-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px}
+    .impact{background:linear-gradient(145deg,var(--navy),var(--navy-2));color:#fff;border-radius:var(--radius);padding:18px 14px;text-align:center;box-shadow:var(--shadow);transition:var(--transition)}
+    .impact:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+    .impact .icon{font-size:1.8rem;margin-bottom:8px;display:block}.impact h4{margin:0 0 4px;font-size:.9rem;font-weight:800}.impact p{margin:0;color:#9ab3cc;font-size:.8rem;line-height:1.5}
 
-        /* ===== STORY TRACK ===== */
-        .story-section {
-            background: linear-gradient(180deg, #f4f9fd 0%, #fff 60%);
-        }
-        .story-track {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 12px;
-            position: relative;
-        }
-        @media(min-width:600px) {
-            .story-track {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        @media(min-width:900px) {
-            .story-track {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
-        .story-track::before {
-            content: '';
-            position: absolute;
-            left: 28px;
-            right: 28px;
-            top: 28px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--teal), var(--gold), var(--teal));
-            border-radius: 999px;
-            opacity: .25;
-            display: none;
-        }
-        @media(min-width:900px) {
-            .story-track::before {
-                display: block;
-            }
-        }
-        .story-card {
-            position: relative;
-            z-index: 2;
-            background: #fff;
-            border: 1px solid var(--line);
-            border-radius: var(--radius);
-            padding: 18px 16px 16px;
-            text-align: left;
-            min-height: 140px;
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-            cursor: pointer;
-            display: grid;
-            grid-template-columns: 40px 1fr;
-            gap: 12px 14px;
-            align-items: start;
-        }
-        .story-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--accent);
-            box-shadow: var(--shadow-md);
-        }
-        .story-card.active {
-            border-color: var(--accent);
-            background: var(--accent-soft);
-            box-shadow: 0 0 0 4px rgba(14, 165, 168, .10);
-        }
-        .story-step {
-            width: 36px;
-            height: 36px;
-            border-radius: 12px;
-            display: grid;
-            place-items: center;
-            background: var(--navy);
-            color: #fff;
-            font-weight: 900;
-            font-size: .9rem;
-            flex-shrink: 0;
-            transition: var(--transition);
-        }
-        .story-card.active .story-step {
-            background: var(--gold);
-            color: var(--navy);
-        }
-        .story-card h3 {
-            font-size: .95rem;
-            line-height: 1.2;
-            margin: 0 0 4px;
-            font-weight: 800;
-        }
-        .story-card p {
-            font-size: .82rem;
-            line-height: 1.4;
-            color: var(--muted);
-            margin: 0;
-            grid-column: 2;
-        }
-        .story-card h3 {
-            grid-column: 2;
-        }
-        .story-step {
-            grid-row: 1 / 3;
-        }
-        @media(min-width:600px) {
-            .story-card {
-                min-height: 170px;
-                padding: 20px 18px;
-            }
-            .story-card h3 {
-                font-size: 1rem;
-            }
-            .story-card p {
-                font-size: .85rem;
-            }
-        }
-        .story-detail {
-            margin-top: 24px;
-            border-radius: var(--radius);
-            padding: 24px 22px;
-            background: linear-gradient(135deg, var(--navy), var(--navy-2));
-            color: #fff;
-            display: grid;
-            grid-template-columns: 56px 1fr;
-            gap: 16px;
-            align-items: start;
-            box-shadow: var(--shadow-lg);
-            transition: var(--transition);
-        }
-        @media(min-width:600px) {
-            .story-detail {
-                grid-template-columns: 72px 1fr;
-                padding: 28px 32px;
-                gap: 20px;
-            }
-        }
-        .story-detail-icon {
-            width: 52px;
-            height: 52px;
-            border-radius: 16px;
-            background: rgba(255, 255, 255, .10);
-            display: grid;
-            place-items: center;
-            font-size: 1.6rem;
-            flex-shrink: 0;
-        }
-        @media(min-width:600px) {
-            .story-detail-icon {
-                width: 64px;
-                height: 64px;
-                font-size: 2rem;
-            }
-        }
-        .story-detail h3 {
-            font-size: 1.15rem;
-            margin: 0 0 4px;
-            font-weight: 800;
-        }
-        .story-detail p {
-            color: #c7d8e8;
-            margin: 0;
-            font-size: .95rem;
-        }
-        .story-detail .lesson {
-            margin-top: 12px;
-            padding-top: 12px;
-            border-top: 1px solid rgba(255, 255, 255, .10);
-            color: var(--gold);
-            font-weight: 800;
-            font-size: .92rem;
-        }
+    /* REFLECTION */
+    .reflection-section{background:linear-gradient(180deg,#f4f9fd,#eaf5fb);padding:70px 0}
+    .reflection-layout{display:grid;grid-template-columns:1fr;gap:18px}
+    .panel{background:#fff;border:1.5px solid var(--line);border-radius:var(--radius-lg);padding:22px;box-shadow:var(--shadow-sm);transition:var(--transition)}
+    .panel:hover{box-shadow:var(--shadow)}
+    .panel h3{font-size:1.3rem;margin:0 0 8px;font-weight:800}.panel>p{color:var(--muted);margin-top:0;font-size:.92rem;line-height:1.6}
+    .stage-list{display:grid;gap:8px;margin-top:18px}
+    .stage-btn{border:1.5px solid var(--line);background:#fff;border-radius:var(--radius);padding:14px 16px;text-align:left;font-weight:700;display:flex;justify-content:space-between;align-items:center;transition:var(--transition);font-size:.92rem;touch-action:manipulation;width:100%}
+    .stage-btn:hover,.stage-btn.active{background:var(--accent-soft);border-color:var(--accent);color:var(--navy);transform:translateX(3px)}
+    .stage-btn.active{box-shadow:0 4px 16px rgba(14,165,168,.15)}
+    .stage-response{margin-top:16px;min-height:100px;background:linear-gradient(145deg,var(--accent-soft),#fff);border-radius:var(--radius);padding:18px;border-left:4px solid var(--accent);opacity:0;transform:translateY(10px);animation:fadeUp .4s ease forwards}
+    .stage-response strong{display:block;margin-bottom:6px;color:var(--navy);font-size:.95rem}.stage-response p{margin:0;color:var(--muted);font-size:.9rem;line-height:1.6}
 
-        /* ===== MIND MAP — RESPONSIVE ORBIT + POPUP ===== */
-        .map-section {
-            background: #fff;
-            border-top: 1px solid var(--line);
-            border-bottom: 1px solid var(--line);
-        }
-        .mindmap-shell {
-            position: relative;
-            width: 100%;
-            max-width: 1000px;
-            height: 690px;
-            margin: 0 auto;
-            border-radius: 30px;
-            background:
-                radial-gradient(circle at 50% 50%, rgba(14, 165, 168, .14), transparent 23%),
-                radial-gradient(circle at 20% 18%, rgba(247, 183, 49, .12), transparent 24%),
-                radial-gradient(circle at 82% 82%, rgba(14, 165, 168, .10), transparent 25%),
-                linear-gradient(145deg, #f9fcff, #eaf5fb);
-            border: 1px solid var(--line);
-            overflow: hidden;
-            box-shadow: var(--shadow-md);
-            isolation: isolate;
-        }
-        .mindmap-shell::before,
-        .mindmap-shell::after {
-            content: '';
-            position: absolute;
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 0;
-        }
-        .mindmap-shell::before {
-            width: 240px;
-            height: 240px;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            border: 1px solid rgba(14, 165, 168, .16);
-            box-shadow: 0 0 0 34px rgba(14, 165, 168, .035), 0 0 0 74px rgba(247, 183, 49, .025);
-            animation: mapOrbitBreath 5s ease-in-out infinite;
-        }
-        .mindmap-shell::after {
-            inset: 18px;
-            border: 1px dashed rgba(7, 27, 61, .07);
-        }
-        @keyframes mapOrbitBreath {
-            0%, 100% { transform: translate(-50%, -50%) scale(.96); opacity: .7; }
-            50% { transform: translate(-50%, -50%) scale(1.06); opacity: 1; }
-        }
-        .mindmap-svg {
-            display: block;
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            pointer-events: none;
-            overflow: visible;
-        }
-        .map-line {
-            fill: none;
-            stroke: var(--accent);
-            stroke-width: 3;
-            vector-effect: non-scaling-stroke;
-            stroke-linecap: round;
-            stroke-dasharray: 8 10;
-            opacity: .72;
-            filter: drop-shadow(0 0 4px rgba(14, 165, 168, .25));
-            animation: flowDash 4.5s linear infinite;
-        }
-        .map-line.alt {
-            stroke: var(--gold);
-            filter: drop-shadow(0 0 4px rgba(247, 183, 49, .28));
-            animation-duration: 5.8s;
-        }
-        .map-pulse-dot {
-            fill: #fff;
-            stroke: var(--teal);
-            stroke-width: 2;
-            vector-effect: non-scaling-stroke;
-            filter: drop-shadow(0 0 5px var(--teal));
-        }
-        .map-pulse-dot.gold {
-            stroke: var(--gold);
-            filter: drop-shadow(0 0 5px var(--gold));
-        }
-        @keyframes flowDash { to { stroke-dashoffset: -120; } }
+    label{font-weight:800;display:block;margin-bottom:8px;font-size:.92rem;color:var(--ink)}
+    textarea{width:100%;min-height:120px;resize:vertical;border:1.5px solid var(--line);border-radius:var(--radius);padding:14px;outline:none;background:#fbfdff;font-size:16px;line-height:1.6;transition:var(--transition)}
+    textarea:focus{border-color:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 12%,transparent)}
+    .form-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+    .btn-dark{background:linear-gradient(135deg,var(--navy),var(--navy-2));color:#fff;border-radius:var(--radius);padding:14px 20px;font-weight:800;min-height:52px;flex:1}
+    .btn-dark:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+    .btn-light{background:#edf5fa;color:var(--navy);border-radius:var(--radius);padding:14px 20px;font-weight:800;min-height:52px;flex:1;border:1.5px solid var(--line)}
+    .btn-light:hover{background:#e0eff8}
 
-        .map-core,
-        .map-node {
-            position: absolute;
-            z-index: 3;
-            border: 0;
-            -webkit-tap-highlight-color: transparent;
-            touch-action: manipulation;
-        }
-        .map-core {
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            width: 158px;
-            min-height: 150px;
-            border-radius: 36px;
-            background: linear-gradient(145deg, var(--navy), var(--navy-2));
-            color: #fff;
-            padding: 20px 16px;
-            text-align: center;
-            box-shadow: 0 22px 56px rgba(7, 27, 61, .28), 0 0 0 8px rgba(255, 255, 255, .72);
-            transition: var(--transition);
-            animation: mapCorePulse 4s ease-in-out infinite;
-        }
-        .map-core::before {
-            content: '✦';
-            display: grid;
-            place-items: center;
-            width: 38px;
-            height: 38px;
-            margin: -4px auto 8px;
-            border-radius: 13px;
-            color: var(--navy);
-            background: linear-gradient(145deg, var(--gold), var(--gold-2));
-            font-size: 1.05rem;
-            box-shadow: 0 8px 20px rgba(247, 183, 49, .25);
-        }
-        @keyframes mapCorePulse {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 22px 56px rgba(7, 27, 61, .28), 0 0 0 8px rgba(255, 255, 255, .72); }
-            50% { transform: translate(-50%, -50%) scale(1.035); box-shadow: 0 28px 68px rgba(7, 27, 61, .34), 0 0 0 12px rgba(14, 165, 168, .10); }
-        }
-        .map-core:active { transform: translate(-50%, -50%) scale(.97); }
-        .map-core span {
-            display: block;
-            color: var(--gold);
-            font-size: .62rem;
-            text-transform: uppercase;
-            letter-spacing: .13em;
-            font-weight: 900;
-            margin-bottom: 5px;
-        }
-        .map-core strong {
-            display: block;
-            font-size: 1rem;
-            line-height: 1.14;
-        }
-        .map-core small {
-            display: block;
-            color: #bfd1e2;
-            margin-top: 7px;
-            font-size: .68rem;
-            line-height: 1.35;
-        }
+    .share-card{display:none;margin-top:20px;border-radius:var(--radius-lg);overflow:hidden;background:linear-gradient(145deg,var(--navy),var(--navy-2));color:#fff;padding:24px;position:relative;box-shadow:var(--shadow-lg);animation:fadeUp .5s ease}
+    .share-card::after{content:"";position:absolute;width:150px;height:150px;border-radius:50%;background:var(--accent);opacity:.12;right:-50px;bottom:-70px}
+    .share-card .quote{font-size:1.1rem;font-weight:800;line-height:1.55;margin:12px 0 16px;position:relative;z-index:2}
+    .share-card small{color:#8aa4c8;position:relative;z-index:2;font-size:.82rem}
+    .share-card .form-actions{position:relative;z-index:2;margin-top:16px}
 
-        .map-node {
-            width: 42%;
-            max-width: 210px;
-            min-height: 132px;
-            border-radius: 22px;
-            background: rgba(255, 255, 255, .94);
-            padding: 14px 13px 13px;
-            border: 1px solid rgba(215, 228, 239, .95);
-            text-align: left;
-            box-shadow: 0 10px 26px rgba(7, 27, 61, .10);
-            transition: transform .3s cubic-bezier(.22, 1, .36, 1), border-color .3s, box-shadow .3s, background .3s;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-        }
-        .map-node.problem { left: 3.5%; top: 7%; }
-        .map-node.obstacle { right: 3.5%; top: 7%; }
-        .map-node.resolution { left: 3.5%; bottom: 7%; }
-        .map-node.impact-node { right: 3.5%; bottom: 7%; }
-        .map-node::after {
-            content: 'Ketuk untuk membuka';
-            display: block;
-            margin-top: 8px;
-            color: var(--muted-light);
-            font-size: .56rem;
-            font-weight: 800;
-            letter-spacing: .02em;
-        }
-        .map-node:hover,
-        .map-node.active,
-        .map-node:focus-visible {
-            border-color: var(--node-accent, var(--accent));
-            background: #fff;
-            box-shadow: 0 18px 42px rgba(7, 27, 61, .17), 0 0 0 4px color-mix(in srgb, var(--node-accent, var(--accent)) 13%, transparent);
-            outline: none;
-        }
-        .map-node:active { transform: scale(.97); }
-        .map-node.problem { --node-accent: #e85d75; }
-        .map-node.obstacle { --node-accent: #f59e0b; }
-        .map-node.resolution { --node-accent: #0ea5a8; }
-        .map-node.impact-node { --node-accent: #16a34a; }
-        .map-node-icon {
-            width: 34px;
-            height: 34px;
-            border-radius: 12px;
-            display: grid;
-            place-items: center;
-            margin-bottom: 8px;
-            font-size: 1.05rem;
-            background: color-mix(in srgb, var(--node-accent, var(--accent)) 13%, white);
-            box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--node-accent, var(--accent)) 18%, transparent);
-        }
-        .map-node .map-label {
-            display: block;
-            font-size: .56rem;
-            line-height: 1.2;
-            text-transform: uppercase;
-            letter-spacing: .11em;
-            font-weight: 950;
-            color: var(--node-accent, var(--accent));
-        }
-        .map-node h3 {
-            font-size: .82rem;
-            line-height: 1.18;
-            margin: 4px 0 0;
-            font-weight: 850;
-        }
-        .map-node p { display: none; }
+    /* BRANDING */
+    .branding{padding:60px 0;background:#fff}
+    .branding-card{display:grid;grid-template-columns:1fr;gap:20px;align-items:center;border:1.5px solid var(--line);background:linear-gradient(135deg,#fff,#f0f9fb);border-radius:var(--radius-lg);padding:26px;box-shadow:var(--shadow)}
+    .identity{display:flex;gap:14px;align-items:center}
+    .avatar{width:64px;height:64px;border-radius:20px;display:grid;place-items:center;background:linear-gradient(145deg,var(--navy),var(--accent));color:#fff;font-size:1.2rem;font-weight:900;letter-spacing:-.03em;flex-shrink:0;box-shadow:0 8px 24px rgba(7,27,61,.2)}
+    .identity h3{margin:0 0 4px;font-size:1.3rem;font-weight:800}.identity p{margin:0;color:var(--muted);font-size:.88rem;line-height:1.5}
+    .brand-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}.brand-tags span{background:#fff;border:1.5px solid var(--line);padding:6px 10px;border-radius:999px;font-size:.78rem;font-weight:700;color:var(--muted)}
 
-        .map-mobile-hint {
-            position: absolute;
-            z-index: 2;
-            left: 50%;
-            top: calc(50% + 104px);
-            bottom: auto;
-            transform: translateX(-50%);
-            padding: 7px 12px;
-            border-radius: 999px;
-            background: rgba(255, 255, 255, .84);
-            border: 1px solid var(--line);
-            color: var(--muted);
-            font-size: .65rem;
-            font-weight: 800;
-            box-shadow: var(--shadow-sm);
-            white-space: nowrap;
-            animation: hintFloat 2.6s ease-in-out infinite;
-        }
-        @keyframes hintFloat { 50% { transform: translate(-50%, -4px); } }
+    footer{background:var(--navy);color:#8aa4c8;padding:28px 0;text-align:center;font-size:.85rem;line-height:1.7}
+    footer b{color:#fff;display:block;margin-bottom:4px}
 
-        @media(min-width:768px) {
-            .mindmap-shell { height: 660px; border-radius: 36px; }
-            .map-core { width: 210px; min-height: 176px; padding: 24px; border-radius: 38px; }
-            .map-core::before { width: 46px; height: 46px; font-size: 1.25rem; }
-            .map-core span { font-size: .7rem; }
-            .map-core strong { font-size: 1.25rem; }
-            .map-core small { font-size: .8rem; }
-            .map-node { width: 235px; max-width: none; min-height: 158px; padding: 19px 20px; border-radius: 26px; }
-            .map-node.problem { left: 5%; top: 9%; }
-            .map-node.obstacle { right: 5%; top: 9%; }
-            .map-node.resolution { left: 5%; bottom: 9%; }
-            .map-node.impact-node { right: 5%; bottom: 9%; }
-            .map-node-icon { width: 42px; height: 42px; font-size: 1.25rem; }
-            .map-node .map-label { font-size: .66rem; }
-            .map-node h3 { font-size: 1.08rem; margin-top: 5px; }
-            .map-node p { display: block; margin: 6px 0 0; color: var(--muted); font-size: .82rem; line-height: 1.42; }
-            .map-node::after { font-size: .64rem; }
-            .map-node:hover { transform: translateY(-5px) scale(1.015); }
-            .map-mobile-hint { display: none; }
-        }
-        @media(max-width:390px) {
-            .mindmap-shell { height: 650px; }
-            .map-core { width: 146px; min-height: 142px; }
-            .map-node { width: 43%; padding: 12px 11px; min-height: 126px; }
-            .map-node h3 { font-size: .76rem; }
-            .map-node::after { font-size: .51rem; }
-        }
+    .toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,40px);background:var(--navy);color:#fff;padding:14px 22px;border-radius:var(--radius);box-shadow:var(--shadow-lg);opacity:0;pointer-events:none;transition:all .4s cubic-bezier(.4,0,.2,1);z-index:100;font-weight:700;font-size:.9rem;white-space:nowrap}
+    .toast.show{opacity:1;transform:translate(-50%,0)}
 
-        /* Mind-map popup / bottom sheet */
-        body.map-modal-open { overflow: hidden; }
-        .map-modal {
-            position: fixed;
-            inset: 0;
-            z-index: 120;
-            display: grid;
-            align-items: end;
-            pointer-events: none;
-            visibility: hidden;
-        }
-        .map-modal.open {
-            pointer-events: auto;
-            visibility: visible;
-        }
-        .map-modal-backdrop {
-            position: absolute;
-            inset: 0;
-            background: rgba(3, 13, 31, .66);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            opacity: 0;
-            transition: opacity .32s ease;
-        }
-        .map-modal.open .map-modal-backdrop { opacity: 1; }
-        .map-popup {
-            position: relative;
-            z-index: 2;
-            width: 100%;
-            max-height: min(88dvh, 820px);
-            overflow-y: auto;
-            overscroll-behavior: contain;
-            background: #fff;
-            border-radius: 30px 30px 0 0;
-            box-shadow: 0 -24px 80px rgba(0, 0, 0, .28);
-            transform: translateY(105%);
-            opacity: .6;
-            transition: transform .42s cubic-bezier(.22, 1, .36, 1), opacity .3s;
-        }
-        .map-modal.open .map-popup { transform: translateY(0); opacity: 1; }
-        .map-popup-drag {
-            width: 52px;
-            height: 5px;
-            border-radius: 999px;
-            background: #d7e4ef;
-            margin: 10px auto 4px;
-        }
-        .map-popup-hero {
-            position: relative;
-            padding: 22px 22px 20px;
-            color: #fff;
-            background:
-                radial-gradient(circle at 88% 18%, rgba(255,255,255,.22), transparent 28%),
-                linear-gradient(145deg, var(--popup-accent, var(--teal)), var(--navy));
-            overflow: hidden;
-        }
-        .map-popup-hero::after {
-            content: '';
-            position: absolute;
-            width: 190px;
-            height: 190px;
-            right: -72px;
-            bottom: -110px;
-            border-radius: 50%;
-            border: 1px solid rgba(255,255,255,.18);
-            box-shadow: 0 0 0 24px rgba(255,255,255,.035), 0 0 0 50px rgba(255,255,255,.025);
-        }
-        .map-popup-close {
-            position: absolute;
-            z-index: 4;
-            right: 14px;
-            top: 14px;
-            width: 42px;
-            height: 42px;
-            border-radius: 14px;
-            display: grid;
-            place-items: center;
-            color: #fff;
-            background: rgba(255, 255, 255, .14);
-            border: 1px solid rgba(255, 255, 255, .18);
-            font-size: 1.25rem;
-            font-weight: 500;
-            backdrop-filter: blur(6px);
-        }
-        .map-popup-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 6px 11px;
-            border-radius: 999px;
-            background: rgba(255,255,255,.13);
-            border: 1px solid rgba(255,255,255,.16);
-            font-size: .68rem;
-            text-transform: uppercase;
-            letter-spacing: .11em;
-            font-weight: 900;
-        }
-        .map-popup-icon {
-            width: 54px;
-            height: 54px;
-            margin-top: 16px;
-            border-radius: 18px;
-            display: grid;
-            place-items: center;
-            background: rgba(255, 255, 255, .14);
-            border: 1px solid rgba(255,255,255,.18);
-            font-size: 1.7rem;
-            box-shadow: 0 12px 28px rgba(0,0,0,.12);
-        }
-        .map-popup-title {
-            position: relative;
-            z-index: 2;
-            max-width: 90%;
-            margin: 14px 0 6px;
-            font-size: clamp(1.45rem, 7vw, 2.1rem);
-            line-height: 1.05;
-            letter-spacing: -.035em;
-            font-weight: 900;
-        }
-        .map-popup-lead {
-            position: relative;
-            z-index: 2;
-            color: rgba(255,255,255,.82);
-            font-size: .93rem;
-            line-height: 1.55;
-            max-width: 620px;
-        }
-        .map-popup-content { padding: 20px 20px 26px; }
-        .map-popup-content h4 {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin: 0 0 12px;
-            font-size: .78rem;
-            text-transform: uppercase;
-            letter-spacing: .1em;
-            color: var(--muted);
-            font-weight: 900;
-        }
-        .map-popup-list {
-            display: grid;
-            gap: 10px;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-        .map-popup-list li {
-            position: relative;
-            padding: 13px 14px 13px 42px;
-            border-radius: 16px;
-            background: #f5f9fc;
-            border: 1px solid #e5eef5;
-            font-size: .9rem;
-            line-height: 1.45;
-            color: var(--ink);
-        }
-        .map-popup-list li::before {
-            content: '✓';
-            position: absolute;
-            left: 13px;
-            top: 12px;
-            width: 20px;
-            height: 20px;
-            border-radius: 7px;
-            display: grid;
-            place-items: center;
-            background: color-mix(in srgb, var(--popup-accent, var(--teal)) 14%, white);
-            color: var(--popup-accent, var(--teal));
-            font-size: .7rem;
-            font-weight: 950;
-        }
-        .map-popup-quote,
-        .map-popup-reflection {
-            margin-top: 16px;
-            border-radius: 18px;
-            padding: 16px;
-        }
-        .map-popup-quote {
-            background: linear-gradient(135deg, #fff8df, #fffdf7);
-            border: 1px solid #f3dda0;
-            color: var(--navy);
-            font-weight: 800;
-            line-height: 1.5;
-        }
-        .map-popup-reflection {
-            background: linear-gradient(135deg, var(--accent-soft), #fff);
-            border: 1px solid color-mix(in srgb, var(--popup-accent, var(--teal)) 28%, #d7e4ef);
-        }
-        .map-popup-reflection span {
-            display: block;
-            margin-bottom: 4px;
-            color: var(--popup-accent, var(--teal));
-            font-size: .68rem;
-            text-transform: uppercase;
-            letter-spacing: .11em;
-            font-weight: 950;
-        }
-        .map-popup-reflection strong {
-            display: block;
-            color: var(--navy);
-            font-size: 1rem;
-            line-height: 1.42;
-        }
-        .map-popup-footer {
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            gap: 10px;
-            align-items: center;
-            margin-top: 18px;
-        }
-        .map-popup-nav {
-            min-height: 44px;
-            padding: 10px 12px;
-            border-radius: 14px;
-            background: #eef5fa;
-            color: var(--navy);
-            font-weight: 850;
-            font-size: .82rem;
-            transition: var(--transition);
-        }
-        .map-popup-nav:last-child { background: var(--navy); color: #fff; }
-        .map-popup-nav:disabled { opacity: .35; cursor: default; }
-        .map-popup-count {
-            color: var(--muted);
-            font-size: .76rem;
-            font-weight: 850;
-            white-space: nowrap;
-        }
-        @media(min-width:768px) {
-            .map-modal { align-items: center; justify-items: center; padding: 24px; }
-            .map-popup {
-                width: min(720px, calc(100% - 48px));
-                max-height: min(88vh, 820px);
-                border-radius: 32px;
-                transform: translateY(22px) scale(.94);
-            }
-            .map-modal.open .map-popup { transform: translateY(0) scale(1); }
-            .map-popup-drag { display: none; }
-            .map-popup-hero { padding: 28px 30px 26px; }
-            .map-popup-content { padding: 26px 30px 30px; }
-            .map-popup-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-            .map-popup-list li:last-child:nth-child(odd) { grid-column: 1 / -1; }
-        }
+    .back-top{position:fixed;right:16px;bottom:16px;width:50px;height:50px;border:0;border-radius:16px;background:linear-gradient(135deg,var(--gold),var(--gold-2));color:var(--navy);font-weight:900;box-shadow:var(--shadow-lg);display:none;z-index:40;place-items:center;font-size:1.3rem;transition:var(--transition);border:2px solid rgba(255,255,255,.3)}
+    .back-top:hover{transform:translateY(-3px) scale(1.05)}
 
-        /* ===== INSIGHT ===== */
-        .insight-section {
-            background: linear-gradient(180deg, #fff, #f4f9fd);
-        }
-        .insight-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 14px;
-        }
-        @media(min-width:600px) {
-            .insight-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        @media(min-width:1024px) {
-            .insight-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-        .insight-card {
-            position: relative;
-            background: #fff;
-            border: 1px solid var(--line);
-            border-radius: var(--radius);
-            padding: 22px 20px 18px;
-            overflow: hidden;
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-            cursor: default;
-        }
-        .insight-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--accent);
-            box-shadow: var(--shadow-md);
-        }
-        .insight-card:active {
-            transform: scale(.98);
-        }
-        .insight-no {
-            position: absolute;
-            right: 14px;
-            top: 2px;
-            font-size: 4.2rem;
-            font-weight: 950;
-            line-height: 1;
-            color: var(--accent-soft);
-            pointer-events: none;
-            user-select: none;
-        }
-        .insight-icon {
-            width: 44px;
-            height: 44px;
-            border-radius: 14px;
-            display: grid;
-            place-items: center;
-            background: var(--accent-soft);
-            font-size: 1.3rem;
-            margin-bottom: 14px;
-            position: relative;
-            z-index: 2;
-        }
-        .insight-card h3 {
-            font-size: 1.05rem;
-            line-height: 1.2;
-            margin: 0 0 6px;
-            font-weight: 800;
-            position: relative;
-            z-index: 2;
-        }
-        .insight-card p {
-            color: var(--muted);
-            margin: 0;
-            font-size: .88rem;
-            line-height: 1.5;
-            position: relative;
-            z-index: 2;
-        }
-        .insight-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            margin-top: 14px;
-            color: var(--accent);
-            font-size: .82rem;
-            font-weight: 800;
-            transition: var(--transition);
-            position: relative;
-            z-index: 2;
-        }
-        .insight-link:hover {
-            gap: 10px;
-            color: var(--navy);
-        }
+    /* SCROLL ANIMATIONS */
+    .reveal{opacity:0;transform:translateY(30px);transition:all .7s cubic-bezier(.4,0,.2,1)}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    .reveal-delay-1{transition-delay:.1s}.reveal-delay-2{transition-delay:.2s}.reveal-delay-3{transition-delay:.3s}.reveal-delay-4{transition-delay:.4s}
 
-        .resume-callout {
-            margin-top: 24px;
-            padding: 20px 22px;
-            border-radius: var(--radius);
-            background: linear-gradient(135deg, #fff6da, #fff);
-            border: 1px solid #f3d98c;
-            display: grid;
-            grid-template-columns: auto 1fr;
-            gap: 16px;
-            align-items: center;
-        }
-        .resume-callout .icon {
-            font-size: 2.2rem;
-            flex-shrink: 0;
-        }
-        .resume-callout strong {
-            display: block;
-            font-size: 1.05rem;
-        }
-        .resume-callout p {
-            margin: 2px 0 0;
-            color: var(--muted);
-            font-size: .92rem;
-        }
-
-        /* ===== PERSPEKTIF ===== */
-        .audiences {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 14px;
-        }
-        @media(min-width:600px) {
-            .audiences {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-        .audience-card {
-            position: relative;
-            background: #fff;
-            border: 1px solid var(--line);
-            border-radius: var(--radius);
-            padding: 24px 20px;
-            text-align: left;
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-            cursor: pointer;
-            overflow: hidden;
-        }
-        .audience-card::after {
-            content: '';
-            position: absolute;
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background: var(--accent-soft);
-            right: -50px;
-            top: -50px;
-            opacity: .4;
-            transition: var(--transition);
-        }
-        .audience-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--accent);
-            box-shadow: var(--shadow-md);
-        }
-        .audience-card.active {
-            border-color: var(--accent);
-            background: var(--accent-soft);
-            box-shadow: 0 0 0 4px rgba(14, 165, 168, .10);
-        }
-        .audience-card.active::after {
-            opacity: .7;
-            transform: scale(1.2);
-        }
-        .audience-icon {
-            width: 52px;
-            height: 52px;
-            border-radius: 16px;
-            display: grid;
-            place-items: center;
-            font-size: 1.6rem;
-            background: var(--accent-soft);
-            margin-bottom: 16px;
-            position: relative;
-            z-index: 2;
-        }
-        .audience-card h3 {
-            font-size: 1.15rem;
-            margin: 0 0 6px;
-            font-weight: 800;
-            position: relative;
-            z-index: 2;
-        }
-        .audience-card p {
-            margin: 0;
-            color: var(--muted);
-            font-size: .9rem;
-            position: relative;
-            z-index: 2;
-        }
-        .select-mark {
-            display: inline-flex;
-            margin-top: 16px;
-            font-weight: 800;
-            color: var(--accent);
-            align-items: center;
-            gap: 6px;
-            font-size: .88rem;
-            position: relative;
-            z-index: 2;
-            transition: var(--transition);
-        }
-        .audience-card:hover .select-mark {
-            gap: 10px;
-        }
-
-        /* ===== JOURNEY ===== */
-        .journey-wrap {
-            background: #fff;
-            border-top: 1px solid var(--line);
-            border-bottom: 1px solid var(--line);
-        }
-        .journey-shell {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 24px;
-            align-items: start;
-        }
-        @media(min-width:900px) {
-            .journey-shell {
-                grid-template-columns: 300px 1fr;
-                gap: 32px;
-            }
-        }
-        .journey-sidebar {
-            background: linear-gradient(160deg, var(--navy), var(--navy-2));
-            color: #fff;
-            padding: 24px 22px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-md);
-            position: relative;
-            overflow: hidden;
-        }
-        .journey-sidebar::after {
-            content: '';
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background: rgba(14, 165, 168, .08);
-            right: -80px;
-            bottom: -80px;
-        }
-        .journey-sidebar .tag {
-            display: inline-flex;
-            padding: 5px 14px;
-            border-radius: var(--radius-full);
-            background: rgba(255, 255, 255, .10);
-            font-weight: 800;
-            font-size: .72rem;
-            text-transform: uppercase;
-            letter-spacing: .06em;
-        }
-        .journey-sidebar h3 {
-            font-size: 1.5rem;
-            line-height: 1.1;
-            margin: 16px 0 8px;
-            font-weight: 900;
-            position: relative;
-            z-index: 2;
-        }
-        .journey-sidebar p {
-            color: #c5d6e7;
-            font-size: .92rem;
-            position: relative;
-            z-index: 2;
-        }
-        .progress {
-            height: 8px;
-            background: rgba(255, 255, 255, .12);
-            border-radius: 999px;
-            overflow: hidden;
-            margin: 20px 0 8px;
-            position: relative;
-            z-index: 2;
-        }
-        .progress-bar {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(90deg, var(--teal-2), var(--gold));
-            border-radius: inherit;
-            transition: width .6s cubic-bezier(.22, 1, .36, 1);
-        }
-        .progress-label {
-            font-size: .82rem;
-            color: #b9ccdf;
-            position: relative;
-            z-index: 2;
-        }
-        .small-source {
-            margin-top: 20px;
-            padding-top: 16px;
-            border-top: 1px solid rgba(255, 255, 255, .08);
-            font-size: .8rem;
-            color: #bcd0e4;
-            position: relative;
-            z-index: 2;
-        }
-        .small-source a {
-            text-decoration: underline;
-            text-underline-offset: 3px;
-            color: var(--gold);
-        }
-
-        .flow {
-            display: grid;
-            gap: 14px;
-            position: relative;
-        }
-        .flow::before {
-            content: '';
-            position: absolute;
-            left: 28px;
-            top: 32px;
-            bottom: 32px;
-            width: 3px;
-            background: linear-gradient(var(--accent), var(--gold));
-            border-radius: 999px;
-            opacity: .25;
-        }
-        @media(min-width:600px) {
-            .flow::before {
-                left: 32px;
-            }
-        }
-        .node {
-            position: relative;
-            display: grid;
-            grid-template-columns: 50px 1fr 36px;
-            gap: 12px;
-            align-items: center;
-            background: #fff;
-            border: 1px solid var(--line);
-            border-radius: var(--radius-sm);
-            padding: 16px 14px;
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-            cursor: pointer;
-        }
-        .node:hover {
-            border-color: var(--accent);
-            transform: translateX(4px);
-            box-shadow: var(--shadow-md);
-        }
-        .node.active {
-            border-color: var(--accent);
-            background: var(--accent-soft);
-            box-shadow: 0 0 0 4px rgba(14, 165, 168, .08);
-        }
-        .node-num {
-            position: relative;
-            z-index: 2;
-            width: 38px;
-            height: 38px;
-            border-radius: 12px;
-            background: var(--accent-soft);
-            color: var(--accent);
-            display: grid;
-            place-items: center;
-            font-weight: 950;
-            font-size: .95rem;
-            border: 3px solid #fff;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, .06);
-            transition: var(--transition);
-        }
-        .node.active .node-num {
-            background: var(--accent);
-            color: #fff;
-        }
-        .node h4 {
-            font-size: .95rem;
-            margin: 0 0 2px;
-            font-weight: 800;
-        }
-        .node p {
-            margin: 0;
-            color: var(--muted);
-            font-size: .82rem;
-            line-height: 1.3;
-        }
-        .node-btn {
-            width: 34px;
-            height: 34px;
-            border-radius: 10px;
-            background: #eef6fb;
-            color: var(--navy);
-            font-size: 1.1rem;
-            display: grid;
-            place-items: center;
-            transition: var(--transition);
-            flex-shrink: 0;
-            font-weight: 700;
-        }
-        .node-btn:hover {
-            background: var(--accent);
-            color: #fff;
-        }
-        .node.active .node-btn {
-            background: var(--accent);
-            color: #fff;
-        }
-        .node-detail {
-            display: none;
-            grid-column: 2 / 4;
-            padding: 14px 16px;
-            background: rgba(255, 255, 255, .7);
-            border-radius: 14px;
-            border-left: 3px solid var(--accent);
-            font-size: .88rem;
-            line-height: 1.6;
-        }
-        .node.active .node-detail {
-            display: block;
-            animation: revealDetail .3s ease;
-        }
-        @keyframes revealDetail {
-            from {
-                opacity: 0;
-                transform: translateY(-6px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        .node-detail strong {
-            display: block;
-            margin-bottom: 4px;
-            font-weight: 800;
-        }
-        .node-detail .reflection {
-            margin-top: 10px;
-            padding-top: 10px;
-            border-top: 1px dashed rgba(14, 165, 168, .25);
-            font-style: italic;
-            color: var(--navy);
-            font-weight: 600;
-        }
-        @media(min-width:600px) {
-            .node {
-                padding: 18px 20px;
-                grid-template-columns: 56px 1fr 40px;
-                gap: 16px;
-                border-radius: var(--radius);
-            }
-            .node-num {
-                width: 44px;
-                height: 44px;
-                font-size: 1.05rem;
-            }
-            .node h4 {
-                font-size: 1.05rem;
-            }
-            .node-detail {
-                padding: 16px 20px;
-            }
-        }
-
-        .impact-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            margin-top: 20px;
-        }
-        @media(min-width:600px) {
-            .impact-grid {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 14px;
-            }
-        }
-        .impact {
-            background: linear-gradient(145deg, var(--navy), var(--navy-2));
-            color: #fff;
-            border-radius: var(--radius-sm);
-            padding: 16px;
-            text-align: center;
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-        }
-        .impact:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-md);
-        }
-        .impact .icon {
-            font-size: 1.6rem;
-            margin-bottom: 6px;
-        }
-        .impact h4 {
-            margin: 0 0 2px;
-            font-size: .9rem;
-            font-weight: 800;
-        }
-        .impact p {
-            margin: 0;
-            color: #bdd0e4;
-            font-size: .78rem;
-            line-height: 1.3;
-        }
-        @media(min-width:600px) {
-            .impact {
-                padding: 20px 16px;
-                border-radius: var(--radius);
-            }
-            .impact .icon {
-                font-size: 2rem;
-            }
-            .impact h4 {
-                font-size: 1rem;
-            }
-            .impact p {
-                font-size: .82rem;
-            }
-        }
-
-        /* ===== REFLEKSI ===== */
-        .reflection-section {
-            background: linear-gradient(180deg, #f4f9fd, #eaf5fb);
-        }
-        .reflection-layout {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-        }
-        @media(min-width:768px) {
-            .reflection-layout {
-                grid-template-columns: 1fr 1fr;
-                gap: 24px;
-            }
-        }
-        .panel {
-            background: #fff;
-            border: 1px solid var(--line);
-            border-radius: var(--radius);
-            padding: 22px 18px;
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-        }
-        @media(min-width:600px) {
-            .panel {
-                padding: 28px 26px;
-            }
-        }
-        .panel h3 {
-            font-size: 1.3rem;
-            margin: 0 0 4px;
-            font-weight: 800;
-        }
-        .panel>p {
-            color: var(--muted);
-            margin: 0 0 16px;
-            font-size: .92rem;
-        }
-        .stage-list {
-            display: grid;
-            gap: 8px;
-        }
-        .stage-btn {
-            border: 1px solid var(--line);
-            background: #fff;
-            border-radius: var(--radius-sm);
-            padding: 12px 14px;
-            text-align: left;
-            font-weight: 700;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: var(--transition);
-            font-size: .9rem;
-        }
-        .stage-btn:hover {
-            background: var(--accent-soft);
-            border-color: var(--accent);
-        }
-        .stage-btn.active {
-            background: var(--accent-soft);
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(14, 165, 168, .12);
-        }
-        .stage-btn span:last-child {
-            color: var(--muted-light);
-            font-size: .8rem;
-        }
-        .stage-response {
-            margin-top: 16px;
-            min-height: 80px;
-            background: linear-gradient(145deg, var(--accent-soft), #fff);
-            border-radius: var(--radius-sm);
-            padding: 18px 16px;
-            border-left: 4px solid var(--accent);
-            font-size: .92rem;
-            line-height: 1.6;
-        }
-        .stage-response strong {
-            display: block;
-            margin-bottom: 4px;
-            font-weight: 800;
-        }
-
-        label {
-            font-weight: 700;
-            display: block;
-            margin-bottom: 6px;
-            font-size: .92rem;
-        }
-        textarea {
-            width: 100%;
-            min-height: 100px;
-            resize: vertical;
-            border: 1px solid var(--line);
-            border-radius: var(--radius-sm);
-            padding: 14px;
-            outline: none;
-            background: #fbfdff;
-            font: inherit;
-            font-size: .92rem;
-            transition: var(--transition);
-        }
-        textarea:focus {
-            border-color: var(--accent);
-            box-shadow: 0 0 0 4px rgba(14, 165, 168, .10);
-        }
-        .form-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 12px;
-        }
-
-        .share-card {
-            display: none;
-            margin-top: 18px;
-            border-radius: var(--radius);
-            overflow: hidden;
-            background: linear-gradient(145deg, var(--navy), var(--navy-2));
-            color: #fff;
-            padding: 22px 20px;
-            position: relative;
-            animation: revealDetail .4s ease;
-        }
-        .share-card::after {
-            content: '';
-            position: absolute;
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            background: var(--accent);
-            opacity: .10;
-            right: -60px;
-            bottom: -70px;
-        }
-        .share-card .quote {
-            font-size: 1.05rem;
-            font-weight: 800;
-            line-height: 1.45;
-            margin: 12px 0 16px;
-            position: relative;
-            z-index: 2;
-        }
-        .share-card small {
-            color: #c8d8e7;
-            position: relative;
-            z-index: 2;
-            font-size: .8rem;
-            display: block;
-        }
-        .share-card .form-actions {
-            margin-top: 16px;
-            position: relative;
-            z-index: 2;
-        }
-        .share-card .btn-primary {
-            background: var(--gold);
-            color: var(--navy);
-        }
-        .share-card .btn-secondary {
-            background: rgba(255, 255, 255, .08);
-            border: 1px solid rgba(255, 255, 255, .15);
-            color: #fff;
-        }
-
-        /* ===== BRANDING ===== */
-        .branding {
-            padding: 56px 0;
-            background: #fff;
-        }
-        .branding-card {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-            align-items: center;
-            border: 1px solid var(--line);
-            background: linear-gradient(135deg, #fff, #f0f9fb);
-            border-radius: var(--radius);
-            padding: 24px 20px;
-            box-shadow: var(--shadow-sm);
-        }
-        @media(min-width:600px) {
-            .branding-card {
-                grid-template-columns: 1fr auto;
-                padding: 28px 32px;
-                border-radius: 34px;
-            }
-        }
-        .identity {
-            display: flex;
-            gap: 16px;
-            align-items: center;
-        }
-        .avatar {
-            width: 60px;
-            height: 60px;
-            border-radius: 20px;
-            display: grid;
-            place-items: center;
-            background: linear-gradient(145deg, var(--navy), var(--accent));
-            color: #fff;
-            font-size: 1.2rem;
-            font-weight: 950;
-            letter-spacing: -.04em;
-            flex-shrink: 0;
-        }
-        @media(min-width:600px) {
-            .avatar {
-                width: 74px;
-                height: 74px;
-                font-size: 1.4rem;
-            }
-        }
-        .identity h3 {
-            margin: 0 0 2px;
-            font-size: 1.25rem;
-            font-weight: 800;
-        }
-        .identity p {
-            margin: 0;
-            color: var(--muted);
-            font-size: .88rem;
-        }
-        .brand-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-top: 8px;
-        }
-        .brand-tags span {
-            background: #fff;
-            border: 1px solid var(--line);
-            padding: 4px 10px;
-            border-radius: var(--radius-full);
-            font-size: .72rem;
-            font-weight: 800;
-            color: var(--muted);
-        }
-        .branding-card .btn {
-            width: 100%;
-        }
-        @media(min-width:600px) {
-            .branding-card .btn {
-                width: auto;
-            }
-        }
-
-        /* ===== FOOTER ===== */
-        footer {
-            background: var(--navy);
-            color: #d5e3f1;
-            padding: 24px 0;
-            text-align: center;
-            font-size: .88rem;
-            line-height: 1.8;
-        }
-        footer b {
-            color: #fff;
-        }
-
-        /* ===== TOAST & BACK TOP ===== */
-        .toast {
-            position: fixed;
-            left: 50%;
-            bottom: 24px;
-            transform: translate(-50%, 40px);
-            background: var(--navy);
-            color: #fff;
-            padding: 12px 20px;
-            border-radius: var(--radius-sm);
-            box-shadow: var(--shadow-lg);
-            opacity: 0;
-            pointer-events: none;
-            transition: all .35s cubic-bezier(.22, 1, .36, 1);
-            z-index: 60;
-            font-weight: 700;
-            font-size: .9rem;
-        }
-        .toast.show {
-            opacity: 1;
-            transform: translate(-50%, 0);
-        }
-
-        .back-top {
-            position: fixed;
-            right: 16px;
-            bottom: 80px;
-            width: 44px;
-            height: 44px;
-            border: 0;
-            border-radius: 14px;
-            background: var(--gold);
-            color: var(--navy);
-            font-weight: 950;
-            font-size: 1.2rem;
-            box-shadow: var(--shadow-md);
-            display: none;
-            z-index: 30;
-            transition: var(--transition);
-            touch-action: manipulation;
-        }
-        .back-top:hover {
-            transform: translateY(-3px) scale(1.05);
-        }
-        .back-top:active {
-            transform: scale(.92);
-        }
-        @media(min-width:768px) {
-            .back-top {
-                right: 24px;
-                bottom: 24px;
-                width: 52px;
-                height: 52px;
-                border-radius: 16px;
-            }
-        }
-
-        /* ===== CANVAS ===== */
-        #cardCanvas {
-            display: none;
-        }
-
-        /* ===== REDUCED MOTION ===== */
-        @media(prefers-reduced-motion:reduce) {
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-                scroll-behavior: auto !important;
-            }
-            .fade-up {
-                opacity: 1 !important;
-                transform: none !important;
-            }
-        }
-    </style>
+    /* DESKTOP */
+    @media(min-width:768px){
+      .hero-inner{grid-template-columns:1.1fr .9fr;gap:48px;padding:100px 0 80px}
+      .hero-actions{flex-direction:row;width:auto}.btn{width:auto}
+      .hero-map{min-height:480px;margin-top:0}.orbit.one{width:380px;height:380px}.orbit.two{width:280px;height:280px}.core{width:180px;height:180px;font-size:1.15rem}.bubble{min-width:130px;padding:16px 18px;font-size:.85rem}
+      .story-track{gap:14px}.story-card{flex:0 0 300px}
+      .insight-grid{grid-template-columns:repeat(2,1fr);gap:16px}
+      .audiences{grid-template-columns:repeat(3,1fr);gap:16px}
+      .journey-shell{grid-template-columns:320px 1fr;gap:30px}.journey-sidebar{position:sticky;top:80px}
+      .impact-grid{grid-template-columns:repeat(4,1fr);gap:14px}
+      .reflection-layout{grid-template-columns:1fr 1fr;gap:22px}
+      .branding-card{grid-template-columns:1fr auto;gap:24px;padding:32px}
+      .map-detail{grid-template-columns:1fr 1.3fr}.story-detail{grid-template-columns:68px 1fr;gap:18px;padding:28px}
+      section{padding:90px 0}.story-section{padding-top:80px}
+    }
+    @media(min-width:1024px){
+      .insight-grid{grid-template-columns:repeat(3,1fr)}h1{font-size:clamp(3.5rem,6vw,6rem)}
+      .hero-map{min-height:520px}.orbit.one{width:420px;height:420px}.orbit.two{width:320px;height:320px}.core{width:200px;height:200px;font-size:1.25rem}
+    }
+    @media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
+  </style>
 </head>
 <body>
-
-    <!-- ===== HERO ===== -->
-    <header class="hero" id="top">
-        <div class="hero-grid"></div>
-        <div class="hero-floating f1"></div>
-        <div class="hero-floating f2"></div>
-        <div class="container hero-inner">
-            <div>
-                <div class="hero-badge">
-                    <span class="dot"></span>
-                    Refleksi interaktif — Bu Guru Ria
-                </div>
-                <h1>Dari Kelas, <span>Jadi Karya.</span></h1>
-                <p class="lead">Bagaimana masalah sederhana dalam pembelajaran dapat berkembang menjadi inovasi, kolaborasi, peluang ekonomi, dan pemberdayaan—tanpa kehilangan akar pengabdian sebagai guru.</p>
-                <div class="hero-actions">
-                    <a class="btn btn-primary" href="#ringkasan">
-                        Mulai perjalanan
-                        <span class="arrow">→</span>
-                    </a>
-                    <a class="btn btn-secondary" href="https://regional.kompas.com/read/2026/07/25/153155978/berawal-dari-ruang-kelas-di-sidoarjo-bu-guru-ria-bantu-guru-honorer-petik?page=all#page2" target="_blank" rel="noopener">
-                        Baca artikel
-                    </a>
-                </div>
-                <p class="hero-note">Satu cerita. Tiga sudut pandang: Guru Penggerak, Guru Informatika, dan Guru IPA.</p>
-            </div>
-            <div class="hero-visual" aria-label="Ekosistem dampak">
-                <div class="orbit-ring r1"></div>
-                <div class="orbit-ring r2"></div>
-                <div class="orbit-ring r3"></div>
-                <div class="core-node">Masalah nyata<br>di kelas</div>
-                <div class="orbit-bubble b1"><span class="emoji">💡</span> Solusi kecil</div>
-                <div class="orbit-bubble b2"><span class="emoji">🧪</span> Uji & revisi</div>
-                <div class="orbit-bubble b3"><span class="emoji">📲</span> Bagikan</div>
-                <div class="orbit-bubble b4"><span class="emoji">🤝</span> Berdayakan</div>
-            </div>
+  <header class="hero" id="top">
+    <div class="grid-lines"></div>
+    <div class="container hero-inner">
+      <div>
+        <div class="eyebrow"><span class="eyebrow-dot"></span> Refleksi interaktif dari kisah Bu Guru Ria</div>
+        <h1>Dari Kelas, <span>Jadi Karya.</span></h1>
+        <p class="hero-copy">Bagaimana masalah sederhana dalam pembelajaran dapat berkembang menjadi inovasi, kolaborasi, peluang ekonomi, dan pemberdayaan—tanpa kehilangan akar pengabdian sebagai guru.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#ringkasan">Mulai perjalanan →</a>
+          <a class="btn btn-secondary" href="https://regional.kompas.com/read/2026/07/25/153155978/berawal-dari-ruang-kelas-di-sidoarjo-bu-guru-ria-bantu-guru-honorer-petik?page=all#page2" target="_blank" rel="noopener">Baca artikel sumber ↗</a>
         </div>
-    </header>
+        <p class="hero-note">Satu cerita. Tiga sudut pandang: Guru Penggerak, Guru Informatika, dan Guru IPA.</p>
+      </div>
+      <div class="hero-map" aria-label="Ilustrasi ekosistem dampak">
+        <div class="orbit one"></div><div class="orbit two"></div>
+        <div class="core">Masalah nyata<br>di kelas</div>
+        <div class="bubble b1"><b>💡</b>Solusi kecil</div>
+        <div class="bubble b2"><b>🧪</b>Uji & revisi</div>
+        <div class="bubble b3"><b>📲</b>Bagikan</div>
+        <div class="bubble b4"><b>🤝</b>Berdayakan</div>
+      </div>
+    </div>
+  </header>
 
-    <!-- ===== QUICK NAV ===== -->
-    <nav class="quick-nav-wrap" id="quickNavWrap" aria-label="Navigasi isi">
-        <div class="container quick-nav" id="quickNav">
-            <a href="#ringkasan" class="active">Ringkasan</a>
-            <a href="#peta-resolusi">Peta masalah</a>
-            <a href="#insight-utama">Insight utama</a>
-            <a href="#perspektif">3 perspektif</a>
-            <a href="#refleksi">Refleksi saya</a>
+  <main>
+    <div class="quick-nav-wrap" aria-label="Navigasi isi">
+      <div class="container quick-nav">
+        <a href="#ringkasan">Ringkasan cerita</a>
+        <a href="#peta-resolusi">Peta masalah</a>
+        <a href="#insight-utama">Insight utama</a>
+        <a href="#perspektif">3 perspektif</a>
+        <a href="#refleksi">Refleksi saya</a>
+      </div>
+    </div>
+
+    <section class="story-section" id="ringkasan">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="kicker">Kisah dalam 60 detik</div>
+          <h2>Bukan langsung bisnis besar—semuanya tumbuh bertahap.</h2>
+          <p>Geser dan klik setiap kartu untuk melihat perubahan penting dalam perjalanan Bu Guru Ria, dari kebutuhan murid hingga pemberdayaan guru honorer.</p>
         </div>
-    </nav>
+        <div class="story-track" id="storyTrack"></div>
+        <div class="story-detail" id="storyDetail" aria-live="polite"></div>
+      </div>
+    </section>
 
-    <main>
-
-        <!-- ===== STORY ===== -->
-        <section class="story-section" id="ringkasan">
-            <div class="container">
-                <div class="section-head fade-up visible">
-                    <span class="kicker">Kisah dalam 60 detik</span>
-                    <h2>Bukan langsung bisnis besar—<br>semuanya tumbuh bertahap.</h2>
-                    <p>Klik setiap kartu untuk melihat perubahan penting dalam perjalanan Bu Guru Ria, dari kebutuhan murid hingga pemberdayaan guru honorer.</p>
-                </div>
-                <div class="story-track" id="storyTrack"></div>
-                <div class="story-detail" id="storyDetail" aria-live="polite"></div>
-            </div>
-        </section>
-
-        <!-- ===== MIND MAP ===== -->
-        <section class="map-section" id="peta-resolusi">
-            <div class="container">
-                <div class="section-head fade-up visible">
-                    <span class="kicker">Mind map problem solving</span>
-                    <h2>Masalah tidak hilang—<br>ia diubah menjadi jalur resolusi.</h2>
-                    <p>Ketuk setiap cabang. Garis bergerak menunjukkan bahwa masalah, kendala, resolusi, dan dampak adalah satu perjalanan yang saling terhubung.</p>
-                </div>
-                <div class="mindmap-shell" aria-label="Peta interaktif transformasi karya dari ruang kelas">
-                    <svg class="mindmap-svg" viewBox="0 0 100 100" preserveAspectRatio="none" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true">
-                        <defs>
-                            <marker id="arrowTeal" markerWidth="5" markerHeight="5" refX="4.1" refY="2.5" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,5 L4.8,2.5 z" fill="#0ea5a8" /></marker>
-                            <marker id="arrowGold" markerWidth="5" markerHeight="5" refX="4.1" refY="2.5" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,5 L4.8,2.5 z" fill="#f7b731" /></marker>
-                            <path id="pathProblem" d="M46 45 C39 37, 31 27, 23 21" />
-                            <path id="pathObstacle" d="M54 45 C61 37, 69 27, 77 21" />
-                            <path id="pathResolution" d="M46 55 C39 63, 31 73, 23 79" />
-                            <path id="pathImpact" d="M54 55 C61 63, 69 73, 77 79" />
-                        </defs>
-                        <use href="#pathProblem" xlink:href="#pathProblem" class="map-line" marker-end="url(#arrowTeal)" />
-                        <use href="#pathObstacle" xlink:href="#pathObstacle" class="map-line alt" marker-end="url(#arrowGold)" />
-                        <use href="#pathResolution" xlink:href="#pathResolution" class="map-line alt" marker-end="url(#arrowGold)" />
-                        <use href="#pathImpact" xlink:href="#pathImpact" class="map-line" marker-end="url(#arrowTeal)" />
-                        <circle r="1.15" class="map-pulse-dot"><animateMotion dur="3.2s" repeatCount="indefinite"><mpath href="#pathProblem" xlink:href="#pathProblem" /></animateMotion></circle>
-                        <circle r="1.15" class="map-pulse-dot gold"><animateMotion dur="3.8s" begin="-.8s" repeatCount="indefinite"><mpath href="#pathObstacle" xlink:href="#pathObstacle" /></animateMotion></circle>
-                        <circle r="1.15" class="map-pulse-dot gold"><animateMotion dur="4.1s" begin="-1.4s" repeatCount="indefinite"><mpath href="#pathResolution" xlink:href="#pathResolution" /></animateMotion></circle>
-                        <circle r="1.15" class="map-pulse-dot"><animateMotion dur="3.5s" begin="-1.9s" repeatCount="indefinite"><mpath href="#pathImpact" xlink:href="#pathImpact" /></animateMotion></circle>
-                    </svg>
-                    <button class="map-core" type="button" data-map="core" aria-label="Buka inti perjalanan">
-                        <span>Pusat cerita</span>
-                        <strong>Karya lahir dari ruang kelas</strong>
-                        <small>Ketuk untuk melihat fondasinya.</small>
-                    </button>
-                    <button class="map-node problem" type="button" data-map="problem" aria-label="Buka popup masalah">
-                        <span class="map-node-icon">🎯</span>
-                        <span class="map-label">01 — Masalah</span>
-                        <h3>Pembelajaran butuh media lebih hidup</h3>
-                        <p>Antusiasme dan kebutuhan murid menjadi pemicu awal.</p>
-                    </button>
-                    <button class="map-node obstacle" type="button" data-map="obstacle" aria-label="Buka popup kendala">
-                        <span class="map-node-icon">🧩</span>
-                        <span class="map-label">02 — Kendala</span>
-                        <h3>Karya sulit menjangkau banyak guru</h3>
-                        <p>Produksi, promosi, stok, transaksi, dan pengiriman menuntut sistem.</p>
-                    </button>
-                    <button class="map-node resolution" type="button" data-map="resolution" aria-label="Buka popup resolusi">
-                        <span class="map-node-icon">⚙️</span>
-                        <span class="map-label">03 — Resolusi</span>
-                        <h3>Validasi konten, lalu bangun ekosistem</h3>
-                        <p>Media sosial, e-commerce, tim produksi, dan afiliasi saling terhubung.</p>
-                    </button>
-                    <button class="map-node impact-node" type="button" data-map="impact" aria-label="Buka popup dampak">
-                        <span class="map-node-icon">🌱</span>
-                        <span class="map-label">04 — Dampak</span>
-                        <h3>Nilai pendidikan meluas menjadi sosial-ekonomi</h3>
-                        <p>Murid, guru, honorer, warga, dan produk lokal ikut tumbuh.</p>
-                    </button>
-                    <div class="map-mobile-hint">Sentuh salah satu node ✦</div>
-                </div>
-            </div>
-        </section>
-
-        <div class="map-modal" id="mapModal" role="dialog" aria-modal="true" aria-labelledby="mapPopupTitle" aria-hidden="true">
-            <div class="map-modal-backdrop" data-map-close></div>
-            <article class="map-popup" id="mapPopup" tabindex="-1">
-                <div class="map-popup-drag" aria-hidden="true"></div>
-                <header class="map-popup-hero">
-                    <button class="map-popup-close" type="button" data-map-close aria-label="Tutup popup">×</button>
-                    <span class="map-popup-badge" id="mapPopupBadge">01 — Masalah</span>
-                    <div class="map-popup-icon" id="mapPopupIcon">🎯</div>
-                    <h3 class="map-popup-title" id="mapPopupTitle"></h3>
-                    <p class="map-popup-lead" id="mapPopupLead"></p>
-                </header>
-                <div class="map-popup-content">
-                    <h4>✦ Poin yang perlu diperhatikan</h4>
-                    <ul class="map-popup-list" id="mapPopupList"></ul>
-                    <div class="map-popup-quote" id="mapPopupQuote"></div>
-                    <div class="map-popup-reflection">
-                        <span>Pertanyaan reflektif</span>
-                        <strong id="mapPopupReflection"></strong>
-                    </div>
-                    <div class="map-popup-footer">
-                        <button class="map-popup-nav" type="button" id="mapPrev">← Sebelumnya</button>
-                        <span class="map-popup-count" id="mapPopupCount">1 / 5</span>
-                        <button class="map-popup-nav" type="button" id="mapNext">Berikutnya →</button>
-                    </div>
-                </div>
-            </article>
+    <section class="map-section" id="peta-resolusi">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="kicker">Mind map problem solving</div>
+          <h2>Masalah tidak hilang—ia diubah menjadi jalur resolusi.</h2>
+          <p>Klik setiap cabang untuk membedah hubungan antara masalah, kendala, keputusan strategis, dan dampak yang akhirnya tercipta.</p>
         </div>
-
-        <!-- ===== INSIGHT ===== -->
-        <section class="insight-section" id="insight-utama">
-            <div class="container">
-                <div class="section-head fade-up visible">
-                    <span class="kicker">Resume insight penting</span>
-                    <h2>Enam pelajaran yang layak dibawa pulang.</h2>
-                    <p>Jembatan dari cerita Bu Guru Ria menuju praktik kita sendiri sebagai pendidik.</p>
-                </div>
-                <div class="insight-grid" id="insightGrid">
-                    <!-- injected by JS -->
-                </div>
-                <div class="resume-callout fade-up visible">
-                    <div class="icon">💭</div>
-                    <div>
-                        <strong>Resume satu kalimat</strong>
-                        <p>Bu Guru Ria tidak sekadar menjual media belajar; ia mengubah pengalaman kelas menjadi sistem yang membantu murid, guru lain, guru honorer, dan warga sekitar.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== PERSPEKTIF ===== -->
-        <section id="perspektif">
-            <div class="container">
-                <div class="section-head fade-up visible">
-                    <span class="kicker">Pilih pintu masuk</span>
-                    <h2>Kamu melihat kisah ini sebagai siapa?</h2>
-                    <p>Pilih satu perspektif. Jalur, contoh, pertanyaan refleksi, dan warna pengalaman akan menyesuaikan.</p>
-                </div>
-                <div class="audiences" id="audienceCards">
-                    <button class="audience-card active" data-audience="penggerak">
-                        <div class="audience-icon">🌱</div>
-                        <h3>Alumni Guru Penggerak</h3>
-                        <p>Dari praktik baik menuju gerakan bersama dan pemberdayaan komunitas.</p>
-                        <span class="select-mark">Jelajahi →</span>
-                    </button>
-                    <button class="audience-card" data-audience="informatika">
-                        <div class="audience-icon">💻</div>
-                        <h3>Guru Informatika</h3>
-                        <p>Dari prototipe sederhana menuju karya digital yang dapat diskalakan.</p>
-                        <span class="select-mark">Jelajahi →</span>
-                    </button>
-                    <button class="audience-card" data-audience="ipa">
-                        <div class="audience-icon">🔬</div>
-                        <h3>Guru IPA</h3>
-                        <p>Dari observasi dan eksperimen menuju solusi yang terbukti bermanfaat.</p>
-                        <span class="select-mark">Jelajahi →</span>
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== JOURNEY ===== -->
-        <section class="journey-wrap" id="perjalanan">
-            <div class="container">
-                <div class="journey-shell">
-                    <aside class="journey-sidebar">
-                        <span class="tag" id="audienceTag">Alumni Guru Penggerak</span>
-                        <h3 id="journeyTitle">Dari praktik baik menuju gerakan bersama</h3>
-                        <p id="journeyIntro">Klik setiap langkah untuk melihat insight dan pertanyaan reflektifnya.</p>
-                        <div class="progress"><div class="progress-bar" id="progressBar"></div></div>
-                        <div class="progress-label" id="progressLabel">0 dari 8 langkah dijelajahi</div>
-                        <div class="small-source">Terinspirasi dari artikel Kompas.com tentang perjalanan Bu Guru Ria di Sidoarjo, 25 Juli 2026.</div>
-                    </aside>
-                    <div>
-                        <div class="flow" id="flow"></div>
-                        <div class="impact-grid" id="impactGrid"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== REFLEKSI ===== -->
-        <section class="reflection-section" id="refleksi">
-            <div class="container">
-                <div class="section-head fade-up visible">
-                    <span class="kicker">Berhenti sejenak</span>
-                    <h2>Karyamu sekarang berada di tahap mana?</h2>
-                    <p>Refleksi ini tidak menilai. Ia hanya membantu melihat langkah berikutnya dengan lebih jernih.</p>
-                </div>
-                <div class="reflection-layout">
-                    <div class="panel fade-up visible">
-                        <h3>Pilih tahapmu</h3>
-                        <p>Klik satu tahap yang paling menggambarkan kondisi karya atau praktik baikmu saat ini.</p>
-                        <div class="stage-list" id="stageList"></div>
-                        <div class="stage-response" id="stageResponse">
-                            <strong>Belum memilih tahap.</strong>
-                            Pilih salah satu tahap di atas untuk mendapatkan saran langkah berikutnya.
-                        </div>
-                    </div>
-                    <div class="panel fade-up visible">
-                        <h3>Satu praktik baik yang layak dibagikan</h3>
-                        <p>Tuliskan singkat. Sistem akan mengubahnya menjadi kartu refleksi yang bisa diunduh atau dibagikan.</p>
-                        <label for="practiceInput">Praktik baik / karya saya</label>
-                        <textarea id="practiceInput" maxlength="240" placeholder="Contoh: Media interaktif tekanan yang membantu siswa memahami konsep melalui simulasi sederhana..."></textarea>
-                        <div class="form-actions">
-                            <button class="btn btn-dark" id="makeCard">Buat kartu refleksi</button>
-                            <button class="btn btn-light" id="sharePage">Bagikan halaman</button>
-                        </div>
-                        <div class="share-card" id="shareCard">
-                            <small>REFLEKSI — DARI KELAS, JADI KARYA</small>
-                            <div class="quote" id="shareQuote"></div>
-                            <small>Rizal Abdurrahman • Guru IPA & Informatika • Santika • SATRIA</small>
-                            <div class="form-actions">
-                                <button class="btn btn-primary" id="downloadCard">Unduh PNG</button>
-                                <button class="btn btn-secondary" id="copyText">Salin teks</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== BRANDING ===== -->
-        <section class="branding">
-            <div class="container">
-                <div class="branding-card fade-up visible">
-                    <div class="identity">
-                        <div class="avatar">RA</div>
-                        <div>
-                            <h3>Rizal Abdurrahman</h3>
-                            <p>Guru yang belajar dari masalah, membangun solusi, menguji teknologi, dan menggerakkan komunitas.</p>
-                            <div class="brand-tags">
-                                <span>Guru IPA & Informatika</span>
-                                <span>Komunitas Belajar Santika</span>
-                                <span>SATRIA</span>
-                            </div>
-                        </div>
-                    </div>
-                    <a class="btn btn-primary" href="#top">Ulangi perjalanan ↑</a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <b>Belajar • Berkarya • Berbagi</b><br>
-            Refleksi personal berdasarkan artikel Kompas.com tentang Bu Guru Ria.
+        <div class="mindmap-shell reveal">
+          <button class="map-core" type="button" data-map="core">
+            <span>Pusat cerita</span>
+            <strong>Karya lahir dari ruang kelas</strong>
+            <small>Klik empat cabang untuk membedah alurnya.</small>
+          </button>
+          <button class="map-node problem active" type="button" data-map="problem">
+            <span class="map-label">01 — Masalah</span>
+            <h3>Pembelajaran membutuhkan media yang lebih hidup</h3>
+            <p>Antusiasme dan kebutuhan murid menjadi pemicu awal.</p>
+          </button>
+          <button class="map-node obstacle" type="button" data-map="obstacle">
+            <span class="map-label">02 — Kendala</span>
+            <h3>Karya sulit menjangkau banyak guru sendirian</h3>
+            <p>Produksi, promosi, stok, transaksi, dan pengiriman menuntut sistem.</p>
+          </button>
+          <button class="map-node resolution" type="button" data-map="resolution">
+            <span class="map-label">03 — Resolusi</span>
+            <h3>Validasi melalui konten, lalu bangun ekosistem</h3>
+            <p>Media sosial, e-commerce, tim produksi, dan afiliasi saling terhubung.</p>
+          </button>
+          <button class="map-node impact-node" type="button" data-map="impact">
+            <span class="map-label">04 — Dampak</span>
+            <h3>Nilai pendidikan meluas menjadi nilai sosial-ekonomi</h3>
+            <p>Murid, guru, honorer, warga sekitar, dan produk lokal ikut tumbuh.</p>
+          </button>
         </div>
-    </footer>
+        <div class="map-detail" id="mapDetail" aria-live="polite"></div>
+      </div>
+    </section>
 
-    <button class="back-top" id="backTop" aria-label="Kembali ke atas">↑</button>
-    <div class="toast" id="toast">Tersalin.</div>
+    <section class="insight-section" id="insight-utama">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="kicker">Resume insight penting</div>
+          <h2>Enam pelajaran yang layak dibawa pulang.</h2>
+          <p>Bagian ini menjadi jembatan dari cerita Bu Guru Ria menuju praktik kita sendiri sebagai pendidik.</p>
+        </div>
+        <div class="insight-grid">
+          <article class="insight-card reveal reveal-delay-1"><span class="insight-no">1</span><div class="insight-icon">🎯</div><h3>Mulai dari masalah, bukan tren</h3><p>Teknologi dan platform dipilih setelah kebutuhan murid dan guru benar-benar dipahami.</p><a class="insight-link" href="#perjalanan">Lihat tahapannya →</a></article>
+          <article class="insight-card reveal reveal-delay-2"><span class="insight-no">2</span><div class="insight-icon">🧰</div><h3>Karya guru adalah aset</h3><p>Media, modul, alat peraga, aplikasi, dan dokumentasi dapat dipakai ulang serta dikembangkan.</p><a class="insight-link" href="#refleksi">Petakan karya saya →</a></article>
+          <article class="insight-card reveal reveal-delay-3"><span class="insight-no">3</span><div class="insight-icon">📣</div><h3>Konten adalah alat validasi</h3><p>Respons guru lain membuktikan bahwa persoalan di satu kelas ternyata dialami banyak orang.</p><a class="insight-link" href="#ringkasan">Lihat titik validasi →</a></article>
+          <article class="insight-card reveal reveal-delay-1"><span class="insight-no">4</span><div class="insight-icon">⚙️</div><h3>Sistem membuat dampak berulang</h3><p>Produksi, dokumentasi, transaksi, pengemasan, dan distribusi perlu dipisahkan menjadi proses yang jelas.</p><a class="insight-link" href="#peta-resolusi">Buka peta resolusi →</a></article>
+          <article class="insight-card reveal reveal-delay-2"><span class="insight-no">5</span><div class="insight-icon">🤝</div><h3>Afiliasi dapat menjadi pemberdayaan</h3><p>Guru honorer memperoleh peran dan komisi tanpa menanggung stok maupun kerumitan operasional.</p><a class="insight-link" href="#perjalanan">Lihat perspektif sosial →</a></article>
+          <article class="insight-card reveal reveal-delay-3"><span class="insight-no">6</span><div class="insight-icon">🛡️</div><h3>Kepercayaan lebih mahal dari transaksi</h3><p>Promosi yang jujur dan tidak berlebihan menjaga muruah guru serta keberlanjutan usaha.</p><a class="insight-link" href="#refleksi">Tetapkan nilai inti →</a></article>
+        </div>
+        <div class="resume-callout reveal">
+          <div class="icon">💭</div>
+          <div><strong>Resume satu kalimat</strong><p>Bu Guru Ria tidak sekadar menjual media belajar; ia mengubah pengalaman kelas menjadi sistem yang membantu murid, guru lain, guru honorer, dan warga sekitar.</p></div>
+        </div>
+      </div>
+    </section>
 
-    <canvas id="cardCanvas" width="1080" height="1350" hidden></canvas>
+    <section id="perspektif">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="kicker">Pilih pintu masuk</div>
+          <h2>Kamu melihat kisah ini sebagai siapa?</h2>
+          <p>Pilih satu perspektif. Jalur, contoh, pertanyaan refleksi, dan warna pengalaman akan menyesuaikan.</p>
+        </div>
+        <div class="audiences" id="audienceCards">
+          <button class="audience-card active reveal reveal-delay-1" data-audience="penggerak">
+            <div class="audience-icon">🌱</div>
+            <h3>Alumni Guru Penggerak</h3>
+            <p>Dari praktik baik menuju gerakan bersama dan pemberdayaan komunitas.</p>
+            <span class="select-mark">Jelajahi jalur →</span>
+          </button>
+          <button class="audience-card reveal reveal-delay-2" data-audience="informatika">
+            <div class="audience-icon">💻</div>
+            <h3>Guru Informatika</h3>
+            <p>Dari prototipe sederhana menuju karya digital yang dapat diskalakan.</p>
+            <span class="select-mark">Jelajahi jalur →</span>
+          </button>
+          <button class="audience-card reveal reveal-delay-3" data-audience="ipa">
+            <div class="audience-icon">🔬</div>
+            <h3>Guru IPA</h3>
+            <p>Dari observasi dan eksperimen menuju solusi yang terbukti bermanfaat.</p>
+            <span class="select-mark">Jelajahi jalur →</span>
+          </button>
+        </div>
+      </div>
+    </section>
 
-    <script>
-        // ===== DATA =====
-        const ARTICLE_URL =
-            'https://regional.kompas.com/read/2026/07/25/153155978/berawal-dari-ruang-kelas-di-sidoarjo-bu-guru-ria-bantu-guru-honorer-petik?page=all#page2';
+    <section class="journey-wrap" id="perjalanan">
+      <div class="container">
+        <div class="journey-shell">
+          <aside class="journey-sidebar reveal">
+            <span class="tag" id="audienceTag">Alumni Guru Penggerak</span>
+            <h3 id="journeyTitle">Dari praktik baik menuju gerakan bersama</h3>
+            <p id="journeyIntro">Klik setiap langkah untuk melihat insight dan pertanyaan reflektifnya.</p>
+            <div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+            <div class="progress-label" id="progressLabel">1 dari 8 langkah dijelajahi</div>
+            <div class="small-source">Terinspirasi dari artikel Kompas.com tentang perjalanan Bu Guru Ria di Sidoarjo, 25 Juli 2026.</div>
+          </aside>
+          <div>
+            <div class="flow" id="flow"></div>
+            <div class="impact-grid" id="impactGrid"></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        const storyPoints = [
-            { icon: '🎒', title: 'Berawal dari kebutuhan kelas', short: 'Media dibuat agar murid lebih antusias belajar.',
-                detail: 'Siti Komariyah memulai bukan dari rencana bisnis, melainkan dari kebutuhan pembelajaran di SDN Banjar Kemantren 2 Buduran.',
-                lesson: '💡 Kebutuhan nyata adalah fondasi produk pendidikan yang paling kuat.' },
-            { icon: '📲', title: 'Unggahan menjadi validasi', short: 'Guru lain ternyata membutuhkan solusi serupa.',
-                detail: 'Setelah media dibagikan di media sosial, permintaan datang dari rekan guru lintas daerah. Konten berfungsi sebagai bukti kebutuhan, bukan hanya promosi.',
-                lesson: '💡 Dokumentasi mengubah praktik pribadi menjadi pengetahuan yang dapat ditemukan.' },
-            { icon: '🛒', title: 'E-commerce melipat jarak', short: 'Transaksi, video, live, dan logistik memperluas jangkauan.',
-                detail: 'Marketplace membantu produk dikenal, diperagakan, ditransaksikan, dan dikirim tanpa harus membuka toko fisik di banyak daerah.',
-                lesson: '💡 Platform adalah pengungkit; kualitas solusi tetap menjadi mesin utamanya.' },
-            { icon: '🏭', title: 'Usaha berubah menjadi sistem', short: 'Produksi dan distribusi tidak lagi ditangani sendirian.',
-                detail: 'Pertumbuhan pesanan menuntut pembagian kerja untuk produksi, stok, pengemasan, dan distribusi. Di sinilah karya guru berkembang menjadi UMKM.',
-                lesson: '💡 Dampak sulit diperbesar bila semua proses bergantung pada satu orang.' },
-            { icon: '🤳', title: 'Guru honorer menjadi mitra', short: 'Sampel dan tautan afiliasi membuka penghasilan fleksibel.',
-                detail: 'Guru honorer dapat membuat ulasan atau membagikan tautan tanpa memproduksi, menyimpan stok, mengemas, maupun mengirim barang.',
-                lesson: '💡 Pemberdayaan memberi peran produktif, bukan hanya bantuan sesaat.' },
-            { icon: '🌏', title: 'Dampak menembus batas', short: 'Pesanan menjangkau Indonesia hingga Malaysia.',
-                detail: 'Jangkauan pasar meluas dari berbagai provinsi di Indonesia sampai Malaysia, sembari membuka lapangan kerja bagi warga sekitar.',
-                lesson: '💡 Inovasi lokal dapat tumbuh global ketika dokumentasi dan distribusinya kuat.' },
-            { icon: '🛡️', title: 'Etika menjadi pagar', short: 'Kejujuran ditempatkan di atas keuntungan sesaat.',
-                detail: 'Mitra diingatkan tidak membuat klaim berlebihan. Kepercayaan konsumen dan muruah pendidikan menjadi modal jangka panjang.',
-                lesson: '💡 Personal branding yang kokoh dibangun dari manfaat dan integritas.' }
-        ];
-
-        const mapData = {
-            core: {
-                title: 'Pusat cerita: karya lahir dari ruang kelas',
-                lead: 'Seluruh perkembangan dimulai dari satu keputusan sederhana: memperbaiki pengalaman belajar murid.',
-                items: ['Guru mengamati kebutuhan nyata.', 'Solusi dibuat dan diuji pada konteks asli.',
-                    'Respons pengguna menentukan langkah berikutnya.'
-                ],
-                quote: 'Bukan mencari produk untuk dijual, tetapi menemukan masalah yang layak diselesaikan.',
-                reflection: 'Masalah nyata apa di kelasmu yang paling layak diselesaikan lebih dulu?'
-            },
-            problem: {
-                title: 'Masalah yang muncul',
-                lead: 'Masalah awalnya bersifat pedagogis, lalu berkembang menjadi tantangan akses dan kesejahteraan.',
-                items: ['Murid membutuhkan media yang lebih menarik dan mudah dipahami.',
-                    'Banyak guru menghadapi kebutuhan serupa tetapi tidak memiliki waktu membuat media sendiri.',
-                    'Guru honorer membutuhkan sumber penghasilan tambahan yang fleksibel.'
-                ],
-                quote: 'Masalah yang sama dapat memiliki nilai sosial sekaligus nilai ekonomi.',
-                reflection: 'Kebutuhan siapa saja yang sebenarnya tersentuh oleh masalah tersebut?'
-            },
-            obstacle: {
-                title: 'Kendala ketika karya mulai tumbuh',
-                lead: 'Permintaan yang meningkat melahirkan pekerjaan baru yang tidak dapat diselesaikan hanya dengan kreativitas.',
-                items: ['Jangkauan promosi terbatas bila hanya mengandalkan jejaring pribadi.',
-                    'Produksi, stok, pengemasan, transaksi, dan pengiriman semakin kompleks.',
-                    'Skala besar berisiko mendorong klaim promosi berlebihan dan menurunkan kepercayaan.'
-                ],
-                quote: 'Pertumbuhan tanpa sistem justru dapat menjadi beban baru.',
-                reflection: 'Jika karyamu dipakai seratus orang besok, bagian mana yang paling cepat kewalahan?'
-            },
-            resolution: {
-                title: 'Tahapan resolusi',
-                lead: 'Bu Guru Ria menyusun rangkaian solusi yang saling memperkuat, bukan satu tindakan tunggal.',
-                items: ['Dokumentasikan penggunaan media dan bagikan melalui konten.',
-                    'Gunakan marketplace, video, live, proteksi transaksi, dan logistik.',
-                    'Bangun tim produksi dan pengemasan agar operasional tidak bergantung pada satu orang.',
-                    'Buka skema afiliasi tanpa stok bagi guru honorer.',
-                    'Tetapkan etika promosi dan larangan klaim berlebihan.'
-                ],
-                quote: 'Solusi terbaik bukan satu aplikasi, melainkan ekosistem proses yang konsisten.',
-                reflection: 'Satu proses apa yang perlu kamu dokumentasikan atau otomatisasi mulai sekarang?'
-            },
-            impact: {
-                title: 'Dampak yang tercipta',
-                lead: 'Ketika sistem berjalan, manfaat meluas melampaui transaksi penjualan.',
-                items: ['Murid memperoleh media belajar yang lebih segar.',
-                    'Guru di berbagai daerah memperoleh solusi siap pakai.',
-                    'Guru honorer memperoleh peluang komisi yang fleksibel.',
-                    'Warga sekitar terserap dalam produksi dan distribusi.',
-                    'Produk pendidikan lokal menjangkau pasar nasional dan internasional.'
-                ],
-                quote: 'Dampak terbesar terjadi ketika karya membantu orang lain ikut bertumbuh.',
-                reflection: 'Siapa yang dapat ikut bertumbuh bila karyamu dibagikan lebih luas?'
-            }
-        };
-
-        const journeys = {
-            penggerak: {
-                label: 'Alumni Guru Penggerak',
-                accent: '#0ea5a8',
-                soft: '#dff8f5',
-                title: 'Dari praktik baik menuju gerakan bersama',
-                intro: 'Pemimpin pembelajaran melihat masalah sebagai peluang untuk bertumbuh bersama.',
-                nodes: [
-                    ['Peka terhadap kebutuhan murid',
-                        'Inovasi dimulai saat guru sungguh-sungguh melihat hambatan yang dialami murid.',
-                        'Apa kebutuhan murid yang paling sering muncul di kelasmu?'
-                    ],
-                    ['Buat solusi kecil yang nyata',
-                        'Tidak harus canggih. Media sederhana yang tepat sasaran sering lebih bermakna daripada ide besar yang belum diuji.',
-                        'Solusi sederhana apa yang sebenarnya bisa dicoba pekan ini?'
-                    ],
-                    ['Uji, refleksi, dan perbaiki',
-                        'Praktik baik lahir melalui siklus mencoba, mendengar, lalu memperbaiki.',
-                        'Bukti apa yang menunjukkan solusi itu membantu murid?'
-                    ],
-                    ['Dokumentasikan praktik baik',
-                        'Foto, video, catatan proses, dan panduan penggunaan membuat karya tidak hilang setelah satu pertemuan.',
-                        'Apakah praktik baikmu sudah cukup mudah dipahami guru lain?'
-                    ],
-                    ['Bagikan kepada jejaring guru',
-                        'Berbagi membuka ruang umpan balik dan menemukan bahwa masalah yang sama dialami banyak sekolah.',
-                        'Siapa tiga orang pertama yang perlu melihat praktik baikmu?'
-                    ],
-                    ['Bangun kolaborasi', 'Dampak membesar ketika karya tidak lagi bergantung pada satu orang.',
-                        'Bagian mana yang bisa dikerjakan bersama komunitas?'
-                    ],
-                    ['Libatkan guru honorer sebagai mitra',
-                        'Pemberdayaan bukan sekadar memberi bantuan, tetapi membuka peran, kontribusi, dan peluang penghasilan yang bermartabat.',
-                        'Bagaimana skema kolaborasi dapat tetap adil dan transparan?'
-                    ],
-                    ['Jaga etika dan kebermanfaatan',
-                        'Kejujuran, perlindungan murid, dan dampak nyata harus lebih tinggi daripada promosi sesaat.',
-                        'Nilai apa yang tidak boleh dikompromikan ketika karya berkembang?'
-                    ]
-                ],
-                impacts: [
-                    ['👧', 'Murid terbantu', 'Solusi tetap berakar pada kebutuhan belajar.'],
-                    ['📚', 'Guru bertumbuh', 'Praktik baik menjadi pengetahuan bersama.'],
-                    ['🤝', 'Komunitas bergerak', 'Kolaborasi melahirkan daya jangkau.'],
-                    ['📈', 'Ekonomi terangkat', 'Kemandirian memperkuat pengabdian.']
-                ]
-            },
-            informatika: {
-                label: 'Guru Informatika',
-                accent: '#2563eb',
-                soft: '#e6efff',
-                title: 'Dari prototipe menuju ekosistem digital',
-                intro: 'Kelas dapat menjadi laboratorium desain produk yang paling jujur dan relevan.',
-                nodes: [
-                    ['Identifikasi kebutuhan pengguna',
-                        'Mulai dari masalah guru atau siswa, bukan dari teknologi yang sedang tren.',
-                        'Siapa pengguna utama dan apa masalah paling mengganggunya?'
-                    ],
-                    ['Buat prototipe sederhana',
-                        'Gunakan HTML, Canva Code, Apps Script, atau platform ringan untuk membuktikan ide.',
-                        'Fitur minimum apa yang sudah cukup menyelesaikan masalah?'
-                    ],
-                    ['Uji langsung pada siswa atau guru',
-                        'Amati kebingungan, hambatan, dan cara pengguna berinteraksi dengan produk.',
-                        'Bagian mana yang paling sering membuat pengguna berhenti?'
-                    ],
-                    ['Perbaiki UI, alur, dan aksesibilitas',
-                        'Produk pendidikan harus mudah dipakai di HP, jelas, ringan, dan ramah pengguna.',
-                        'Apakah pengguna bisa memahami fungsi utama tanpa dijelaskan panjang?'
-                    ],
-                    ['Dokumentasikan dengan foto dan tutorial',
-                        'Tutorial mengubah produk pribadi menjadi solusi yang dapat direplikasi.',
-                        'Apakah orang lain bisa memakai karyamu tanpa kehadiranmu?'
-                    ],
-                    ['Bagikan untuk validasi kebutuhan',
-                        'Konten bukan hanya promosi; respons pengguna membantu memvalidasi kebutuhan nyata.',
-                        'Komentar atau permintaan apa yang paling sering muncul?'
-                    ],
-                    ['Distribusikan melalui kanal yang tepat',
-                        'GitHub Pages, marketplace, video pendek, dan komunitas dapat menjadi jalur distribusi.',
-                        'Kanal mana yang paling sesuai dengan perilaku pengguna?'
-                    ],
-                    ['Bangun sistem agar dapat diskalakan',
-                        'Pisahkan produk, dokumentasi, layanan, dan dukungan agar karya tidak bergantung pada tenaga satu orang.',
-                        'Proses apa yang dapat diotomatisasi tanpa mengurangi kualitas?'
-                    ]
-                ],
-                impacts: [
-                    ['🌟', 'Personal branding', 'Dikenal karena solusi yang konsisten dan berguna.'],
-                    ['💾', 'Karya bernilai', 'Aset digital dapat digunakan berulang kali.'],
-                    ['🧑‍🏫', 'Guru lain terbantu', 'Solusi mudah diakses dan direplikasi.'],
-                    ['🚀', 'Peluang tumbuh', 'Dampak dan penghasilan dapat berkembang bersama.']
-                ]
-            },
-            ipa: {
-                label: 'Guru IPA',
-                accent: '#16a34a',
-                soft: '#e8f8ed',
-                title: 'Dari observasi menuju solusi yang terbukti',
-                intro: 'Budaya ilmiah—mengamati, menguji, mencatat, dan merevisi—sangat dekat dengan inovasi pendidikan.',
-                nodes: [
-                    ['Amati gejala pembelajaran',
-                        'Perhatikan konsep yang sulit, miskonsepsi, rendahnya keterlibatan, atau kendala alat praktikum.',
-                        'Gejala apa yang paling sering tampak saat siswa belajar IPA?'
-                    ],
-                    ['Rumuskan kebutuhan',
-                        'Ubah keluhan umum menjadi kebutuhan yang jelas dan dapat diuji.',
-                        'Perubahan apa yang ingin terlihat setelah solusi digunakan?'
-                    ],
-                    ['Rancang media atau alat peraga',
-                        'Gunakan bahan sederhana, sensor, IoT, simulasi, atau lingkungan sekitar.',
-                        'Desain paling sederhana apa yang masih menunjukkan konsep inti?'
-                    ],
-                    ['Uji sebagai eksperimen kecil',
-                        'Bandingkan sebelum dan sesudah, amati respons, serta catat kendala penggunaan.',
-                        'Data sederhana apa yang bisa dikumpulkan dari uji coba?'
-                    ],
-                    ['Revisi berdasarkan bukti',
-                        'Perbaikan didasarkan pada pengamatan, bukan sekadar selera pembuat.',
-                        'Bagian mana yang perlu diubah berdasarkan data?'
-                    ],
-                    ['Bagikan praktik baik',
-                        'Dokumentasi memungkinkan guru lain menilai, mengadaptasi, dan mengembangkan karya.',
-                        'Apa yang perlu dicantumkan agar praktik dapat direplikasi?'
-                    ],
-                    ['Produkkan solusi yang terbukti',
-                        'Media yang efektif dapat dikemas menjadi kit, modul, atau panduan yang lebih siap digunakan.',
-                        'Apa yang membuat produk ini benar-benar praktis bagi guru lain?'
-                    ],
-                    ['Tumbuhkan dampak sosial dan ekonomi',
-                        'Produk lokal dapat menggerakkan guru, siswa, komunitas, dan warga sekitar.',
-                        'Siapa saja yang dapat dilibatkan dalam pengembangan berikutnya?'
-                    ]
-                ],
-                impacts: [
-                    ['💡', 'Konsep dipahami', 'Media membantu menghubungkan teori dan pengalaman.'],
-                    ['🧪', 'Guru inovatif', 'Budaya eksperimen tumbuh dalam pembelajaran.'],
-                    ['📦', 'Produk lokal', 'Solusi terbukti dapat dikemas lebih luas.'],
-                    ['🌍', 'Komunitas bergerak', 'Sains menjadi jalan kebermanfaatan.']
-                ]
-            }
-        };
-
-        const stages = [
-            ['Baru berupa ide',
-                'Tuliskan masalah pengguna secara spesifik. Jangan mulai dari fitur; mulai dari perubahan yang ingin terjadi.'
-            ],
-            ['Sudah digunakan di kelas',
-                'Kumpulkan bukti sederhana: respons siswa, foto penggunaan, kendala, dan perubahan pemahaman.'
-            ],
-            ['Sudah didokumentasikan',
-                'Susun panduan satu halaman atau video singkat agar orang lain bisa mereplikasi tanpa banyak bertanya.'
-            ],
-            ['Sudah dibagikan',
-                'Amati respons. Pertanyaan berulang dari orang lain biasanya menunjukkan kebutuhan pasar atau kebutuhan komunitas.'
-            ],
-            ['Sudah digunakan guru lain',
-                'Mulai bangun sistem umpan balik, versi produk, lisensi penggunaan, serta dukungan yang jelas.'
-            ],
-            ['Siap dikembangkan lebih luas',
-                'Tetapkan nilai inti, standar kualitas, pembagian peran, model keberlanjutan, dan etika promosi.'
-            ]
-        ];
-
-        const insights = [
-            { icon: '🎯', title: 'Mulai dari masalah, bukan tren',
-                desc: 'Teknologi dan platform dipilih setelah kebutuhan murid dan guru benar-benar dipahami.',
-                link: '#perjalanan' },
-            { icon: '🧰', title: 'Karya guru adalah aset',
-                desc: 'Media, modul, alat peraga, aplikasi, dan dokumentasi dapat dipakai ulang serta dikembangkan.',
-                link: '#refleksi' },
-            { icon: '📣', title: 'Konten adalah alat validasi',
-                desc: 'Respons guru lain membuktikan bahwa persoalan di satu kelas ternyata dialami banyak orang.',
-                link: '#ringkasan' },
-            { icon: '⚙️', title: 'Sistem membuat dampak berulang',
-                desc: 'Produksi, dokumentasi, transaksi, pengemasan, dan distribusi perlu dipisahkan menjadi proses yang jelas.',
-                link: '#peta-resolusi' },
-            { icon: '🤝', title: 'Afiliasi dapat menjadi pemberdayaan',
-                desc: 'Guru honorer memperoleh peran dan komisi tanpa menanggung stok maupun kerumitan operasional.',
-                link: '#perjalanan' },
-            { icon: '🛡️', title: 'Kepercayaan lebih mahal dari transaksi',
-                desc: 'Promosi yang jujur dan tidak berlebihan menjaga muruah guru serta keberlanjutan usaha.',
-                link: '#refleksi' }
-        ];
-
-        // ===== DOM REFS =====
-        const storyTrack = document.getElementById('storyTrack');
-        const storyDetail = document.getElementById('storyDetail');
-        const mapModal = document.getElementById('mapModal');
-        const mapPopup = document.getElementById('mapPopup');
-        const mapPopupBadge = document.getElementById('mapPopupBadge');
-        const mapPopupIcon = document.getElementById('mapPopupIcon');
-        const mapPopupTitle = document.getElementById('mapPopupTitle');
-        const mapPopupLead = document.getElementById('mapPopupLead');
-        const mapPopupList = document.getElementById('mapPopupList');
-        const mapPopupQuote = document.getElementById('mapPopupQuote');
-        const mapPopupReflection = document.getElementById('mapPopupReflection');
-        const mapPopupCount = document.getElementById('mapPopupCount');
-        const mapPrev = document.getElementById('mapPrev');
-        const mapNext = document.getElementById('mapNext');
-        const insightGrid = document.getElementById('insightGrid');
-        const flow = document.getElementById('flow');
-        const impactGrid = document.getElementById('impactGrid');
-        const progressBar = document.getElementById('progressBar');
-        const progressLabel = document.getElementById('progressLabel');
-        const stageList = document.getElementById('stageList');
-        const stageResponse = document.getElementById('stageResponse');
-        const toast = document.getElementById('toast');
-        const backTop = document.getElementById('backTop');
-        const quickNavWrap = document.getElementById('quickNavWrap');
-
-        let currentAudience = 'penggerak';
-        let openedNodes = new Set([0]);
-        let storyIndex = 0;
-        const mapOrder = ['core', 'problem', 'obstacle', 'resolution', 'impact'];
-        const mapMeta = {
-            core: { label: 'Inti perjalanan', badge: '00 — Fondasi', icon: '✦', accent: '#0ea5a8' },
-            problem: { label: 'Masalah', badge: '01 — Masalah', icon: '🎯', accent: '#e85d75' },
-            obstacle: { label: 'Kendala', badge: '02 — Kendala', icon: '🧩', accent: '#f59e0b' },
-            resolution: { label: 'Resolusi', badge: '03 — Resolusi', icon: '⚙️', accent: '#0ea5a8' },
-            impact: { label: 'Dampak', badge: '04 — Dampak', icon: '🌱', accent: '#16a34a' }
-        };
-        let currentMapKey = 'problem';
-        let lastMapTrigger = null;
-
-        // ===== RENDER STORY =====
-        function renderStory(activeIndex = 0) {
-            storyIndex = activeIndex;
-            storyTrack.innerHTML = storyPoints.map((item, i) =>
-                `<button class="story-card ${i === activeIndex ? 'active' : ''}" type="button" data-story="${i}">
-              <span class="story-step">${i + 1}</span>
-              <h3>${item.title}</h3>
-              <p>${item.short}</p>
-            </button>`
-            ).join('');
-            const item = storyPoints[activeIndex];
-            storyDetail.innerHTML = `
-            <div class="story-detail-icon">${item.icon}</div>
-            <div>
-              <h3>${item.title}</h3>
-              <p>${item.detail}</p>
-              <div class="lesson">${item.lesson}</div>
+    <section class="reflection-section" id="refleksi">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="kicker">Berhenti sejenak</div>
+          <h2>Karyamu sekarang berada di tahap mana?</h2>
+          <p>Refleksi ini tidak menilai. Ia hanya membantu melihat langkah berikutnya dengan lebih jernih.</p>
+        </div>
+        <div class="reflection-layout">
+          <div class="panel reveal reveal-delay-1">
+            <h3>Pilih tahapmu</h3>
+            <p>Klik satu tahap yang paling menggambarkan kondisi karya atau praktik baikmu saat ini.</p>
+            <div class="stage-list" id="stageList"></div>
+            <div class="stage-response" id="stageResponse">
+              <strong>Belum memilih tahap.</strong>
+              <p>Pilih salah satu tahap di atas untuk mendapatkan saran langkah berikutnya.</p>
             </div>
-          `;
-            storyTrack.querySelectorAll('.story-card').forEach(btn => {
-                btn.addEventListener('click', () => renderStory(Number(btn.dataset.story)));
-            });
-        }
-
-        // ===== RESPONSIVE MIND MAP POPUP =====
-        function setActiveMapNode(key) {
-            document.querySelectorAll('[data-map]').forEach(el => {
-                el.classList.toggle('active', el.dataset.map === key);
-            });
-        }
-
-        function openMapPopup(key, trigger = null) {
-            if (!mapData[key]) return;
-            currentMapKey = key;
-            lastMapTrigger = trigger || document.querySelector(`[data-map="${key}"]`);
-            setActiveMapNode(key);
-
-            const item = mapData[key];
-            const meta = mapMeta[key];
-            const index = mapOrder.indexOf(key);
-            mapPopup.style.setProperty('--popup-accent', meta.accent);
-            mapPopupBadge.textContent = meta.badge;
-            mapPopupIcon.textContent = meta.icon;
-            mapPopupTitle.textContent = item.title;
-            mapPopupLead.textContent = item.lead;
-            mapPopupList.innerHTML = item.items.map(x => `<li>${x}</li>`).join('');
-            mapPopupQuote.textContent = `“${item.quote}”`;
-            mapPopupReflection.textContent = item.reflection || 'Apa langkah kecil yang dapat dilakukan setelah memahami bagian ini?';
-            mapPopupCount.textContent = `${index + 1} / ${mapOrder.length}`;
-            mapPrev.disabled = index === 0;
-            mapNext.disabled = index === mapOrder.length - 1;
-
-            mapModal.classList.add('open');
-            mapModal.setAttribute('aria-hidden', 'false');
-            document.body.classList.add('map-modal-open');
-            requestAnimationFrame(() => mapPopup.focus({ preventScroll: true }));
-        }
-
-        function closeMapPopup() {
-            mapModal.classList.remove('open');
-            mapModal.setAttribute('aria-hidden', 'true');
-            document.body.classList.remove('map-modal-open');
-            if (lastMapTrigger) lastMapTrigger.focus({ preventScroll: true });
-        }
-
-        function moveMapPopup(direction) {
-            const currentIndex = mapOrder.indexOf(currentMapKey);
-            const targetIndex = currentIndex + direction;
-            if (targetIndex < 0 || targetIndex >= mapOrder.length) return;
-            const targetKey = mapOrder[targetIndex];
-            openMapPopup(targetKey, document.querySelector(`[data-map="${targetKey}"]`));
-            mapPopup.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // ===== RENDER INSIGHTS =====
-        function renderInsights() {
-            insightGrid.innerHTML = insights.map((item, i) =>
-                `<article class="insight-card fade-up visible">
-              <span class="insight-no">${i + 1}</span>
-              <div class="insight-icon">${item.icon}</div>
-              <h3>${item.title}</h3>
-              <p>${item.desc}</p>
-              <a class="insight-link" href="${item.link}">Lihat konteks →</a>
-            </article>`
-            ).join('');
-        }
-
-        // ===== RENDER JOURNEY =====
-        function applyTheme(data) {
-            document.documentElement.style.setProperty('--accent', data.accent);
-            document.documentElement.style.setProperty('--accent-soft', data.soft);
-        }
-
-        function renderJourney(key) {
-            currentAudience = key;
-            const data = journeys[key];
-            applyTheme(data);
-            document.getElementById('audienceTag').textContent = data.label;
-            document.getElementById('journeyTitle').textContent = data.title;
-            document.getElementById('journeyIntro').textContent = data.intro;
-
-            openedNodes = new Set([0]);
-            flow.innerHTML = data.nodes.map((n, i) =>
-                `<article class="node ${i === 0 ? 'active' : ''}" data-index="${i}">
-              <div class="node-num">${i + 1}</div>
-              <div>
-                <h4>${n[0]}</h4>
-                <p>${i === 0 ? 'Klik untuk insight & refleksi.' : 'Lanjutkan jalur ini secara berurutan.'}</p>
+          </div>
+          <div class="panel reveal reveal-delay-2">
+            <h3>Satu praktik baik yang layak dibagikan</h3>
+            <p>Tuliskan singkat. Sistem akan mengubahnya menjadi kartu refleksi yang bisa diunduh atau dibagikan.</p>
+            <label for="practiceInput">Praktik baik / karya saya</label>
+            <textarea id="practiceInput" maxlength="240" placeholder="Contoh: Media interaktif tekanan yang membantu siswa memahami konsep melalui simulasi sederhana..."></textarea>
+            <div class="form-actions">
+              <button class="btn btn-dark" id="makeCard">Buat kartu refleksi</button>
+              <button class="btn btn-light" id="sharePage">Bagikan halaman</button>
+            </div>
+            <div class="share-card" id="shareCard">
+              <small>REFLEKSI — DARI KELAS, JADI KARYA</small>
+              <div class="quote" id="shareQuote"></div>
+              <small>Rizal Abdurrahman • Guru IPA & Informatika • Santika • SATRIA</small>
+              <div class="form-actions">
+                <button class="btn btn-primary" id="downloadCard">Unduh PNG</button>
+                <button class="btn btn-secondary" id="copyText">Salin teks</button>
               </div>
-              <button class="node-btn" aria-label="Buka langkah ${i + 1}">${i === 0 ? '−' : '＋'}</button>
-              <div class="node-detail">
-                <strong>💡 Insight</strong>
-                ${n[1]}
-                <div class="reflection">“${n[2]}”</div>
-              </div>
-            </article>`
-            ).join('');
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            impactGrid.innerHTML = data.impacts.map(x =>
-                `<article class="impact"><div class="icon">${x[0]}</div><h4>${x[1]}</h4><p>${x[2]}</p></article>`
-            ).join('');
+    <section class="branding">
+      <div class="container">
+        <div class="branding-card reveal">
+          <div class="identity">
+            <div class="avatar">RA</div>
+            <div>
+              <h3>Rizal Abdurrahman</h3>
+              <p>Guru yang belajar dari masalah, membangun solusi, menguji teknologi, dan menggerakkan komunitas.</p>
+              <div class="brand-tags"><span>Guru IPA & Informatika</span><span>Komunitas Belajar Santika</span><span>SATRIA</span></div>
+            </div>
+          </div>
+          <a class="btn btn-primary" href="#top" style="width:auto;flex:0 0 auto">Ulangi perjalanan ↑</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
-            updateProgress();
+  <footer>
+    <div class="container"><b>Belajar • Berkarya • Berbagi</b><br>Refleksi personal berdasarkan artikel Kompas.com tentang Bu Guru Ria.</div>
+  </footer>
 
-            flow.querySelectorAll('.node').forEach(node => {
-                node.addEventListener('click', function(e) {
-                    const idx = Number(this.dataset.index);
-                    const isActive = this.classList.contains('active');
-                    this.classList.toggle('active');
-                    const btn = this.querySelector('.node-btn');
-                    btn.textContent = this.classList.contains('active') ? '−' : '＋';
-                    if (this.classList.contains('active')) openedNodes.add(idx);
-                    else openedNodes.delete(idx);
-                    updateProgress();
-                });
-            });
-        }
+  <button class="back-top" id="backTop" aria-label="Kembali ke atas">↑</button>
+  <div class="toast" id="toast">Tersalin.</div>
+  <canvas id="cardCanvas" width="1080" height="1350" hidden></canvas>
 
-        function updateProgress() {
-            const total = journeys[currentAudience].nodes.length;
-            const count = openedNodes.size;
-            const pct = Math.round((count / total) * 100);
-            progressBar.style.width = `${pct}%`;
-            progressLabel.textContent = `${count} dari ${total} langkah dijelajahi`;
-        }
+  <script>
 
-        // ===== RENDER STAGES =====
-        function renderStages() {
-            stageList.innerHTML = stages.map((s, i) =>
-                `<button class="stage-btn" data-index="${i}">
-              <span>${s[0]}</span>
-              <span>→</span>
-            </button>`
-            ).join('');
-            stageList.querySelectorAll('.stage-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    stageList.querySelectorAll('.stage-btn').forEach(b => b.classList.remove('active'));
-                    this.classList.add('active');
-                    const s = stages[Number(this.dataset.index)];
-                    stageResponse.innerHTML = `<strong>Langkah berikutnya</strong>${s[1]}`;
-                });
-            });
-        }
+    const ARTICLE_URL = 'https://regional.kompas.com/read/2026/07/25/153155978/berawal-dari-ruang-kelas-di-sidoarjo-bu-guru-ria-bantu-guru-honorer-petik?page=all#page2';
 
-        // ===== TOAST =====
-        function showToast(msg) {
-            toast.textContent = msg;
-            toast.classList.add('show');
-            clearTimeout(toast._timer);
-            toast._timer = setTimeout(() => toast.classList.remove('show'), 2000);
-        }
+    const storyPoints = [
+      {icon:'🎒',title:'Berawal dari kebutuhan kelas',short:'Media dibuat agar murid lebih antusias belajar.',detail:'Siti Komariyah memulai bukan dari rencana bisnis, melainkan dari kebutuhan pembelajaran di SDN Banjar Kemantren 2 Buduran.',lesson:'Insight: kebutuhan nyata adalah fondasi produk pendidikan yang paling kuat.'},
+      {icon:'📲',title:'Unggahan menjadi validasi',short:'Guru lain ternyata membutuhkan solusi serupa.',detail:'Setelah media dibagikan di media sosial, permintaan datang dari rekan guru lintas daerah. Konten berfungsi sebagai bukti kebutuhan, bukan hanya promosi.',lesson:'Insight: dokumentasi mengubah praktik pribadi menjadi pengetahuan yang dapat ditemukan.'},
+      {icon:'🛒',title:'E-commerce melipat jarak',short:'Transaksi, video, live, dan logistik memperluas jangkauan.',detail:'Marketplace membantu produk dikenal, diperagakan, ditransaksikan, dan dikirim tanpa harus membuka toko fisik di banyak daerah.',lesson:'Insight: platform adalah pengungkit; kualitas solusi tetap menjadi mesin utamanya.'},
+      {icon:'🏭',title:'Usaha berubah menjadi sistem',short:'Produksi dan distribusi tidak lagi ditangani sendirian.',detail:'Pertumbuhan pesanan menuntut pembagian kerja untuk produksi, stok, pengemasan, dan distribusi. Di sinilah karya guru berkembang menjadi UMKM.',lesson:'Insight: dampak sulit diperbesar bila semua proses bergantung pada satu orang.'},
+      {icon:'🤳',title:'Guru honorer menjadi mitra',short:'Sampel dan tautan afiliasi membuka penghasilan fleksibel.',detail:'Guru honorer dapat membuat ulasan atau membagikan tautan tanpa memproduksi, menyimpan stok, mengemas, maupun mengirim barang.',lesson:'Insight: pemberdayaan memberi peran produktif, bukan hanya bantuan sesaat.'},
+      {icon:'🌏',title:'Dampak menembus batas',short:'Pesanan menjangkau Indonesia hingga Malaysia.',detail:'Jangkauan pasar meluas dari berbagai provinsi di Indonesia sampai Malaysia, sembari membuka lapangan kerja bagi warga sekitar.',lesson:'Insight: inovasi lokal dapat tumbuh global ketika dokumentasi dan distribusinya kuat.'},
+      {icon:'🛡️',title:'Etika menjadi pagar',short:'Kejujuran ditempatkan di atas keuntungan sesaat.',detail:'Mitra diingatkan tidak membuat klaim berlebihan. Kepercayaan konsumen dan muruah pendidikan menjadi modal jangka panjang.',lesson:'Insight: personal branding yang kokoh dibangun dari manfaat dan integritas.'}
+    ];
 
-        // ===== SHARE CARD =====
-        document.getElementById('makeCard').addEventListener('click', function() {
-            const val = document.getElementById('practiceInput').value.trim();
-            if (!val) { showToast('Tulis praktik baikmu dulu, kang 😄'); return; }
-            document.getElementById('shareQuote').textContent = `“${val}”`;
-            document.getElementById('shareCard').style.display = 'block';
-            document.getElementById('shareCard').scrollIntoView({ behavior: 'smooth', block: 'center' });
-        });
+    const mapData = {
+      core:{title:'Pusat cerita: karya lahir dari ruang kelas',lead:'Seluruh perkembangan dimulai dari satu keputusan sederhana: memperbaiki pengalaman belajar murid.',items:['Guru mengamati kebutuhan nyata.','Solusi dibuat dan diuji pada konteks asli.','Respons pengguna menentukan langkah berikutnya.'],quote:'Bukan mencari produk untuk dijual, tetapi menemukan masalah yang layak diselesaikan.'},
+      problem:{title:'Masalah yang muncul',lead:'Masalah awalnya bersifat pedagogis, lalu berkembang menjadi tantangan akses dan kesejahteraan.',items:['Murid membutuhkan media yang lebih menarik dan mudah dipahami.','Banyak guru menghadapi kebutuhan serupa tetapi tidak memiliki waktu membuat media sendiri.','Guru honorer membutuhkan sumber penghasilan tambahan yang fleksibel.'],quote:'Masalah yang sama dapat memiliki nilai sosial sekaligus nilai ekonomi.'},
+      obstacle:{title:'Kendala ketika karya mulai tumbuh',lead:'Permintaan yang meningkat melahirkan pekerjaan baru yang tidak dapat diselesaikan hanya dengan kreativitas.',items:['Jangkauan promosi terbatas bila hanya mengandalkan jejaring pribadi.','Produksi, stok, pengemasan, transaksi, dan pengiriman semakin kompleks.','Skala besar berisiko mendorong klaim promosi berlebihan dan menurunkan kepercayaan.'],quote:'Pertumbuhan tanpa sistem justru dapat menjadi beban baru.'},
+      resolution:{title:'Tahapan resolusi',lead:'Bu Guru Ria menyusun rangkaian solusi yang saling memperkuat, bukan satu tindakan tunggal.',items:['Dokumentasikan penggunaan media dan bagikan melalui konten.','Gunakan marketplace, video, live, proteksi transaksi, dan logistik.','Bangun tim produksi dan pengemasan agar operasional tidak bergantung pada satu orang.','Buka skema afiliasi tanpa stok bagi guru honorer.','Tetapkan etika promosi dan larangan klaim berlebihan.'],quote:'Solusi terbaik bukan satu aplikasi, melainkan ekosistem proses yang konsisten.'},
+      impact:{title:'Dampak yang tercipta',lead:'Ketika sistem berjalan, manfaat meluas melampaui transaksi penjualan.',items:['Murid memperoleh media belajar yang lebih segar.','Guru di berbagai daerah memperoleh solusi siap pakai.','Guru honorer memperoleh peluang komisi yang fleksibel.','Warga sekitar terserap dalam produksi dan distribusi.','Produk pendidikan lokal menjangkau pasar nasional dan internasional.'],quote:'Dampak terbesar terjadi ketika karya membantu orang lain ikut bertumbuh.'}
+    };
 
-        document.getElementById('sharePage').addEventListener('click', async function() {
-            const data = {
-                title: 'Dari Kelas, Jadi Karya',
-                text: 'Refleksi interaktif dari kisah Bu Guru Ria: dari masalah kelas menuju karya yang berdampak.',
-                url: location.href
-            };
-            if (navigator.share) {
-                try { await navigator.share(data); } catch (_) {}
-            } else {
-                try {
-                    await navigator.clipboard.writeText(location.href);
-                    showToast('Tautan halaman tersalin');
-                } catch (_) { showToast('Gagal menyalin tautan'); }
-            }
-        });
+    // Story Track
+    const storyTrack = document.getElementById('storyTrack');
+    const storyDetail = document.getElementById('storyDetail');
+    let currentStory = 0;
 
-        document.getElementById('copyText').addEventListener('click', async function() {
-            const val = document.getElementById('practiceInput').value.trim() || 'Praktik baik yang berdampak.';
-            const text =
-                `DARI KELAS, JADI KARYA\n\n“${val}”\n\nRefleksi Rizal Abdurrahman | Guru IPA & Informatika | Santika | SATRIA\n${location.href}`;
-            try {
-                await navigator.clipboard.writeText(text);
-                showToast('Teks refleksi tersalin');
-            } catch (_) { showToast('Gagal menyalin teks'); }
-        });
+    function renderStory(activeIndex=0){
+      currentStory = activeIndex;
+      storyTrack.innerHTML = storyPoints.map((item,i)=>`
+        <button class="story-card ${i===activeIndex?'active':''}" type="button" data-story="${i}" aria-pressed="${i===activeIndex}">
+          <span class="story-step">${i+1}</span>
+          <h3>${item.title}</h3>
+          <p>${item.short}</p>
+        </button>`).join('');
+      const item=storyPoints[activeIndex];
+      storyDetail.innerHTML=`<div class="story-detail-icon">${item.icon}</div><div><h3>${item.title}</h3><p>${item.detail}</p><div class="lesson">${item.lesson}</div></div>`;
+      storyDetail.style.animation = 'none';
+      storyDetail.offsetHeight;
+      storyDetail.style.animation = '';
+      storyTrack.querySelectorAll('.story-card').forEach(btn=>btn.addEventListener('click',()=>renderStory(Number(btn.dataset.story))));
+      const activeCard = storyTrack.querySelector('.story-card.active');
+      if(activeCard) activeCard.scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});
+    }
 
-        // ===== DOWNLOAD CARD =====
-        function wrapText(ctx, text, maxWidth) {
-            const words = text.split(' ');
-            const lines = [];
-            let line = '';
-            for (const word of words) {
-                const test = line ? line + ' ' + word : word;
-                if (ctx.measureText(test).width > maxWidth && line) {
-                    lines.push(line);
-                    line = word;
-                } else {
-                    line = test;
-                }
-            }
-            if (line) lines.push(line);
-            return lines;
-        }
+    // Map Detail
+    const mapDetail=document.getElementById('mapDetail');
+    function renderMapDetail(key='problem'){
+      document.querySelectorAll('[data-map]').forEach(x=>x.classList.toggle('active',x.dataset.map===key));
+      const item=mapData[key];
+      const labelMap = {core:'Inti perjalanan',problem:'Masalah',obstacle:'Kendala',resolution:'Resolusi',impact:'Dampak'};
+      mapDetail.innerHTML=`<div><div class="kicker">${labelMap[key]}</div><h3>${item.title}</h3><p>${item.lead}</p><div class="map-detail-quote">"${item.quote}"</div></div><ul>${item.items.map(x=>`<li>${x}</li>`).join('')}</ul>`;
+      mapDetail.style.animation = 'none';
+      mapDetail.offsetHeight;
+      mapDetail.style.animation = '';
+    }
+    document.querySelectorAll('[data-map]').forEach(node=>node.addEventListener('click',()=>renderMapDetail(node.dataset.map)));
+    renderStory();
+    renderMapDetail();
 
-        document.getElementById('downloadCard').addEventListener('click', function() {
-            const text = document.getElementById('practiceInput').value.trim() || 'Praktik baik yang berdampak.';
-            const canvas = document.getElementById('cardCanvas');
-            const ctx = canvas.getContext('2d');
-            const data = journeys[currentAudience] || journeys.penggerak;
+    // Journeys
+    const journeys = {
+      penggerak: {
+        label:'Alumni Guru Penggerak', accent:'#0ea5a8', soft:'#dff8f5',
+        title:'Dari praktik baik menuju gerakan bersama',
+        intro:'Pemimpin pembelajaran melihat masalah sebagai peluang untuk bertumbuh bersama.',
+        nodes:[
+          ['Peka terhadap kebutuhan murid','Inovasi dimulai saat guru sungguh-sungguh melihat hambatan yang dialami murid.','Apa kebutuhan murid yang paling sering muncul di kelasmu?'],
+          ['Buat solusi kecil yang nyata','Tidak harus canggih. Media sederhana yang tepat sasaran sering lebih bermakna daripada ide besar yang belum diuji.','Solusi sederhana apa yang sebenarnya bisa dicoba pekan ini?'],
+          ['Uji, refleksi, dan perbaiki','Praktik baik lahir melalui siklus mencoba, mendengar, lalu memperbaiki.','Bukti apa yang menunjukkan solusi itu membantu murid?'],
+          ['Dokumentasikan praktik baik','Foto, video, catatan proses, dan panduan penggunaan membuat karya tidak hilang setelah satu pertemuan.','Apakah praktik baikmu sudah cukup mudah dipahami guru lain?'],
+          ['Bagikan kepada jejaring guru','Berbagi membuka ruang umpan balik dan menemukan bahwa masalah yang sama dialami banyak sekolah.','Siapa tiga orang pertama yang perlu melihat praktik baikmu?'],
+          ['Bangun kolaborasi','Dampak membesar ketika karya tidak lagi bergantung pada satu orang.','Bagian mana yang bisa dikerjakan bersama komunitas?'],
+          ['Libatkan guru honorer sebagai mitra','Pemberdayaan bukan sekadar memberi bantuan, tetapi membuka peran, kontribusi, dan peluang penghasilan yang bermartabat.','Bagaimana skema kolaborasi dapat tetap adil dan transparan?'],
+          ['Jaga etika dan kebermanfaatan','Kejujuran, perlindungan murid, dan dampak nyata harus lebih tinggi daripada promosi sesaat.','Nilai apa yang tidak boleh dikompromikan ketika karya berkembang?']
+        ],
+        impacts:[['👧','Murid terbantu','Solusi tetap berakar pada kebutuhan belajar.'],['📚','Guru bertumbuh','Praktik baik menjadi pengetahuan bersama.'],['🤝','Komunitas bergerak','Kolaborasi melahirkan daya jangkau.'],['📈','Ekonomi terangkat','Kemandirian memperkuat pengabdian.']]
+      },
+      informatika: {
+        label:'Guru Informatika', accent:'#2563eb', soft:'#e6efff',
+        title:'Dari prototipe menuju ekosistem digital',
+        intro:'Kelas dapat menjadi laboratorium desain produk yang paling jujur dan relevan.',
+        nodes:[
+          ['Identifikasi kebutuhan pengguna','Mulai dari masalah guru atau siswa, bukan dari teknologi yang sedang tren.','Siapa pengguna utama dan apa masalah paling mengganggunya?'],
+          ['Buat prototipe sederhana','Gunakan HTML, Canva Code, Apps Script, atau platform ringan untuk membuktikan ide.','Fitur minimum apa yang sudah cukup menyelesaikan masalah?'],
+          ['Uji langsung pada siswa atau guru','Amati kebingungan, hambatan, dan cara pengguna berinteraksi dengan produk.','Bagian mana yang paling sering membuat pengguna berhenti?'],
+          ['Perbaiki UI, alur, dan aksesibilitas','Produk pendidikan harus mudah dipakai di HP, jelas, ringan, dan ramah pengguna.','Apakah pengguna bisa memahami fungsi utama tanpa dijelaskan panjang?'],
+          ['Dokumentasikan dengan foto dan tutorial','Tutorial mengubah produk pribadi menjadi solusi yang dapat direplikasi.','Apakah orang lain bisa memakai karyamu tanpa kehadiranmu?'],
+          ['Bagikan untuk validasi kebutuhan','Konten bukan hanya promosi; respons pengguna membantu memvalidasi kebutuhan nyata.','Komentar atau permintaan apa yang paling sering muncul?'],
+          ['Distribusikan melalui kanal yang tepat','GitHub Pages, marketplace, video pendek, dan komunitas dapat menjadi jalur distribusi.','Kanal mana yang paling sesuai dengan perilaku pengguna?'],
+          ['Bangun sistem agar dapat diskalakan','Pisahkan produk, dokumentasi, layanan, dan dukungan agar karya tidak bergantung pada tenaga satu orang.','Proses apa yang dapat diotomatisasi tanpa mengurangi kualitas?']
+        ],
+        impacts:[['🌟','Personal branding','Dikenal karena solusi yang konsisten dan berguna.'],['💾','Karya bernilai','Aset digital dapat digunakan berulang kali.'],['🧑‍🏫','Guru lain terbantu','Solusi mudah diakses dan direplikasi.'],['🚀','Peluang tumbuh','Dampak dan penghasilan dapat berkembang bersama.']]
+      },
+      ipa: {
+        label:'Guru IPA', accent:'#16a34a', soft:'#e8f8ed',
+        title:'Dari observasi menuju solusi yang terbukti',
+        intro:'Budaya ilmiah—mengamati, menguji, mencatat, dan merevisi—sangat dekat dengan inovasi pendidikan.',
+        nodes:[
+          ['Amati gejala pembelajaran','Perhatikan konsep yang sulit, miskonsepsi, rendahnya keterlibatan, atau kendala alat praktikum.','Gejala apa yang paling sering tampak saat siswa belajar IPA?'],
+          ['Rumuskan kebutuhan','Ubah keluhan umum menjadi kebutuhan yang jelas dan dapat diuji.','Perubahan apa yang ingin terlihat setelah solusi digunakan?'],
+          ['Rancang media atau alat peraga','Gunakan bahan sederhana, sensor, IoT, simulasi, atau lingkungan sekitar.','Desain paling sederhana apa yang masih menunjukkan konsep inti?'],
+          ['Uji sebagai eksperimen kecil','Bandingkan sebelum dan sesudah, amati respons, serta catat kendala penggunaan.','Data sederhana apa yang bisa dikumpulkan dari uji coba?'],
+          ['Revisi berdasarkan bukti','Perbaikan didasarkan pada pengamatan, bukan sekadar selera pembuat.','Bagian mana yang perlu diubah berdasarkan data?'],
+          ['Bagikan praktik baik','Dokumentasi memungkinkan guru lain menilai, mengadaptasi, dan mengembangkan karya.','Apa yang perlu dicantumkan agar praktik dapat direplikasi?'],
+          ['Produkkan solusi yang terbukti','Media yang efektif dapat dikemas menjadi kit, modul, atau panduan yang lebih siap digunakan.','Apa yang membuat produk ini benar-benar praktis bagi guru lain?'],
+          ['Tumbuhkan dampak sosial dan ekonomi','Produk lokal dapat menggerakkan guru, siswa, komunitas, dan warga sekitar.','Siapa saja yang dapat dilibatkan dalam pengembangan berikutnya?']
+        ],
+        impacts:[['💡','Konsep dipahami','Media membantu menghubungkan teori dan pengalaman.'],['🧪','Guru inovatif','Budaya eksperimen tumbuh dalam pembelajaran.'],['📦','Produk lokal','Solusi terbukti dapat dikemas lebih luas.'],['🌍','Komunitas bergerak','Sains menjadi jalan kebermanfaatan.']]
+      }
+    };
 
-            // Background
-            const grad = ctx.createLinearGradient(0, 0, 1080, 1350);
-            grad.addColorStop(0, '#071b3d');
-            grad.addColorStop(1, '#0b2c5b');
-            ctx.fillStyle = grad;
-            ctx.fillRect(0, 0, 1080, 1350);
+    const stages = [
+      ['Baru berupa ide','Tuliskan masalah pengguna secara spesifik. Jangan mulai dari fitur; mulai dari perubahan yang ingin terjadi.'],
+      ['Sudah digunakan di kelas','Kumpulkan bukti sederhana: respons siswa, foto penggunaan, kendala, dan perubahan pemahaman.'],
+      ['Sudah didokumentasikan','Susun panduan satu halaman atau video singkat agar orang lain bisa mereplikasi tanpa banyak bertanya.'],
+      ['Sudah dibagikan','Amati respons. Pertanyaan berulang dari orang lain biasanya menunjukkan kebutuhan pasar atau kebutuhan komunitas.'],
+      ['Sudah digunakan guru lain','Mulai bangun sistem umpan balik, versi produk, lisensi penggunaan, serta dukungan yang jelas.'],
+      ['Siap dikembangkan lebih luas','Tetapkan nilai inti, standar kualitas, pembagian peran, model keberlanjutan, dan etika promosi.']
+    ];
 
-            // Decorative blobs
-            ctx.globalAlpha = .12;
-            ctx.fillStyle = data.accent;
-            ctx.beginPath();
-            ctx.arc(930, 160, 280, 0, Math.PI * 2);
-            ctx.fill();
-            ctx.beginPath();
-            ctx.arc(120, 1240, 310, 0, Math.PI * 2);
-            ctx.fill();
-            ctx.globalAlpha = 1;
+    let current='penggerak';
+    let opened=new Set([0]);
+    const flow=document.getElementById('flow');
+    const impactGrid=document.getElementById('impactGrid');
+    const progressBar=document.getElementById('progressBar');
+    const progressLabel=document.getElementById('progressLabel');
 
-            // Title
-            ctx.fillStyle = '#f7b731';
-            ctx.font = '900 38px system-ui, sans-serif';
-            ctx.fillText('DARI KELAS, JADI KARYA', 72, 96);
+    function applyTheme(data){
+      document.documentElement.style.setProperty('--accent',data.accent);
+      document.documentElement.style.setProperty('--accent-soft',data.soft);
+    }
 
-            // Label
-            ctx.fillStyle = '#dceafb';
-            ctx.font = '600 26px system-ui, sans-serif';
-            ctx.fillText(data.label.toUpperCase(), 72, 144);
+    function renderJourney(key){
+      current=key;opened=new Set([0]);
+      const data=journeys[key];applyTheme(data);
+      document.getElementById('audienceTag').textContent=data.label;
+      document.getElementById('journeyTitle').textContent=data.title;
+      document.getElementById('journeyIntro').textContent=data.intro;
+      flow.innerHTML=data.nodes.map((n,i)=>`
+        <article class="node ${i===0?'active':''}" data-index="${i}">
+          <div class="node-num">${i+1}</div>
+          <div><h4>${n[0]}</h4><p>${i===0?'Klik untuk membaca insight dan refleksi.':'Lanjutkan jalur ini secara berurutan.'}</p></div>
+          <button class="node-btn" aria-label="Buka langkah ${i+1}">＋</button>
+          <div class="node-detail"><strong>Insight</strong>${n[1]}<div class="reflection">"${n[2]}"</div></div>
+        </article>`).join('');
+      impactGrid.innerHTML=data.impacts.map(x=>`<article class="impact"><div class="icon">${x[0]}</div><h4>${x[1]}</h4><p>${x[2]}</p></article>`).join('');
+      updateProgress();
+      flow.querySelectorAll('.node').forEach(node=>node.addEventListener('click',()=>{
+        const idx=Number(node.dataset.index);node.classList.toggle('active');opened.add(idx);node.querySelector('.node-btn').textContent=node.classList.contains('active')?'−':'＋';updateProgress();
+      }));
+    }
 
-            // Quote
-            ctx.fillStyle = '#ffffff';
-            ctx.font = '900 54px system-ui, sans-serif';
-            const lines = wrapText(ctx, `“${text}”`, 920);
-            let y = 310;
-            for (const line of lines) {
-                ctx.fillText(line, 72, y);
-                y += 74;
-            }
+    function updateProgress(){
+      const count=opened.size;progressBar.style.width=`${count/8*100}%`;progressLabel.textContent=`${count} dari 8 langkah dijelajahi`;
+    }
 
-            // Accent line
-            ctx.fillStyle = data.accent;
-            ctx.fillRect(72, 1050, 180, 12);
+    document.querySelectorAll('.audience-card').forEach(card=>card.addEventListener('click',()=>{
+      document.querySelectorAll('.audience-card').forEach(c=>c.classList.remove('active'));card.classList.add('active');renderJourney(card.dataset.audience);document.getElementById('perjalanan').scrollIntoView({behavior:'smooth'});
+    }));
 
-            // Author
-            ctx.fillStyle = '#ffffff';
-            ctx.font = '800 32px system-ui, sans-serif';
-            ctx.fillText('Rizal Abdurrahman', 72, 1140);
+    const stageList=document.getElementById('stageList');
+    stageList.innerHTML=stages.map((s,i)=>`<button class="stage-btn" data-index="${i}"><span>${s[0]}</span><span>→</span></button>`).join('');
+    stageList.querySelectorAll('.stage-btn').forEach(btn=>btn.addEventListener('click',()=>{
+      stageList.querySelectorAll('.stage-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');
+      const s=stages[Number(btn.dataset.index)];
+      const resp = document.getElementById('stageResponse');
+      resp.innerHTML=`<strong>Langkah berikutnya</strong><p>${s[1]}</p>`;
+      resp.style.animation = 'none';resp.offsetHeight;resp.style.animation = '';
+    }));
 
-            ctx.fillStyle = '#c3d5e7';
-            ctx.font = '500 24px system-ui, sans-serif';
-            ctx.fillText('Guru IPA & Informatika • Komunitas Belajar Santika • SATRIA', 72, 1190);
+    const toast=document.getElementById('toast');
+    function showToast(msg){toast.textContent=msg;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),2200)}
 
-            ctx.fillStyle = '#f7b731';
-            ctx.font = '700 24px system-ui, sans-serif';
-            ctx.fillText('Belajar • Berkarya • Berbagi', 72, 1260);
+    document.getElementById('makeCard').addEventListener('click',()=>{
+      const val=document.getElementById('practiceInput').value.trim();
+      if(!val){showToast('Tulis praktik baikmu dulu, kang 😄');return}
+      document.getElementById('shareQuote').textContent=`"${val}"`;
+      document.getElementById('shareCard').style.display='block';
+      document.getElementById('shareCard').scrollIntoView({behavior:'smooth',block:'center'});
+    });
 
-            const a = document.createElement('a');
-            a.download = 'dari-kelas-jadi-karya.png';
-            a.href = canvas.toDataURL('image/png');
-            a.click();
-            showToast('Kartu PNG berhasil dibuat');
-        });
+    document.getElementById('sharePage').addEventListener('click',async()=>{
+      const data={title:'Dari Kelas, Jadi Karya',text:'Refleksi interaktif dari kisah Bu Guru Ria: dari masalah kelas menuju karya yang berdampak.',url:location.href};
+      if(navigator.share){try{await navigator.share(data)}catch(e){}}
+      else{await navigator.clipboard.writeText(location.href);showToast('Tautan halaman tersalin')}
+    });
 
-        // ===== QUICK NAV =====
-        const quickNavLinks = document.querySelectorAll('.quick-nav a');
-        const sections = ['ringkasan', 'peta-resolusi', 'insight-utama', 'perspektif', 'refleksi'];
+    document.getElementById('copyText').addEventListener('click',async()=>{
+      const val=document.getElementById('practiceInput').value.trim();
+      const text=`DARI KELAS, JADI KARYA
 
-        function updateQuickNav() {
-            let current = '';
-            const scrollY = window.scrollY + 120;
-            for (const id of sections) {
-                const el = document.getElementById(id);
-                if (el && el.offsetTop <= scrollY) current = id;
-            }
-            quickNavLinks.forEach(a => {
-                const href = a.getAttribute('href').replace('#', '');
-                a.classList.toggle('active', href === current);
-            });
-        }
+"${val}"
 
-        quickNavLinks.forEach(a => {
-            a.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) target.scrollIntoView({ behavior: 'smooth' });
-            });
-        });
+Refleksi Rizal Abdurrahman | Guru IPA & Informatika | Santika | SATRIA
+${location.href}`;
+      await navigator.clipboard.writeText(text);showToast('Teks refleksi tersalin');
+    });
 
-        // ===== AUDIENCE CARDS =====
-        document.querySelectorAll('.audience-card').forEach(card => {
-            card.addEventListener('click', function() {
-                document.querySelectorAll('.audience-card').forEach(c => c.classList.remove('active'));
-                this.classList.add('active');
-                renderJourney(this.dataset.audience);
-                document.getElementById('perjalanan').scrollIntoView({ behavior: 'smooth' });
-            });
-        });
+    function wrapText(ctx,text,maxWidth){
+      const words=text.split(' '), lines=[];let line='';
+      for(const word of words){const test=line?line+' '+word:word;if(ctx.measureText(test).width>maxWidth&&line){lines.push(line);line=word}else line=test}if(line)lines.push(line);return lines;
+    }
 
-        // ===== BACK TO TOP =====
-        window.addEventListener('scroll', function() {
-            const show = window.scrollY > 500;
-            backTop.style.display = show ? 'grid' : 'none';
-            quickNavWrap.classList.toggle('scrolled', window.scrollY > 60);
-            updateQuickNav();
-        });
+    document.getElementById('downloadCard').addEventListener('click',()=>{
+      const text=document.getElementById('practiceInput').value.trim();
+      const canvas=document.getElementById('cardCanvas'),ctx=canvas.getContext('2d');
+      const data=journeys[current];
+      const grad=ctx.createLinearGradient(0,0,1080,1350);grad.addColorStop(0,'#071b3d');grad.addColorStop(1,'#0b2c5b');ctx.fillStyle=grad;ctx.fillRect(0,0,1080,1350);
+      ctx.globalAlpha=.18;ctx.fillStyle=data.accent;ctx.beginPath();ctx.arc(930,160,260,0,Math.PI*2);ctx.fill();ctx.beginPath();ctx.arc(120,1240,290,0,Math.PI*2);ctx.fill();ctx.globalAlpha=1;
+      ctx.fillStyle='#f7b731';ctx.font='900 34px Inter,system-ui';ctx.fillText('DARI KELAS, JADI KARYA',72,92);
+      ctx.fillStyle='#dceafb';ctx.font='600 24px Inter,system-ui';ctx.fillText(data.label.toUpperCase(),72,136);
+      ctx.fillStyle='#ffffff';ctx.font='900 56px Inter,system-ui';
+      const lines=wrapText(ctx,'"'+text+'"',900);let y=310;for(const line of lines){ctx.fillText(line,72,y);y+=76}
+      ctx.fillStyle=data.accent;ctx.fillRect(72,1030,160,12);
+      ctx.fillStyle='#ffffff';ctx.font='800 29px Inter,system-ui';ctx.fillText('Rizal Abdurrahman',72,1115);
+      ctx.fillStyle='#c3d5e7';ctx.font='500 22px Inter,system-ui';ctx.fillText('Guru IPA & Informatika • Komunitas Belajar Santika • SATRIA',72,1160);
+      ctx.fillStyle='#f7b731';ctx.font='700 22px Inter,system-ui';ctx.fillText('Belajar • Berkarya • Berbagi',72,1230);
+      const a=document.createElement('a');a.download='dari-kelas-jadi-karya.png';a.href=canvas.toDataURL('image/png');a.click();showToast('Kartu PNG berhasil dibuat');
+    });
 
-        backTop.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+    const backTop=document.getElementById('backTop');
+    window.addEventListener('scroll',()=>{backTop.style.display=scrollY>700?'grid':'none'});backTop.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
 
-        // ===== INTERSECTION OBSERVER (fade-up) =====
-        const observer = new IntersectionObserver((entries) => {
-            for (const entry of entries) {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            }
-        }, { threshold: .1, rootMargin: '0px 0px -40px 0px' });
+    // Scroll reveal observer
+    const revealObserver = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');}});
+    },{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+    document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
 
-        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-        // ===== MAP NODES & POPUP CONTROLS =====
-        document.querySelectorAll('[data-map]').forEach(node => {
-            node.addEventListener('click', () => openMapPopup(node.dataset.map, node));
-        });
-        document.querySelectorAll('[data-map-close]').forEach(el => {
-            el.addEventListener('click', closeMapPopup);
-        });
-        mapPrev.addEventListener('click', () => moveMapPopup(-1));
-        mapNext.addEventListener('click', () => moveMapPopup(1));
-        document.addEventListener('keydown', (event) => {
-            if (!mapModal.classList.contains('open')) return;
-            if (event.key === 'Escape') closeMapPopup();
-            if (event.key === 'ArrowLeft') moveMapPopup(-1);
-            if (event.key === 'ArrowRight') moveMapPopup(1);
-        });
-
-        // ===== INIT =====
-        renderStory(0);
-        setActiveMapNode('problem');
-        renderInsights();
-        renderJourney('penggerak');
-        renderStages();
-
-        // Set initial progress
-        setTimeout(() => updateProgress(), 100);
-
-        // Make sure quick nav starts correctly
-        setTimeout(updateQuickNav, 200);
-
-        console.log('🚀 Dari Kelas, Jadi Karya — Refleksi interaktif siap digunakan.');
-        console.log('📖 Cerita: Bu Guru Ria — dari masalah kelas menjadi karya berdampak.');
-        console.log('💡 Pilih perspektifmu dan mulai refleksi.');
-    </script>
+    renderJourney('penggerak');
+  </script>
 </body>
 </html>
