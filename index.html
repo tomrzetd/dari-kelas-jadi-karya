@@ -1,1198 +1,2753 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-  <meta name="theme-color" content="#071b3d" />
-  <meta name="description" content="Refleksi interaktif kisah Bu Guru Ria: Mengubah masalah kelas menjadi karya berdampak." />
-  <meta property="og:title" content="Dari Kelas, Jadi Karya — Rizal Abdurrahman" />
-  <meta property="og:description" content="Eksplorasi interaktif bagaimana solusi pembelajaran sederhana tumbuh menjadi ekosistem pemberdayaan." />
-  <title>Dari Kelas, Jadi Karya — Rizal Abdurrahman</title>
-  
-  <style>
-    /* ==========================================================================
-       1. VARIABLES & BASE (MOBILE FIRST)
-       ========================================================================== */
-    :root {
-      --navy: #071b3d;
-      --navy-2: #0b2c5b;
-      --teal: #0ea5a8;
-      --teal-2: #2dd4bf;
-      --gold: #f7b731;
-      --cream: #f4f9fd;
-      --ink: #132238;
-      --muted: #66758a;
-      --line: #d7e4ef;
-      --card: #ffffff;
-      --danger: #e85d75;
-      --shadow-sm: 0 4px 16px rgba(7, 27, 61, 0.06);
-      --shadow-md: 0 12px 32px rgba(7, 27, 61, 0.10);
-      --shadow-lg: 0 20px 48px rgba(7, 27, 61, 0.16);
-      --radius-sm: 14px;
-      --radius-md: 20px;
-      --radius-lg: 28px;
-      --accent: #0ea5a8;
-      --accent-soft: #dff8f5;
-      --transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+    <meta name="theme-color" content="#071b3d" />
+    <meta name="description" content="Refleksi interaktif dari kisah Bu Guru Ria: mengubah masalah pembelajaran menjadi karya yang berdampak." />
+    <meta property="og:title" content="Dari Kelas, Jadi Karya" />
+    <meta property="og:description" content="Jelajahi bagaimana masalah sederhana di kelas dapat berkembang menjadi inovasi, kolaborasi, dan pemberdayaan." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>Dari Kelas, Jadi Karya — Rizal Abdurrahman</title>
+    <style>
+        /* ===== RESET & BASE ===== */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        :root {
+            --navy: #071b3d;
+            --navy-2: #0b2c5b;
+            --navy-3: #123a6e;
+            --teal: #0ea5a8;
+            --teal-2: #2dd4bf;
+            --teal-glow: rgba(14, 165, 168, .25);
+            --gold: #f7b731;
+            --gold-2: #ffd978;
+            --gold-glow: rgba(247, 183, 49, .25);
+            --cream: #f7fbff;
+            --ink: #132238;
+            --muted: #5a6f86;
+            --muted-light: #8a9db5;
+            --line: #d7e4ef;
+            --card: #ffffff;
+            --danger: #e85d75;
+            --shadow-sm: 0 4px 16px rgba(7, 27, 61, .08);
+            --shadow-md: 0 12px 40px rgba(7, 27, 61, .12);
+            --shadow-lg: 0 24px 64px rgba(7, 27, 61, .16);
+            --radius: 24px;
+            --radius-sm: 14px;
+            --radius-full: 9999px;
+            --accent: #0ea5a8;
+            --accent-soft: #dff8f5;
+            --transition: .35s cubic-bezier(.22, 1, .36, 1);
+            --font: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+        }
+        html {
+            scroll-behavior: smooth;
+            -webkit-tap-highlight-color: transparent;
+        }
+        body {
+            margin: 0;
+            font-family: var(--font);
+            color: var(--ink);
+            background: #f4f9fd;
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container {
+            width: min(1120px, calc(100% - 28px));
+            margin: 0 auto;
+        }
+        button {
+            font: inherit;
+            cursor: pointer;
+            border: none;
+            background: none;
+            touch-action: manipulation;
+        }
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+        img {
+            display: block;
+            max-width: 100%;
+        }
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
 
-    *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
-    body {
-      margin: 0;
-      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      color: var(--ink);
-      background-color: var(--cream);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
+        /* ===== SCROLLBAR ===== */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--teal);
+            border-radius: 999px;
+        }
 
-    button, input, textarea { font: inherit; }
-    button { cursor: pointer; border: none; background: none; }
-    a { color: inherit; text-decoration: none; }
+        /* ===== UTILITY ===== */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(32px) scale(.98);
+            transition: opacity .7s cubic-bezier(.22, 1, .36, 1), transform .7s cubic-bezier(.22, 1, .36, 1);
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        .fade-up.delay-1 {
+            transition-delay: .08s;
+        }
+        .fade-up.delay-2 {
+            transition-delay: .16s;
+        }
+        .fade-up.delay-3 {
+            transition-delay: .24s;
+        }
+        .fade-up.delay-4 {
+            transition-delay: .32s;
+        }
+        .fade-up.delay-5 {
+            transition-delay: .40s;
+        }
 
-    .container {
-      width: min(100% - 32px, 1120px);
-      margin-inline: auto;
-    }
+        /* ===== HERO ===== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            color: #fff;
+            overflow: hidden;
+            background: linear-gradient(145deg, var(--navy) 0%, var(--navy-2) 60%, #0d3a6e 100%);
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(14, 165, 168, .25) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(247, 183, 49, .15) 0%, transparent 40%);
+            pointer-events: none;
+        }
+        .hero-grid {
+            position: absolute;
+            inset: 0;
+            opacity: .06;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, .4) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, .4) 1px, transparent 1px);
+            background-size: 48px 48px;
+            mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+            -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+            pointer-events: none;
+        }
+        .hero-floating {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            filter: blur(60px);
+            opacity: .30;
+        }
+        .hero-floating.f1 {
+            width: 500px;
+            height: 500px;
+            background: var(--teal);
+            right: -200px;
+            top: -200px;
+            animation: floatBlob 12s ease-in-out infinite alternate;
+        }
+        .hero-floating.f2 {
+            width: 350px;
+            height: 350px;
+            background: var(--gold);
+            left: -150px;
+            bottom: -150px;
+            animation: floatBlob 16s ease-in-out infinite alternate-reverse;
+        }
+        @keyframes floatBlob {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+            100% {
+                transform: translate(40px, -30px) scale(1.2);
+            }
+        }
 
-    /* Scroll Reveal Animation Utility */
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
+        .hero-inner {
+            position: relative;
+            z-index: 2;
+            padding: 72px 0 56px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+        @media(min-width:900px) {
+            .hero-inner {
+                grid-template-columns: 1.1fr .9fr;
+                padding: 96px 0 80px;
+                gap: 56px;
+            }
+        }
 
-    /* ==========================================================================
-       2. HERO SECTION (MOBILE FIRST)
-       ========================================================================== */
-    .hero {
-      position: relative;
-      padding: 48px 0 64px;
-      color: #fff;
-      background: linear-gradient(145deg, var(--navy), var(--navy-2));
-      overflow: hidden;
-    }
-    .hero::before, .hero::after {
-      content: ""; position: absolute; border-radius: 50%; pointer-events: none; opacity: 0.25; filter: blur(40px);
-    }
-    .hero::before { width: 280px; height: 280px; background: var(--accent); right: -80px; top: -80px; }
-    .hero::after { width: 240px; height: 240px; background: var(--gold); left: -100px; bottom: -80px; }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 16px 8px 12px;
+            border: 1px solid rgba(255, 255, 255, .15);
+            border-radius: var(--radius-full);
+            background: rgba(255, 255, 255, .06);
+            backdrop-filter: blur(8px);
+            font-weight: 700;
+            font-size: .82rem;
+            letter-spacing: .02em;
+            width: fit-content;
+        }
+        .hero-badge .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--gold);
+            box-shadow: 0 0 0 6px rgba(247, 183, 49, .15);
+            animation: pulseDot 2s ease-in-out infinite;
+        }
+        @keyframes pulseDot {
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(247, 183, 49, .3);
+            }
+            50% {
+                box-shadow: 0 0 0 8px rgba(247, 183, 49, .08);
+            }
+        }
 
-    .grid-bg {
-      position: absolute; inset: 0; opacity: 0.08;
-      background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px);
-      background-size: 32px 32px;
-      mask-image: linear-gradient(to bottom, black 60%, transparent);
-    }
+        .hero h1 {
+            font-size: clamp(2.6rem, 10vw, 6rem);
+            line-height: .92;
+            letter-spacing: -.05em;
+            margin: 20px 0 16px;
+            font-weight: 900;
+        }
+        .hero h1 span {
+            display: block;
+            color: var(--gold);
+            background: linear-gradient(135deg, var(--gold), var(--gold-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero p.lead {
+            font-size: clamp(1rem, 1.8vw, 1.3rem);
+            color: #c8dcef;
+            max-width: 600px;
+            line-height: 1.7;
+        }
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 28px;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 24px;
+            border-radius: var(--radius-sm);
+            font-weight: 800;
+            font-size: .95rem;
+            transition: var(--transition);
+            min-height: 52px;
+            border: 0;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 255, 255, .1);
+            opacity: 0;
+            transition: opacity .3s;
+        }
+        .btn:active::after {
+            opacity: 1;
+        }
+        .btn-primary {
+            background: var(--gold);
+            color: var(--navy);
+            box-shadow: 0 12px 32px rgba(247, 183, 49, .30);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 18px 44px rgba(247, 183, 49, .35);
+        }
+        .btn-secondary {
+            background: rgba(255, 255, 255, .08);
+            border: 1px solid rgba(255, 255, 255, .18);
+            color: #fff;
+            backdrop-filter: blur(4px);
+        }
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, .16);
+            transform: translateY(-2px);
+        }
+        .btn-dark {
+            background: var(--navy);
+            color: #fff;
+        }
+        .btn-dark:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        .btn-light {
+            background: var(--accent-soft);
+            color: var(--navy);
+        }
+        .btn-light:hover {
+            transform: translateY(-2px);
+            background: #c8f0ec;
+        }
+        .btn .arrow {
+            transition: transform .3s;
+        }
+        .btn:hover .arrow {
+            transform: translateX(4px);
+        }
+        .hero-note {
+            margin-top: 18px;
+            font-size: .9rem;
+            color: #a0bcdb;
+        }
 
-    .hero-inner {
-      position: relative; z-index: 2;
-      display: flex; flex-direction: column; gap: 40px;
-    }
+        /* Hero visual */
+        .hero-visual {
+            position: relative;
+            min-height: 340px;
+            display: grid;
+            place-items: center;
+        }
+        @media(min-width:900px) {
+            .hero-visual {
+                min-height: 480px;
+            }
+        }
+        .orbit-ring {
+            position: absolute;
+            border: 1px solid rgba(255, 255, 255, .10);
+            border-radius: 50%;
+            animation: spin linear infinite;
+        }
+        .orbit-ring.r1 {
+            width: 320px;
+            height: 320px;
+            animation-duration: 20s;
+        }
+        .orbit-ring.r2 {
+            width: 240px;
+            height: 240px;
+            animation-duration: 14s;
+            animation-direction: reverse;
+        }
+        .orbit-ring.r3 {
+            width: 400px;
+            height: 400px;
+            animation-duration: 26s;
+            border-color: rgba(255, 255, 255, .06);
+        }
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
 
-    .eyebrow {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 6px 14px; border-radius: 999px;
-      background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2);
-      font-size: 0.82rem; font-weight: 700; color: #eef7ff;
-    }
-    .eyebrow-dot {
-      width: 8px; height: 8px; background: var(--gold); border-radius: 50%;
-      box-shadow: 0 0 10px var(--gold);
-      animation: pulse-dot 2s infinite;
-    }
-    @keyframes pulse-dot { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.4); opacity: 0.6; } }
+        .core-node {
+            width: 160px;
+            height: 160px;
+            border-radius: 38% 62% 57% 43% / 47% 43% 57% 53%;
+            display: grid;
+            place-items: center;
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(145deg, var(--gold), var(--gold-2));
+            color: var(--navy);
+            font-weight: 900;
+            font-size: 1.1rem;
+            box-shadow: 0 20px 60px rgba(247, 183, 49, .30);
+            animation: floatCore 4s ease-in-out infinite;
+            position: relative;
+            z-index: 2;
+            line-height: 1.3;
+        }
+        @media(min-width:600px) {
+            .core-node {
+                width: 190px;
+                height: 190px;
+                font-size: 1.3rem;
+            }
+        }
+        @keyframes floatCore {
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-10px) rotate(1deg);
+            }
+        }
 
-    h1 {
-      font-size: clamp(2.2rem, 8vw, 4.5rem);
-      line-height: 1.05; letter-spacing: -0.04em;
-      margin: 18px 0 16px; font-weight: 900;
-    }
-    h1 span { color: var(--gold); display: block; }
+        .orbit-bubble {
+            position: absolute;
+            padding: 12px 16px;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, .08);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, .12);
+            font-weight: 700;
+            font-size: .78rem;
+            color: #eef7ff;
+            text-align: center;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, .15);
+            animation: floatBubble 5s ease-in-out infinite;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .orbit-bubble .emoji {
+            font-size: 1.2rem;
+        }
+        .orbit-bubble.b1 {
+            top: 2%;
+            left: 0;
+            animation-delay: 0s;
+        }
+        .orbit-bubble.b2 {
+            top: 6%;
+            right: 0;
+            animation-delay: 1.2s;
+        }
+        .orbit-bubble.b3 {
+            bottom: 4%;
+            left: 2%;
+            animation-delay: 2.4s;
+        }
+        .orbit-bubble.b4 {
+            bottom: 0;
+            right: 2%;
+            animation-delay: .6s;
+        }
+        @keyframes floatBubble {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+        @media(max-width:500px) {
+            .orbit-bubble {
+                font-size: .7rem;
+                padding: 8px 12px;
+            }
+            .orbit-bubble .emoji {
+                font-size: 1rem;
+            }
+            .orbit-ring.r1 {
+                width: 240px;
+                height: 240px;
+            }
+            .orbit-ring.r2 {
+                width: 180px;
+                height: 180px;
+            }
+            .orbit-ring.r3 {
+                width: 300px;
+                height: 300px;
+            }
+            .core-node {
+                width: 130px;
+                height: 130px;
+                font-size: .95rem;
+            }
+        }
 
-    .hero-copy {
-      font-size: clamp(0.98rem, 3.5vw, 1.2rem);
-      color: #cce1f5; margin: 0 0 24px; max-width: 680px;
-    }
+        /* ===== QUICK NAV ===== */
+        .quick-nav-wrap {
+            position: sticky;
+            top: 0;
+            z-index: 40;
+            background: rgba(244, 249, 253, .92);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(215, 228, 239, .7);
+            transition: box-shadow .3s;
+        }
+        .quick-nav-wrap.scrolled {
+            box-shadow: 0 4px 24px rgba(7, 27, 61, .08);
+        }
+        .quick-nav {
+            display: flex;
+            gap: 6px;
+            padding: 10px 0;
+            overflow-x: auto;
+            scrollbar-width: none;
+            -webkit-overflow-scrolling: touch;
+        }
+        .quick-nav::-webkit-scrollbar {
+            display: none;
+        }
+        .quick-nav a {
+            flex: 0 0 auto;
+            padding: 8px 16px;
+            border-radius: var(--radius-full);
+            font-size: .78rem;
+            font-weight: 800;
+            color: var(--muted);
+            background: transparent;
+            border: 1px solid transparent;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+        .quick-nav a:hover,
+        .quick-nav a:focus-visible {
+            color: var(--navy);
+            background: #fff;
+            border-color: var(--line);
+            box-shadow: var(--shadow-sm);
+        }
+        .quick-nav a.active {
+            color: #fff;
+            background: var(--navy);
+            border-color: var(--navy);
+        }
+        @media(max-width:500px) {
+            .quick-nav a {
+                font-size: .7rem;
+                padding: 6px 12px;
+            }
+        }
 
-    .hero-actions { display: flex; flex-direction: column; gap: 12px; }
-    .btn {
-      min-height: 52px; padding: 14px 24px; border-radius: 16px;
-      font-weight: 800; font-size: 0.95rem;
-      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      transition: var(--transition); text-align: center;
-    }
-    .btn:active { transform: scale(0.97); }
-    .btn-primary { background: var(--gold); color: #112238; box-shadow: 0 8px 24px rgba(247, 183, 49, 0.3); }
-    .btn-secondary { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); color: #fff; }
+        /* ===== SECTION BASE ===== */
+        section {
+            padding: 64px 0;
+        }
+        @media(min-width:768px) {
+            section {
+                padding: 88px 0;
+            }
+        }
+        .section-head {
+            max-width: 780px;
+            margin: 0 auto 40px;
+            text-align: center;
+        }
+        .kicker {
+            display: inline-block;
+            color: var(--accent);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: .14em;
+            font-size: .75rem;
+            background: var(--accent-soft);
+            padding: 4px 14px;
+            border-radius: var(--radius-full);
+            margin-bottom: 12px;
+        }
+        h2 {
+            font-size: clamp(1.8rem, 5vw, 3.4rem);
+            line-height: 1.05;
+            letter-spacing: -.04em;
+            margin: 8px 0 16px;
+            font-weight: 900;
+        }
+        .section-head p {
+            color: var(--muted);
+            font-size: 1.05rem;
+            max-width: 640px;
+            margin: 0 auto;
+        }
 
-    .hero-note { font-size: 0.82rem; color: #9bbcdb; margin-top: 14px; }
+        /* ===== STORY TRACK ===== */
+        .story-section {
+            background: linear-gradient(180deg, #f4f9fd 0%, #fff 60%);
+        }
+        .story-track {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            position: relative;
+        }
+        @media(min-width:600px) {
+            .story-track {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media(min-width:900px) {
+            .story-track {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        .story-track::before {
+            content: '';
+            position: absolute;
+            left: 28px;
+            right: 28px;
+            top: 28px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--teal), var(--gold), var(--teal));
+            border-radius: 999px;
+            opacity: .25;
+            display: none;
+        }
+        @media(min-width:900px) {
+            .story-track::before {
+                display: block;
+            }
+        }
+        .story-card {
+            position: relative;
+            z-index: 2;
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 18px 16px 16px;
+            text-align: left;
+            min-height: 140px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            cursor: pointer;
+            display: grid;
+            grid-template-columns: 40px 1fr;
+            gap: 12px 14px;
+            align-items: start;
+        }
+        .story-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+            box-shadow: var(--shadow-md);
+        }
+        .story-card.active {
+            border-color: var(--accent);
+            background: var(--accent-soft);
+            box-shadow: 0 0 0 4px rgba(14, 165, 168, .10);
+        }
+        .story-step {
+            width: 36px;
+            height: 36px;
+            border-radius: 12px;
+            display: grid;
+            place-items: center;
+            background: var(--navy);
+            color: #fff;
+            font-weight: 900;
+            font-size: .9rem;
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+        .story-card.active .story-step {
+            background: var(--gold);
+            color: var(--navy);
+        }
+        .story-card h3 {
+            font-size: .95rem;
+            line-height: 1.2;
+            margin: 0 0 4px;
+            font-weight: 800;
+        }
+        .story-card p {
+            font-size: .82rem;
+            line-height: 1.4;
+            color: var(--muted);
+            margin: 0;
+            grid-column: 2;
+        }
+        .story-card h3 {
+            grid-column: 2;
+        }
+        .story-step {
+            grid-row: 1 / 3;
+        }
+        @media(min-width:600px) {
+            .story-card {
+                min-height: 170px;
+                padding: 20px 18px;
+            }
+            .story-card h3 {
+                font-size: 1rem;
+            }
+            .story-card p {
+                font-size: .85rem;
+            }
+        }
+        .story-detail {
+            margin-top: 24px;
+            border-radius: var(--radius);
+            padding: 24px 22px;
+            background: linear-gradient(135deg, var(--navy), var(--navy-2));
+            color: #fff;
+            display: grid;
+            grid-template-columns: 56px 1fr;
+            gap: 16px;
+            align-items: start;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+        }
+        @media(min-width:600px) {
+            .story-detail {
+                grid-template-columns: 72px 1fr;
+                padding: 28px 32px;
+                gap: 20px;
+            }
+        }
+        .story-detail-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, .10);
+            display: grid;
+            place-items: center;
+            font-size: 1.6rem;
+            flex-shrink: 0;
+        }
+        @media(min-width:600px) {
+            .story-detail-icon {
+                width: 64px;
+                height: 64px;
+                font-size: 2rem;
+            }
+        }
+        .story-detail h3 {
+            font-size: 1.15rem;
+            margin: 0 0 4px;
+            font-weight: 800;
+        }
+        .story-detail p {
+            color: #c7d8e8;
+            margin: 0;
+            font-size: .95rem;
+        }
+        .story-detail .lesson {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(255, 255, 255, .10);
+            color: var(--gold);
+            font-weight: 800;
+            font-size: .92rem;
+        }
 
-    /* Interactive Orbit Component */
-    .hero-map {
-      position: relative; width: 100%; height: 320px;
-      display: grid; place-items: center; margin-top: 10px;
-    }
-    .orbit {
-      position: absolute; border: 1px dashed rgba(255, 255, 255, 0.2); border-radius: 50%;
-    }
-    .orbit.one { width: 260px; height: 260px; animation: spin 25s linear infinite; }
-    .orbit.two { width: 190px; height: 190px; animation: spin 18s linear infinite reverse; }
-    @keyframes spin { to { transform: rotate(360deg); } }
+        /* ===== MIND MAP ===== */
+        .map-section {
+            background: #fff;
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+        }
+        .mindmap-shell {
+            position: relative;
+            min-height: 640px;
+            max-width: 1000px;
+            margin: 0 auto;
+            border-radius: var(--radius);
+            background:
+                radial-gradient(circle at 50% 45%, rgba(14, 165, 168, .06), transparent 18rem),
+                linear-gradient(145deg, #f7fbff, #edf7fb);
+            border: 1px solid var(--line);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            padding: 20px;
+            display: grid;
+            gap: 14px;
+        }
+        @media(min-width:768px) {
+            .mindmap-shell {
+                padding: 32px;
+                min-height: 680px;
+                display: block;
+            }
+        }
+        .mindmap-svg {
+            display: none;
+        }
+        @media(min-width:768px) {
+            .mindmap-svg {
+                display: block;
+                position: absolute;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+            }
+        }
+        .map-line {
+            fill: none;
+            stroke: var(--accent);
+            stroke-width: 3;
+            stroke-linecap: round;
+            stroke-dasharray: 8 10;
+            opacity: .6;
+            animation: flowDash 5s linear infinite;
+        }
+        .map-line.alt {
+            stroke: var(--gold);
+            animation-duration: 7s;
+        }
+        @keyframes flowDash {
+            to {
+                stroke-dashoffset: -120;
+            }
+        }
 
-    .core {
-      width: 130px; height: 130px; border-radius: 40% 60% 50% 50% / 50% 40% 60% 50%;
-      background: linear-gradient(135deg, var(--gold), #ffe083);
-      color: var(--navy); font-weight: 900; font-size: 0.95rem; text-align: center;
-      display: grid; place-items: center; padding: 16px;
-      box-shadow: 0 12px 36px rgba(0,0,0,0.3);
-      animation: float 4s ease-in-out infinite; z-index: 3;
-    }
-    @keyframes float { 50% { transform: translateY(-8px) rotate(2deg); } }
+        .map-core {
+            grid-column: 1 / -1;
+            border-radius: var(--radius);
+            background: linear-gradient(145deg, var(--navy), var(--navy-2));
+            color: #fff;
+            padding: 20px 22px;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            border: 0;
+            transition: var(--transition);
+            animation: mapPulse 4s ease-in-out infinite;
+        }
+        @media(min-width:768px) {
+            .map-core {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                width: 200px;
+                min-height: 160px;
+                padding: 24px;
+                border-radius: 32px;
+                animation: mapPulse 4s ease-in-out infinite;
+            }
+            @keyframes mapPulse {
+                0%,
+                100% {
+                    transform: translate(-50%, -50%) scale(1);
+                    box-shadow: 0 20px 50px rgba(7, 27, 61, .25);
+                }
+                50% {
+                    transform: translate(-50%, -50%) scale(1.03);
+                    box-shadow: 0 28px 64px rgba(7, 27, 61, .32);
+                }
+            }
+        }
+        .map-core span {
+            display: block;
+            color: var(--gold);
+            font-size: .7rem;
+            text-transform: uppercase;
+            letter-spacing: .12em;
+            font-weight: 900;
+            margin-bottom: 6px;
+        }
+        .map-core strong {
+            font-size: 1.2rem;
+            line-height: 1.1;
+            display: block;
+        }
+        .map-core small {
+            display: block;
+            color: #bfd1e2;
+            margin-top: 8px;
+            font-size: .8rem;
+        }
 
-    .bubble {
-      position: absolute; z-index: 4;
-      padding: 10px 14px; border-radius: 16px;
-      background: rgba(11, 44, 91, 0.75); border: 1px solid rgba(255, 255, 255, 0.25);
-      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-      color: #fff; font-size: 0.78rem; font-weight: 700;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-    }
-    .b1 { top: 10px; left: 10px; }
-    .b2 { top: 20px; right: 10px; }
-    .b3 { bottom: 20px; left: 10px; }
-    .b4 { bottom: 10px; right: 10px; }
+        .map-node {
+            border-radius: var(--radius-sm);
+            background: #fff;
+            padding: 16px 18px;
+            border: 1px solid var(--line);
+            text-align: left;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            cursor: pointer;
+            width: 100%;
+        }
+        .map-node:hover,
+        .map-node.active {
+            transform: translateY(-3px);
+            border-color: var(--accent);
+            box-shadow: var(--shadow-md);
+        }
+        .map-node .map-label {
+            font-size: .65rem;
+            text-transform: uppercase;
+            letter-spacing: .12em;
+            font-weight: 900;
+            color: var(--accent);
+        }
+        .map-node h3 {
+            font-size: 1.05rem;
+            line-height: 1.15;
+            margin: 4px 0 4px;
+            font-weight: 800;
+        }
+        .map-node p {
+            font-size: .85rem;
+            line-height: 1.4;
+            color: var(--muted);
+            margin: 0;
+        }
+        @media(min-width:768px) {
+            .map-node {
+                position: absolute;
+                width: 230px;
+                min-height: 140px;
+                padding: 20px 22px;
+                border-radius: var(--radius);
+            }
+            .map-node .map-label {
+                font-size: .7rem;
+            }
+            .map-node h3 {
+                font-size: 1.1rem;
+            }
+            .map-node.problem {
+                left: 4%;
+                top: 8%;
+            }
+            .map-node.obstacle {
+                right: 4%;
+                top: 8%;
+            }
+            .map-node.resolution {
+                left: 4%;
+                bottom: 8%;
+            }
+            .map-node.impact-node {
+                right: 4%;
+                bottom: 8%;
+            }
+        }
 
-    /* ==========================================================================
-       3. QUICK NAV (STICKY HORIZONTAL SCROLL)
-       ========================================================================== */
-    .quick-nav-wrap {
-      position: sticky; top: 0; z-index: 40;
-      background: rgba(244, 249, 253, 0.92);
-      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--line);
-    }
-    .quick-nav {
-      display: flex; gap: 8px; padding: 12px 16px;
-      overflow-x: auto; scrollbar-width: none;
-    }
-    .quick-nav::-webkit-scrollbar { display: none; }
-    .quick-nav a {
-      flex: 0 0 auto; padding: 8px 16px; border-radius: 999px;
-      background: #fff; border: 1px solid var(--line);
-      font-size: 0.82rem; font-weight: 800; color: var(--navy);
-      transition: var(--transition);
-    }
-    .quick-nav a:active, .quick-nav a.active {
-      background: var(--navy); color: #fff; border-color: var(--navy);
-    }
+        .map-detail {
+            margin-top: 18px;
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 20px 18px;
+            box-shadow: var(--shadow-sm);
+            display: grid;
+            gap: 16px;
+            transition: var(--transition);
+        }
+        @media(min-width:768px) {
+            .map-detail {
+                grid-template-columns: 1fr 1.4fr;
+                padding: 28px 32px;
+                gap: 28px;
+                margin-top: 24px;
+            }
+        }
+        .map-detail h3 {
+            font-size: 1.3rem;
+            margin: 0 0 6px;
+            font-weight: 800;
+        }
+        .map-detail p {
+            color: var(--muted);
+            margin: 0;
+            font-size: .95rem;
+        }
+        .map-detail ul {
+            margin: 0;
+            padding-left: 20px;
+            list-style: none;
+        }
+        .map-detail ul li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
+            font-size: .92rem;
+            color: var(--ink);
+        }
+        .map-detail ul li::before {
+            content: '◆';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-size: .5rem;
+            top: .45em;
+        }
+        .map-detail-quote {
+            margin-top: 14px;
+            padding: 14px 18px;
+            border-left: 4px solid var(--gold);
+            background: #fff8e7;
+            border-radius: 0 14px 14px 0;
+            font-weight: 700;
+            font-size: .95rem;
+            color: var(--navy);
+        }
 
-    /* ==========================================================================
-       4. SECTIONS COMMON
-       ========================================================================== */
-    section { padding: 60px 0; }
-    .section-head { text-align: center; max-width: 720px; margin: 0 auto 36px; }
-    .kicker {
-      color: var(--accent); font-weight: 900; text-transform: uppercase;
-      letter-spacing: 0.1em; font-size: 0.78rem; margin-bottom: 8px;
-    }
-    h2 {
-      font-size: clamp(1.75rem, 5vw, 2.8rem); line-height: 1.12;
-      letter-spacing: -0.03em; margin: 0 0 12px;
-    }
-    .section-head p { color: var(--muted); font-size: 0.98rem; margin: 0; }
+        /* ===== INSIGHT ===== */
+        .insight-section {
+            background: linear-gradient(180deg, #fff, #f4f9fd);
+        }
+        .insight-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 14px;
+        }
+        @media(min-width:600px) {
+            .insight-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media(min-width:1024px) {
+            .insight-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        .insight-card {
+            position: relative;
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 22px 20px 18px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            cursor: default;
+        }
+        .insight-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+            box-shadow: var(--shadow-md);
+        }
+        .insight-card:active {
+            transform: scale(.98);
+        }
+        .insight-no {
+            position: absolute;
+            right: 14px;
+            top: 2px;
+            font-size: 4.2rem;
+            font-weight: 950;
+            line-height: 1;
+            color: var(--accent-soft);
+            pointer-events: none;
+            user-select: none;
+        }
+        .insight-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 14px;
+            display: grid;
+            place-items: center;
+            background: var(--accent-soft);
+            font-size: 1.3rem;
+            margin-bottom: 14px;
+            position: relative;
+            z-index: 2;
+        }
+        .insight-card h3 {
+            font-size: 1.05rem;
+            line-height: 1.2;
+            margin: 0 0 6px;
+            font-weight: 800;
+            position: relative;
+            z-index: 2;
+        }
+        .insight-card p {
+            color: var(--muted);
+            margin: 0;
+            font-size: .88rem;
+            line-height: 1.5;
+            position: relative;
+            z-index: 2;
+        }
+        .insight-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 14px;
+            color: var(--accent);
+            font-size: .82rem;
+            font-weight: 800;
+            transition: var(--transition);
+            position: relative;
+            z-index: 2;
+        }
+        .insight-link:hover {
+            gap: 10px;
+            color: var(--navy);
+        }
 
-    /* ==========================================================================
-       5. STORY SECTION (MOBILE SWIPE CAROUSEL)
-       ========================================================================== */
-    .story-section { background: linear-gradient(180deg, var(--cream) 0%, #fff 100%); }
-    .story-track {
-      display: flex; gap: 12px; overflow-x: auto;
-      scroll-snap-type: x mandatory; padding-bottom: 16px;
-      scrollbar-width: none;
-    }
-    .story-track::-webkit-scrollbar { display: none; }
-    
-    .story-card {
-      flex: 0 0 82%; scroll-snap-align: center;
-      background: #fff; border: 1px solid var(--line);
-      border-radius: var(--radius-md); padding: 18px; text-align: left;
-      box-shadow: var(--shadow-sm); transition: var(--transition);
-      display: flex; flex-direction: column; gap: 10px;
-    }
-    .story-card.active {
-      border-color: var(--accent); box-shadow: var(--shadow-md);
-      background: linear-gradient(180deg, #fff, var(--accent-soft));
-    }
-    .story-step-badge {
-      width: 36px; height: 36px; border-radius: 12px;
-      background: var(--navy); color: #fff; font-weight: 900;
-      display: grid; place-items: center; font-size: 0.9rem;
-    }
-    .story-card.active .story-step-badge { background: var(--gold); color: var(--navy); }
-    .story-card h3 { font-size: 1rem; margin: 0; line-height: 1.2; }
-    .story-card p { font-size: 0.85rem; color: var(--muted); margin: 0; line-height: 1.4; }
+        .resume-callout {
+            margin-top: 24px;
+            padding: 20px 22px;
+            border-radius: var(--radius);
+            background: linear-gradient(135deg, #fff6da, #fff);
+            border: 1px solid #f3d98c;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 16px;
+            align-items: center;
+        }
+        .resume-callout .icon {
+            font-size: 2.2rem;
+            flex-shrink: 0;
+        }
+        .resume-callout strong {
+            display: block;
+            font-size: 1.05rem;
+        }
+        .resume-callout p {
+            margin: 2px 0 0;
+            color: var(--muted);
+            font-size: .92rem;
+        }
 
-    .story-detail {
-      margin-top: 16px; border-radius: var(--radius-md); padding: 22px;
-      background: linear-gradient(135deg, var(--navy), var(--navy-2));
-      color: #fff; box-shadow: var(--shadow-md);
-      display: flex; flex-direction: column; gap: 14px;
-    }
-    .story-detail-icon {
-      width: 50px; height: 50px; border-radius: 16px;
-      background: rgba(255,255,255,0.12); display: grid; place-items: center; font-size: 1.6rem;
-    }
-    .story-detail h3 { font-size: 1.2rem; margin: 0; }
-    .story-detail p { color: #cbe0f5; margin: 0; font-size: 0.92rem; }
-    .story-detail .lesson {
-      margin-top: 8px; padding-top: 12px; border-top: 1px dashed rgba(255,255,255,0.2);
-      color: var(--gold); font-weight: 700; font-size: 0.88rem;
-    }
+        /* ===== PERSPEKTIF ===== */
+        .audiences {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 14px;
+        }
+        @media(min-width:600px) {
+            .audiences {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        .audience-card {
+            position: relative;
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 24px 20px;
+            text-align: left;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            cursor: pointer;
+            overflow: hidden;
+        }
+        .audience-card::after {
+            content: '';
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--accent-soft);
+            right: -50px;
+            top: -50px;
+            opacity: .4;
+            transition: var(--transition);
+        }
+        .audience-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+            box-shadow: var(--shadow-md);
+        }
+        .audience-card.active {
+            border-color: var(--accent);
+            background: var(--accent-soft);
+            box-shadow: 0 0 0 4px rgba(14, 165, 168, .10);
+        }
+        .audience-card.active::after {
+            opacity: .7;
+            transform: scale(1.2);
+        }
+        .audience-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 16px;
+            display: grid;
+            place-items: center;
+            font-size: 1.6rem;
+            background: var(--accent-soft);
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 2;
+        }
+        .audience-card h3 {
+            font-size: 1.15rem;
+            margin: 0 0 6px;
+            font-weight: 800;
+            position: relative;
+            z-index: 2;
+        }
+        .audience-card p {
+            margin: 0;
+            color: var(--muted);
+            font-size: .9rem;
+            position: relative;
+            z-index: 2;
+        }
+        .select-mark {
+            display: inline-flex;
+            margin-top: 16px;
+            font-weight: 800;
+            color: var(--accent);
+            align-items: center;
+            gap: 6px;
+            font-size: .88rem;
+            position: relative;
+            z-index: 2;
+            transition: var(--transition);
+        }
+        .audience-card:hover .select-mark {
+            gap: 10px;
+        }
 
-    /* ==========================================================================
-       6. MINDMAP SECTION (ACCORDION ON MOBILE, GRAPH ON DESKTOP)
-       ========================================================================== */
-    .map-section { background: #fff; border-block: 1px solid var(--line); }
-    .mindmap-shell {
-      position: relative; border-radius: var(--radius-lg);
-      background: linear-gradient(160deg, #f8fcff, #edf6fc);
-      border: 1px solid var(--line); padding: 16px;
-    }
-    .mindmap-svg { display: none; } /* Hidden on mobile */
+        /* ===== JOURNEY ===== */
+        .journey-wrap {
+            background: #fff;
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+        }
+        .journey-shell {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            align-items: start;
+        }
+        @media(min-width:900px) {
+            .journey-shell {
+                grid-template-columns: 300px 1fr;
+                gap: 32px;
+            }
+        }
+        .journey-sidebar {
+            background: linear-gradient(160deg, var(--navy), var(--navy-2));
+            color: #fff;
+            padding: 24px 22px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
+        }
+        .journey-sidebar::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: rgba(14, 165, 168, .08);
+            right: -80px;
+            bottom: -80px;
+        }
+        .journey-sidebar .tag {
+            display: inline-flex;
+            padding: 5px 14px;
+            border-radius: var(--radius-full);
+            background: rgba(255, 255, 255, .10);
+            font-weight: 800;
+            font-size: .72rem;
+            text-transform: uppercase;
+            letter-spacing: .06em;
+        }
+        .journey-sidebar h3 {
+            font-size: 1.5rem;
+            line-height: 1.1;
+            margin: 16px 0 8px;
+            font-weight: 900;
+            position: relative;
+            z-index: 2;
+        }
+        .journey-sidebar p {
+            color: #c5d6e7;
+            font-size: .92rem;
+            position: relative;
+            z-index: 2;
+        }
+        .progress {
+            height: 8px;
+            background: rgba(255, 255, 255, .12);
+            border-radius: 999px;
+            overflow: hidden;
+            margin: 20px 0 8px;
+            position: relative;
+            z-index: 2;
+        }
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--teal-2), var(--gold));
+            border-radius: inherit;
+            transition: width .6s cubic-bezier(.22, 1, .36, 1);
+        }
+        .progress-label {
+            font-size: .82rem;
+            color: #b9ccdf;
+            position: relative;
+            z-index: 2;
+        }
+        .small-source {
+            margin-top: 20px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255, 255, 255, .08);
+            font-size: .8rem;
+            color: #bcd0e4;
+            position: relative;
+            z-index: 2;
+        }
+        .small-source a {
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            color: var(--gold);
+        }
 
-    .mobile-map-list { display: flex; flex-direction: column; gap: 10px; }
-    .map-node {
-      width: 100%; border: 1px solid var(--line); border-radius: var(--radius-md);
-      background: #fff; padding: 16px; text-align: left;
-      box-shadow: var(--shadow-sm); transition: var(--transition);
-    }
-    .map-node.active {
-      border-color: var(--accent); box-shadow: var(--shadow-md);
-      background: var(--accent-soft);
-    }
-    .map-label { font-size: 0.72rem; text-transform: uppercase; font-weight: 900; color: var(--accent); letter-spacing: 0.08em; }
-    .map-node h3 { font-size: 1.05rem; margin: 4px 0 6px; line-height: 1.25; }
-    .map-node p { font-size: 0.85rem; color: var(--muted); margin: 0; }
+        .flow {
+            display: grid;
+            gap: 14px;
+            position: relative;
+        }
+        .flow::before {
+            content: '';
+            position: absolute;
+            left: 28px;
+            top: 32px;
+            bottom: 32px;
+            width: 3px;
+            background: linear-gradient(var(--accent), var(--gold));
+            border-radius: 999px;
+            opacity: .25;
+        }
+        @media(min-width:600px) {
+            .flow::before {
+                left: 32px;
+            }
+        }
+        .node {
+            position: relative;
+            display: grid;
+            grid-template-columns: 50px 1fr 36px;
+            gap: 12px;
+            align-items: center;
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: var(--radius-sm);
+            padding: 16px 14px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        .node:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+            box-shadow: var(--shadow-md);
+        }
+        .node.active {
+            border-color: var(--accent);
+            background: var(--accent-soft);
+            box-shadow: 0 0 0 4px rgba(14, 165, 168, .08);
+        }
+        .node-num {
+            position: relative;
+            z-index: 2;
+            width: 38px;
+            height: 38px;
+            border-radius: 12px;
+            background: var(--accent-soft);
+            color: var(--accent);
+            display: grid;
+            place-items: center;
+            font-weight: 950;
+            font-size: .95rem;
+            border: 3px solid #fff;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, .06);
+            transition: var(--transition);
+        }
+        .node.active .node-num {
+            background: var(--accent);
+            color: #fff;
+        }
+        .node h4 {
+            font-size: .95rem;
+            margin: 0 0 2px;
+            font-weight: 800;
+        }
+        .node p {
+            margin: 0;
+            color: var(--muted);
+            font-size: .82rem;
+            line-height: 1.3;
+        }
+        .node-btn {
+            width: 34px;
+            height: 34px;
+            border-radius: 10px;
+            background: #eef6fb;
+            color: var(--navy);
+            font-size: 1.1rem;
+            display: grid;
+            place-items: center;
+            transition: var(--transition);
+            flex-shrink: 0;
+            font-weight: 700;
+        }
+        .node-btn:hover {
+            background: var(--accent);
+            color: #fff;
+        }
+        .node.active .node-btn {
+            background: var(--accent);
+            color: #fff;
+        }
+        .node-detail {
+            display: none;
+            grid-column: 2 / 4;
+            padding: 14px 16px;
+            background: rgba(255, 255, 255, .7);
+            border-radius: 14px;
+            border-left: 3px solid var(--accent);
+            font-size: .88rem;
+            line-height: 1.6;
+        }
+        .node.active .node-detail {
+            display: block;
+            animation: revealDetail .3s ease;
+        }
+        @keyframes revealDetail {
+            from {
+                opacity: 0;
+                transform: translateY(-6px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .node-detail strong {
+            display: block;
+            margin-bottom: 4px;
+            font-weight: 800;
+        }
+        .node-detail .reflection {
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px dashed rgba(14, 165, 168, .25);
+            font-style: italic;
+            color: var(--navy);
+            font-weight: 600;
+        }
+        @media(min-width:600px) {
+            .node {
+                padding: 18px 20px;
+                grid-template-columns: 56px 1fr 40px;
+                gap: 16px;
+                border-radius: var(--radius);
+            }
+            .node-num {
+                width: 44px;
+                height: 44px;
+                font-size: 1.05rem;
+            }
+            .node h4 {
+                font-size: 1.05rem;
+            }
+            .node-detail {
+                padding: 16px 20px;
+            }
+        }
 
-    .map-detail {
-      margin-top: 16px; background: #fff; border: 1px solid var(--line);
-      border-radius: var(--radius-md); padding: 20px; box-shadow: var(--shadow-sm);
-    }
-    .map-detail h3 { font-size: 1.25rem; margin: 0 0 8px; }
-    .map-detail p { color: var(--muted); font-size: 0.9rem; margin-top: 0; }
-    .map-detail ul { padding-left: 18px; margin: 12px 0; font-size: 0.88rem; color: var(--ink); }
-    .map-detail li + li { margin-top: 6px; }
-    .map-detail-quote {
-      padding: 12px 14px; border-left: 4px solid var(--gold);
-      background: #fff9e6; border-radius: 0 12px 12px 0;
-      font-weight: 700; font-size: 0.88rem; color: #5a4300; margin-top: 12px;
-    }
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 20px;
+        }
+        @media(min-width:600px) {
+            .impact-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 14px;
+            }
+        }
+        .impact {
+            background: linear-gradient(145deg, var(--navy), var(--navy-2));
+            color: #fff;
+            border-radius: var(--radius-sm);
+            padding: 16px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+        .impact:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+        .impact .icon {
+            font-size: 1.6rem;
+            margin-bottom: 6px;
+        }
+        .impact h4 {
+            margin: 0 0 2px;
+            font-size: .9rem;
+            font-weight: 800;
+        }
+        .impact p {
+            margin: 0;
+            color: #bdd0e4;
+            font-size: .78rem;
+            line-height: 1.3;
+        }
+        @media(min-width:600px) {
+            .impact {
+                padding: 20px 16px;
+                border-radius: var(--radius);
+            }
+            .impact .icon {
+                font-size: 2rem;
+            }
+            .impact h4 {
+                font-size: 1rem;
+            }
+            .impact p {
+                font-size: .82rem;
+            }
+        }
 
-    /* ==========================================================================
-       7. INSIGHT SECTION
-       ========================================================================== */
-    .insight-section { background: var(--cream); }
-    .insight-grid { display: flex; flex-direction: column; gap: 14px; }
-    .insight-card {
-      position: relative; background: #fff; border: 1px solid var(--line);
-      border-radius: var(--radius-md); padding: 20px; overflow: hidden;
-      box-shadow: var(--shadow-sm); transition: var(--transition);
-    }
-    .insight-card:active { transform: translateY(-2px); border-color: var(--accent); }
-    .insight-no {
-      position: absolute; right: 12px; top: -6px;
-      font-size: 3.8rem; font-weight: 900; color: var(--accent-soft); opacity: 0.8;
-    }
-    .insight-icon {
-      width: 44px; height: 44px; border-radius: 12px; background: var(--accent-soft);
-      display: grid; place-items: center; font-size: 1.3rem; margin-bottom: 12px;
-      position: relative; z-index: 2;
-    }
-    .insight-card h3 { font-size: 1.08rem; margin: 0 0 6px; position: relative; z-index: 2; }
-    .insight-card p { font-size: 0.88rem; color: var(--muted); margin: 0; position: relative; z-index: 2; }
-    .insight-link {
-      display: inline-flex; align-items: center; gap: 6px; margin-top: 12px;
-      color: var(--accent); font-size: 0.82rem; font-weight: 800; position: relative; z-index: 2;
-    }
+        /* ===== REFLEKSI ===== */
+        .reflection-section {
+            background: linear-gradient(180deg, #f4f9fd, #eaf5fb);
+        }
+        .reflection-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        @media(min-width:768px) {
+            .reflection-layout {
+                grid-template-columns: 1fr 1fr;
+                gap: 24px;
+            }
+        }
+        .panel {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 22px 18px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+        @media(min-width:600px) {
+            .panel {
+                padding: 28px 26px;
+            }
+        }
+        .panel h3 {
+            font-size: 1.3rem;
+            margin: 0 0 4px;
+            font-weight: 800;
+        }
+        .panel>p {
+            color: var(--muted);
+            margin: 0 0 16px;
+            font-size: .92rem;
+        }
+        .stage-list {
+            display: grid;
+            gap: 8px;
+        }
+        .stage-btn {
+            border: 1px solid var(--line);
+            background: #fff;
+            border-radius: var(--radius-sm);
+            padding: 12px 14px;
+            text-align: left;
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+            font-size: .9rem;
+        }
+        .stage-btn:hover {
+            background: var(--accent-soft);
+            border-color: var(--accent);
+        }
+        .stage-btn.active {
+            background: var(--accent-soft);
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(14, 165, 168, .12);
+        }
+        .stage-btn span:last-child {
+            color: var(--muted-light);
+            font-size: .8rem;
+        }
+        .stage-response {
+            margin-top: 16px;
+            min-height: 80px;
+            background: linear-gradient(145deg, var(--accent-soft), #fff);
+            border-radius: var(--radius-sm);
+            padding: 18px 16px;
+            border-left: 4px solid var(--accent);
+            font-size: .92rem;
+            line-height: 1.6;
+        }
+        .stage-response strong {
+            display: block;
+            margin-bottom: 4px;
+            font-weight: 800;
+        }
 
-    .resume-callout {
-      margin-top: 20px; padding: 20px; border-radius: var(--radius-md);
-      background: linear-gradient(135deg, #fff7dd, #fff); border: 1px solid #f3d780;
-      display: flex; gap: 14px; align-items: flex-start;
-    }
-    .resume-callout .icon { font-size: 1.8rem; line-height: 1; }
-    .resume-callout strong { display: block; font-size: 0.98rem; color: #423200; }
-    .resume-callout p { margin: 4px 0 0; color: #66521a; font-size: 0.88rem; }
+        label {
+            font-weight: 700;
+            display: block;
+            margin-bottom: 6px;
+            font-size: .92rem;
+        }
+        textarea {
+            width: 100%;
+            min-height: 100px;
+            resize: vertical;
+            border: 1px solid var(--line);
+            border-radius: var(--radius-sm);
+            padding: 14px;
+            outline: none;
+            background: #fbfdff;
+            font: inherit;
+            font-size: .92rem;
+            transition: var(--transition);
+        }
+        textarea:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 4px rgba(14, 165, 168, .10);
+        }
+        .form-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 12px;
+        }
 
-    /* ==========================================================================
-       8. PERSPECTIVE SWITCHER & JOURNEY FLOW
-       ========================================================================== */
-    .audiences { display: flex; flex-direction: column; gap: 12px; }
-    .audience-card {
-      position: relative; background: #fff; border: 1px solid var(--line);
-      border-radius: var(--radius-md); padding: 20px; text-align: left;
-      box-shadow: var(--shadow-sm); transition: var(--transition);
-      overflow: hidden;
-    }
-    .audience-card.active {
-      border-color: var(--accent); background: var(--accent-soft);
-      box-shadow: var(--shadow-md);
-    }
-    .audience-icon {
-      width: 48px; height: 48px; border-radius: 14px; background: #fff;
-      display: grid; place-items: center; font-size: 1.5rem; margin-bottom: 12px;
-      box-shadow: var(--shadow-sm);
-    }
-    .audience-card h3 { font-size: 1.15rem; margin: 0 0 6px; }
-    .audience-card p { font-size: 0.88rem; color: var(--muted); margin: 0; }
-    .select-mark {
-      display: inline-flex; margin-top: 12px; font-weight: 800;
-      color: var(--accent); font-size: 0.82rem; align-items: center; gap: 6px;
-    }
+        .share-card {
+            display: none;
+            margin-top: 18px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            background: linear-gradient(145deg, var(--navy), var(--navy-2));
+            color: #fff;
+            padding: 22px 20px;
+            position: relative;
+            animation: revealDetail .4s ease;
+        }
+        .share-card::after {
+            content: '';
+            position: absolute;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: var(--accent);
+            opacity: .10;
+            right: -60px;
+            bottom: -70px;
+        }
+        .share-card .quote {
+            font-size: 1.05rem;
+            font-weight: 800;
+            line-height: 1.45;
+            margin: 12px 0 16px;
+            position: relative;
+            z-index: 2;
+        }
+        .share-card small {
+            color: #c8d8e7;
+            position: relative;
+            z-index: 2;
+            font-size: .8rem;
+            display: block;
+        }
+        .share-card .form-actions {
+            margin-top: 16px;
+            position: relative;
+            z-index: 2;
+        }
+        .share-card .btn-primary {
+            background: var(--gold);
+            color: var(--navy);
+        }
+        .share-card .btn-secondary {
+            background: rgba(255, 255, 255, .08);
+            border: 1px solid rgba(255, 255, 255, .15);
+            color: #fff;
+        }
 
-    .journey-wrap { background: #fff; border-block: 1px solid var(--line); }
-    .journey-shell { display: flex; flex-direction: column; gap: 24px; }
-    .journey-sidebar {
-      background: linear-gradient(160deg, var(--navy), var(--navy-2));
-      color: #fff; padding: 22px; border-radius: var(--radius-md);
-      box-shadow: var(--shadow-md);
-    }
-    .journey-sidebar .tag {
-      display: inline-block; padding: 5px 12px; border-radius: 999px;
-      background: rgba(255,255,255,0.12); font-size: 0.78rem; font-weight: 800;
-    }
-    .journey-sidebar h3 { font-size: 1.4rem; margin: 14px 0 8px; line-height: 1.2; }
-    .journey-sidebar p { color: #cbe0f5; font-size: 0.88rem; margin: 0; }
+        /* ===== BRANDING ===== */
+        .branding {
+            padding: 56px 0;
+            background: #fff;
+        }
+        .branding-card {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            align-items: center;
+            border: 1px solid var(--line);
+            background: linear-gradient(135deg, #fff, #f0f9fb);
+            border-radius: var(--radius);
+            padding: 24px 20px;
+            box-shadow: var(--shadow-sm);
+        }
+        @media(min-width:600px) {
+            .branding-card {
+                grid-template-columns: 1fr auto;
+                padding: 28px 32px;
+                border-radius: 34px;
+            }
+        }
+        .identity {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+        .avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 20px;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(145deg, var(--navy), var(--accent));
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: 950;
+            letter-spacing: -.04em;
+            flex-shrink: 0;
+        }
+        @media(min-width:600px) {
+            .avatar {
+                width: 74px;
+                height: 74px;
+                font-size: 1.4rem;
+            }
+        }
+        .identity h3 {
+            margin: 0 0 2px;
+            font-size: 1.25rem;
+            font-weight: 800;
+        }
+        .identity p {
+            margin: 0;
+            color: var(--muted);
+            font-size: .88rem;
+        }
+        .brand-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 8px;
+        }
+        .brand-tags span {
+            background: #fff;
+            border: 1px solid var(--line);
+            padding: 4px 10px;
+            border-radius: var(--radius-full);
+            font-size: .72rem;
+            font-weight: 800;
+            color: var(--muted);
+        }
+        .branding-card .btn {
+            width: 100%;
+        }
+        @media(min-width:600px) {
+            .branding-card .btn {
+                width: auto;
+            }
+        }
 
-    .progress { height: 8px; background: rgba(255,255,255,0.15); border-radius: 999px; overflow: hidden; margin: 18px 0 8px; }
-    .progress-bar { height: 100%; width: 12.5%; background: linear-gradient(90deg, var(--teal-2), var(--gold)); transition: width 0.3s ease; }
-    .progress-label { font-size: 0.8rem; color: #a2c4e6; }
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--navy);
+            color: #d5e3f1;
+            padding: 24px 0;
+            text-align: center;
+            font-size: .88rem;
+            line-height: 1.8;
+        }
+        footer b {
+            color: #fff;
+        }
 
-    .flow { display: flex; flex-direction: column; gap: 12px; position: relative; }
-    .node {
-      border: 1px solid var(--line); border-radius: var(--radius-md);
-      background: #fff; padding: 16px; box-shadow: var(--shadow-sm);
-      display: grid; grid-template-columns: 42px 1fr 32px; gap: 12px; align-items: center;
-      transition: var(--transition);
-    }
-    .node.active { border-color: var(--accent); box-shadow: var(--shadow-md); }
-    .node-num {
-      width: 38px; height: 38px; border-radius: 12px; background: var(--accent-soft);
-      color: var(--accent); font-weight: 900; display: grid; place-items: center; font-size: 0.95rem;
-    }
-    .node h4 { font-size: 0.98rem; margin: 0 0 2px; }
-    .node p { font-size: 0.82rem; color: var(--muted); margin: 0; }
-    .node-btn {
-      width: 32px; height: 32px; border-radius: 10px; background: var(--cream);
-      color: var(--navy); font-weight: 800; font-size: 1.1rem;
-      display: grid; place-items: center;
-    }
+        /* ===== TOAST & BACK TOP ===== */
+        .toast {
+            position: fixed;
+            left: 50%;
+            bottom: 24px;
+            transform: translate(-50%, 40px);
+            background: var(--navy);
+            color: #fff;
+            padding: 12px 20px;
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow-lg);
+            opacity: 0;
+            pointer-events: none;
+            transition: all .35s cubic-bezier(.22, 1, .36, 1);
+            z-index: 60;
+            font-weight: 700;
+            font-size: .9rem;
+        }
+        .toast.show {
+            opacity: 1;
+            transform: translate(-50%, 0);
+        }
 
-    .node-detail {
-      grid-column: 1 / -1; display: none; padding-top: 12px;
-      margin-top: 8px; border-top: 1px dashed var(--line);
-      font-size: 0.88rem; color: var(--ink);
-    }
-    .node.active .node-detail { display: block; animation: fadeIn 0.25s ease; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
-    .node-detail .reflection {
-      margin-top: 8px; padding: 10px; border-radius: 10px;
-      background: var(--accent-soft); color: var(--navy); font-style: italic; font-weight: 600;
-    }
+        .back-top {
+            position: fixed;
+            right: 16px;
+            bottom: 80px;
+            width: 44px;
+            height: 44px;
+            border: 0;
+            border-radius: 14px;
+            background: var(--gold);
+            color: var(--navy);
+            font-weight: 950;
+            font-size: 1.2rem;
+            box-shadow: var(--shadow-md);
+            display: none;
+            z-index: 30;
+            transition: var(--transition);
+            touch-action: manipulation;
+        }
+        .back-top:hover {
+            transform: translateY(-3px) scale(1.05);
+        }
+        .back-top:active {
+            transform: scale(.92);
+        }
+        @media(min-width:768px) {
+            .back-top {
+                right: 24px;
+                bottom: 24px;
+                width: 52px;
+                height: 52px;
+                border-radius: 16px;
+            }
+        }
 
-    .impact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 20px; }
-    .impact {
-      background: linear-gradient(145deg, var(--navy), var(--navy-2)); color: #fff;
-      border-radius: var(--radius-md); padding: 16px; text-align: center;
-    }
-    .impact .icon { font-size: 1.6rem; margin-bottom: 6px; }
-    .impact h4 { font-size: 0.92rem; margin: 0 0 4px; }
-    .impact p { font-size: 0.78rem; color: #a8c7e8; margin: 0; }
+        /* ===== CANVAS ===== */
+        #cardCanvas {
+            display: none;
+        }
 
-    /* ==========================================================================
-       9. REFLECTION & CARD GENERATOR
-       ========================================================================== */
-    .reflection-section { background: var(--cream); }
-    .reflection-layout { display: flex; flex-direction: column; gap: 20px; }
-    .panel {
-      background: #fff; border: 1px solid var(--line);
-      border-radius: var(--radius-lg); padding: 22px; box-shadow: var(--shadow-sm);
-    }
-    .panel h3 { font-size: 1.3rem; margin: 0 0 6px; }
-    .panel > p { color: var(--muted); font-size: 0.88rem; margin: 0 0 16px; }
-
-    .stage-list { display: flex; flex-direction: column; gap: 8px; }
-    .stage-btn {
-      border: 1px solid var(--line); background: #fff; border-radius: var(--radius-sm);
-      padding: 12px 14px; text-align: left; font-weight: 700; font-size: 0.88rem;
-      display: flex; justify-content: space-between; align-items: center; transition: var(--transition);
-    }
-    .stage-btn.active { background: var(--accent-soft); border-color: var(--accent); color: var(--navy); }
-
-    .stage-response {
-      margin-top: 14px; padding: 16px; border-radius: var(--radius-sm);
-      background: linear-gradient(135deg, var(--accent-soft), #fff);
-      border-left: 4px solid var(--accent); font-size: 0.88rem;
-    }
-    .stage-response strong { display: block; margin-bottom: 4px; color: var(--navy); }
-
-    textarea {
-      width: 100%; min-height: 120px; border: 1px solid var(--line);
-      border-radius: var(--radius-sm); padding: 14px; outline: none;
-      background: #fbfdff; font-size: 0.92rem;
-    }
-    textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
-
-    .form-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
-    .btn-dark { background: var(--navy); color: #fff; }
-    .btn-light { background: #eaf2f8; color: var(--navy); }
-
-    .share-card {
-      display: none; margin-top: 16px; border-radius: var(--radius-md);
-      background: linear-gradient(145deg, var(--navy), var(--navy-2));
-      color: #fff; padding: 20px; position: relative; overflow: hidden;
-    }
-    .share-card .quote {
-      font-size: 1.05rem; font-weight: 800; line-height: 1.4;
-      margin: 12px 0; color: #fff; position: relative; z-index: 2;
-    }
-    .share-card small { color: #a1c4e6; font-size: 0.78rem; position: relative; z-index: 2; }
-
-    /* BRANDING & FOOTER */
-    .branding-card {
-      border: 1px solid var(--line); background: linear-gradient(135deg, #fff, #f0f8fd);
-      border-radius: var(--radius-lg); padding: 24px; box-shadow: var(--shadow-sm);
-      display: flex; flex-direction: column; gap: 18px;
-    }
-    .identity { display: flex; gap: 14px; align-items: center; }
-    .avatar {
-      width: 60px; height: 60px; border-radius: 18px; flex: 0 0 auto;
-      background: linear-gradient(145deg, var(--navy), var(--accent));
-      color: #fff; display: grid; place-items: center; font-weight: 900; font-size: 1.2rem;
-    }
-    .identity h3 { margin: 0 0 2px; font-size: 1.25rem; }
-    .identity p { margin: 0; color: var(--muted); font-size: 0.85rem; }
-    .brand-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
-    .brand-tags span {
-      background: #fff; border: 1px solid var(--line); padding: 4px 10px;
-      border-radius: 999px; font-size: 0.75rem; font-weight: 800;
-    }
-
-    footer { background: var(--navy); color: #b0cbe5; padding: 24px 0; text-align: center; font-size: 0.85rem; }
-    footer b { color: #fff; }
-
-    .toast {
-      position: fixed; left: 50%; bottom: 20px; transform: translate(-50%, 40px);
-      background: var(--navy); color: #fff; padding: 10px 20px; border-radius: 999px;
-      font-size: 0.85rem; font-weight: 700; box-shadow: var(--shadow-lg);
-      opacity: 0; pointer-events: none; transition: var(--transition); z-index: 100;
-    }
-    .toast.show { opacity: 1; transform: translate(-50%, 0); }
-
-    .back-top {
-      position: fixed; right: 16px; bottom: 16px; width: 44px; height: 44px;
-      border-radius: 14px; background: var(--gold); color: var(--navy);
-      font-weight: 900; font-size: 1.2rem; box-shadow: var(--shadow-md);
-      display: none; z-index: 30; place-items: center;
-    }
-
-    /* ==========================================================================
-       10. MEDIA QUERIES (DESKTOP ENHANCEMENTS)
-       ========================================================================== */
-    @media (min-width: 768px) {
-      .hero-inner { display: grid; grid-template-columns: 1.1fr 0.9fr; align-items: center; gap: 40px; }
-      .hero-actions { flex-direction: row; }
-      .hero-map { height: 440px; }
-      .orbit.one { width: 380px; height: 380px; }
-      .orbit.two { width: 280px; height: 280px; }
-      .core { width: 170px; height: 170px; font-size: 1.2rem; }
-
-      .story-track { display: grid; grid-template-columns: repeat(7, 1fr); overflow: visible; }
-      .story-card { flex: auto; scroll-snap-align: none; padding: 14px; }
-      .story-detail { display: grid; grid-template-columns: 60px 1fr; align-items: start; }
-
-      /* Desktop Mindmap Mode */
-      .mobile-map-list { display: none; }
-      .mindmap-shell { min-height: 560px; max-width: 960px; margin: auto; padding: 0; }
-      .mindmap-svg { display: block; position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
-      .map-line { fill: none; stroke: var(--accent); stroke-width: 3; stroke-dasharray: 8 8; animation: dash 6s linear infinite; }
-      @keyframes dash { to { stroke-dashoffset: -96; } }
-      .map-core-desktop {
-        position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
-        width: 200px; padding: 20px; background: linear-gradient(145deg, var(--navy), var(--navy-2));
-        color: #fff; border-radius: 28px; text-align: center; box-shadow: var(--shadow-md); z-index: 3;
-      }
-      .map-node { position: absolute; width: 230px; z-index: 3; }
-      .map-node.problem { left: 4%; top: 8%; }
-      .map-node.obstacle { right: 4%; top: 8%; }
-      .map-node.resolution { left: 4%; bottom: 8%; }
-      .map-node.impact-node { right: 4%; bottom: 8%; }
-
-      .insight-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
-      .audiences { display: grid; grid-template-columns: repeat(3, 1fr); }
-      .journey-shell { display: grid; grid-template-columns: 280px 1fr; align-items: start; }
-      .journey-sidebar { position: sticky; top: 70px; }
-      .impact-grid { grid-template-columns: repeat(4, 1fr); }
-      .reflection-layout { display: grid; grid-template-columns: 1fr 1fr; }
-      .branding-card { display: grid; grid-template-columns: 1fr auto; align-items: center; }
-    }
-  </style>
+        /* ===== REDUCED MOTION ===== */
+        @media(prefers-reduced-motion:reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            .fade-up {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <!-- HERO SECTION -->
-  <header class="hero" id="top">
-    <div class="grid-bg"></div>
-    <div class="container hero-inner">
-      <div class="reveal active">
-        <div class="eyebrow"><span class="eyebrow-dot"></span> Refleksi Interaktif Bu Guru Ria[cite: 1]</div>
-        <h1>Dari Kelas, <span>Jadi Karya.</span></h1>
-        <p class="hero-copy">Bagaimana masalah pembelajaran berkembang menjadi inovasi, kolaborasi, dan pemberdayaan ekonomi—tanpa kehilangan akar pengabdian[cite: 1].</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#ringkasan">Mulai Perjalanan →</a>
-          <a class="btn btn-secondary" href="https://regional.kompas.com/read/2026/07/25/153155978/berawal-dari-ruang-kelas-di-sidoarjo-bu-guru-ria-bantu-guru-honorer-petik?page=all#page2" target="_blank" rel="noopener">Artikel Sumber ↗[cite: 1]</a>
-        </div>
-        <p class="hero-note">💡 Tiga Sudut Pandang: Guru Penggerak, Guru Informatika, dan Guru IPA[cite: 1].</p>
-      </div>
-
-      <div class="hero-map reveal active" aria-label="Ilustrasi Ekosistem">
-        <div class="orbit one"></div>
-        <div class="orbit two"></div>
-        <div class="core">Masalah Nyata di Kelas[cite: 1]</div>
-        <div class="bubble b1">💡 Solusi Kecil[cite: 1]</div>
-        <div class="bubble b2">🧪 Uji & Revisi[cite: 1]</div>
-        <div class="bubble b3">📲 Bagikan[cite: 1]</div>
-        <div class="bubble b4">🤝 Berdayakan[cite: 1]</div>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    <!-- QUICK NAV -->
-    <div class="quick-nav-wrap">
-      <div class="container quick-nav" id="quickNav">
-        <a href="#ringkasan" class="active">Ringkasan</a>
-        <a href="#peta-resolusi">Peta Masalah</a>
-        <a href="#insight-utama">Insight Utama</a>
-        <a href="#perspektif">3 Perspektif</a>
-        <a href="#refleksi">Refleksi Saya</a>
-      </div>
-    </div>
-
-    <!-- STORY TRACK SECTION -->
-    <section class="story-section" id="ringkasan">
-      <div class="container">
-        <div class="section-head reveal">
-          <div class="kicker">Kisah dalam 60 Detik</div>
-          <h2>Tumbuh Bertahap dari Kelas[cite: 1]</h2>
-          <p>Usap kartu ke samping (atau klik) untuk menjelajahi tahapan aksi Bu Guru Ria[cite: 1].</p>
-        </div>
-        
-        <div class="story-track reveal" id="storyTrack"></div>
-        <div class="story-detail reveal" id="storyDetail" aria-live="polite"></div>
-      </div>
-    </section>
-
-    <!-- MINDMAP / PETA RESOLUSI -->
-    <section class="map-section" id="peta-resolusi">
-      <div class="container">
-        <div class="section-head reveal">
-          <div class="kicker">Mind Map Problem Solving</div>
-          <h2>Mengubah Masalah Menjadi Solusi[cite: 1]</h2>
-          <p>Hubungan antara tantangan, ekosistem digital, dan dampak nyata[cite: 1].</p>
-        </div>
-
-        <div class="mindmap-shell reveal">
-          <!-- Desktop SVG SVG Connections -->
-          <svg class="mindmap-svg" viewBox="0 0 960 560" preserveAspectRatio="none">
-            <path class="map-line" d="M480 280 C360 200 280 150 200 120" />
-            <path class="map-line" d="M480 280 C600 200 680 150 760 120" />
-            <path class="map-line" d="M480 280 C360 360 280 410 200 440" />
-            <path class="map-line" d="M480 280 C600 360 680 410 760 440" />
-          </svg>
-
-          <div class="map-core-desktop" style="display:none;" id="desktopCore">
-            <span style="color:var(--gold); font-size:0.75rem; font-weight:900;">PUSAT CERITA[cite: 1]</span>
-            <strong style="display:block; font-size:1.1rem; margin-top:4px;">Karya Lahir dari Kelas[cite: 1]</strong>
-          </div>
-
-          <!-- Interactive Mobile & Desktop Nodes -->
-          <div class="mobile-map-list" id="mapNodesContainer">
-            <button class="map-node problem active" type="button" data-map="problem">
-              <span class="map-label">01 — Masalah[cite: 1]</span>
-              <h3>Media Pembelajaran Lebih Hidup[cite: 1]</h3>
-              <p>Murid butuh visualisasi pembelajaran yang menarik[cite: 1].</p>
-            </button>
-            <button class="map-node obstacle" type="button" data-map="obstacle">
-              <span class="map-label">02 — Kendala[cite: 1]</span>
-              <h3>Keterbatasan Jangkauan Mandiri[cite: 1]</h3>
-              <p>Produksi dan logistik menuntut sistem[cite: 1].</p>
-            </button>
-            <button class="map-node resolution" type="button" data-map="resolution">
-              <span class="map-label">03 — Resolusi[cite: 1]</span>
-              <h3>Validasi Konten & E-Commerce[cite: 1]</h3>
-              <p>Afiliasi dan sistem tim produksi[cite: 1].</p>
-            </button>
-            <button class="map-node impact-node" type="button" data-map="impact">
-              <span class="map-label">04 — Dampak[cite: 1]</span>
-              <h3>Nilai Pendidikan & Ekonomi[cite: 1]</h3>
-              <p>Pemberdayaan guru honorer & warga[cite: 1].</p>
-            </button>
-          </div>
-        </div>
-
-        <div class="map-detail reveal" id="mapDetail" aria-live="polite"></div>
-      </div>
-    </section>
-
-    <!-- INSIGHT UTAMA -->
-    <section class="insight-section" id="insight-utama">
-      <div class="container">
-        <div class="section-head reveal">
-          <div class="kicker">6 Insight Penting</div>
-          <h2>Pelajaran Utama Praktik[cite: 1]</h2>
-          <p>Prinsip aksi yang dapat direfleksikan ke karya pribadi[cite: 1].</p>
-        </div>
-
-        <div class="insight-grid reveal">
-          <article class="insight-card">
-            <span class="insight-no">1</span>
-            <div class="insight-icon">🎯</div>
-            <h3>Mulai dari Masalah[cite: 1]</h3>
-            <p>Teknologi dipilih setelah kebutuhan murid dipahami[cite: 1].</p>
-            <a class="insight-link" href="#perjalanan">Jelajahi Tahap →</a>
-          </article>
-
-          <article class="insight-card">
-            <span class="insight-no">2</span>
-            <div class="insight-icon">🧰</div>
-            <h3>Karya Adalah Aset[cite: 1]</h3>
-            <p>Media, modul, dan alat peraga dapat dikembangkan berulang[cite: 1].</p>
-            <a class="insight-link" href="#refleksi">Petakan Karya →</a>
-          </article>
-
-          <article class="insight-card">
-            <span class="insight-no">3</span>
-            <div class="insight-icon">📣</div>
-            <h3>Konten Validasi[cite: 1]</h3>
-            <p>Membuktikan masalah kelas dialami oleh banyak pendidik[cite: 1].</p>
-            <a class="insight-link" href="#ringkasan">Titik Validasi →</a>
-          </article>
-
-          <article class="insight-card">
-            <span class="insight-no">4</span>
-            <div class="insight-icon">⚙️</div>
-            <h3>Sistem Berkelanjutan[cite: 1]</h3>
-            <p>Pemisahan produksi, transaksi, dan distribusi yang rapi[cite: 1].</p>
-            <a class="insight-link" href="#peta-resolusi">Peta Resolusi →</a>
-          </article>
-
-          <article class="insight-card">
-            <span class="insight-no">5</span>
-            <div class="insight-icon">🤝</div>
-            <h3>Pemberdayaan Afiliasi[cite: 1]</h3>
-            <p>Guru honorer mendapat penghasilan tanpa beban stok[cite: 1].</p>
-            <a class="insight-link" href="#perjalanan">Skema Sosial →</a>
-          </article>
-
-          <article class="insight-card">
-            <span class="insight-no">6</span>
-            <div class="insight-icon">🛡️</div>
-            <h3>Integritas & Kepercayaan[cite: 1]</h3>
-            <p>Promosi jujur menjaga muruah profesi pendidik[cite: 1].</p>
-            <a class="insight-link" href="#refleksi">Nilai Inti →</a>
-          </article>
-        </div>
-
-        <div class="resume-callout reveal">
-          <div class="icon">💡</div>
-          <div>
-            <strong>Ringkasan Satu Kalimat[cite: 1]</strong>
-            <p>Karya kelas berkembang menjadi ekosistem bernilai sosial-ekonomi tanpa melepas jati diri guru[cite: 1].</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PERSPEKTIF AUDIENS -->
-    <section id="perspektif">
-      <div class="container">
-        <div class="section-head reveal">
-          <div class="kicker">Pilih Sudut Pandang</div>
-          <h2>Temukan Jalur Refleksimu[cite: 1]</h2>
-          <p>Pilih peran untuk menyesuaikan jalur langkah dan refleksi[cite: 1].</p>
-        </div>
-
-        <div class="audiences reveal" id="audienceCards">
-          <button class="audience-card active" data-audience="penggerak">
-            <div class="audience-icon">🌱</div>
-            <h3>Guru Penggerak</h3>
-            <p>Praktik baik menuju gerakan pemberdayaan komunitas[cite: 1].</p>
-            <span class="select-mark">Pilih Jalur →</span>
-          </button>
-
-          <button class="audience-card" data-audience="informatika">
-            <div class="audience-icon">💻</div>
-            <h3>Guru Informatika</h3>
-            <p>Prototipe digital hingga produk yang skalabel[cite: 1].</p>
-            <span class="select-mark">Pilih Jalur →</span>
-          </button>
-
-          <button class="audience-card" data-audience="ipa">
-            <div class="audience-icon">🔬</div>
-            <h3>Guru IPA</h3>
-            <p>Observasi eksperimental menuju solusi nyata[cite: 1].</p>
-            <span class="select-mark">Pilih Jalur →</span>
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- INTERACTIVE JOURNEY -->
-    <section class="journey-wrap" id="perjalanan">
-      <div class="container">
-        <div class="journey-shell">
-          <aside class="journey-sidebar reveal">
-            <span class="tag" id="audienceTag">Guru Penggerak[cite: 1]</span>
-            <h3 id="journeyTitle">Praktik Baik Menuju Gerakan[cite: 1]</h3>
-            <p id="journeyIntro">Klik tiap langkah untuk melihat refleksi khusus[cite: 1].</p>
-            <div class="progress"><div class="progress-bar" id="progressBar"></div></div>
-            <div class="progress-label" id="progressLabel">1 dari 8 langkah dibuka</div>
-          </aside>
-
-          <div>
-            <div class="flow reveal" id="flow"></div>
-            <div class="impact-grid reveal" id="impactGrid"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- REFLECTION & GENERATOR SECTION -->
-    <section class="reflection-section" id="refleksi">
-      <div class="container">
-        <div class="section-head reveal">
-          <div class="kicker">Refleksi Diri</div>
-          <h2>Di Mana Posisi Karyamu?[cite: 1]</h2>
-          <p>Ukur tahapan karyamu dan bagikan sebagai inspirasi[cite: 1].</p>
-        </div>
-
-        <div class="reflection-layout">
-          <div class="panel reveal">
-            <h3>Pilih Tahapan Karya[cite: 1]</h3>
-            <p>Evaluasi langkah yang sedang kamu tempuh[cite: 1]:</p>
-            <div class="stage-list" id="stageList"></div>
-            <div class="stage-response" id="stageResponse">
-              <strong>Pilih salah satu tahapan di atas[cite: 1].</strong>
-            </div>
-          </div>
-
-          <div class="panel reveal">
-            <h3>Kartu Refleksi Digital[cite: 1]</h3>
-            <p>Tuliskan satu karya / praktik baik yang ingin kamu kembangkan[cite: 1]:</p>
-            <textarea id="practiceInput" maxlength="220" placeholder="Contoh: Media simulasi interaktif tekanan zat cair untuk kelas VIII...[cite: 1]"></textarea>
-            
-            <div class="form-actions">
-              <button class="btn btn-dark" id="makeCard">Buat Kartu HD ✨</button>
-              <button class="btn btn-light" id="sharePage">Bagikan Link 📲</button>
-            </div>
-
-            <div class="share-card" id="shareCard">
-              <small>REFLEKSI — DARI KELAS JADI KARYA[cite: 1]</small>
-              <div class="quote" id="shareQuote"></div>
-              <small>Rizal Abdurrahman • Guru IPA & Informatika • Santika • SATRIA[cite: 1]</small>
-              
-              <div class="form-actions" style="margin-top:16px;">
-                <button class="btn btn-primary" id="downloadCard">Unduh PNG 🖼️</button>
-                <button class="btn btn-secondary" id="copyText">Salin Teks 📋</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- BRANDING SECTION -->
-    <section class="branding" style="background:#fff;">
-      <div class="container">
-        <div class="branding-card reveal">
-          <div class="identity">
-            <div class="avatar">RA</div>
+    <!-- ===== HERO ===== -->
+    <header class="hero" id="top">
+        <div class="hero-grid"></div>
+        <div class="hero-floating f1"></div>
+        <div class="hero-floating f2"></div>
+        <div class="container hero-inner">
             <div>
-              <h3>Rizal Abdurrahman[cite: 1]</h3>
-              <p>Guru Pembelajar, Inovator Pembelajaran & Penggerak Komunitas[cite: 1].</p>
-              <div class="brand-tags">
-                <span>Guru IPA & Informatika[cite: 1]</span>
-                <span>Komunitas Belajar Santika[cite: 1]</span>
-                <span>SATRIA[cite: 1]</span>
-              </div>
+                <div class="hero-badge">
+                    <span class="dot"></span>
+                    Refleksi interaktif — Bu Guru Ria
+                </div>
+                <h1>Dari Kelas, <span>Jadi Karya.</span></h1>
+                <p class="lead">Bagaimana masalah sederhana dalam pembelajaran dapat berkembang menjadi inovasi, kolaborasi, peluang ekonomi, dan pemberdayaan—tanpa kehilangan akar pengabdian sebagai guru.</p>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="#ringkasan">
+                        Mulai perjalanan
+                        <span class="arrow">→</span>
+                    </a>
+                    <a class="btn btn-secondary" href="https://regional.kompas.com/read/2026/07/25/153155978/berawal-dari-ruang-kelas-di-sidoarjo-bu-guru-ria-bantu-guru-honorer-petik?page=all#page2" target="_blank" rel="noopener">
+                        Baca artikel
+                    </a>
+                </div>
+                <p class="hero-note">Satu cerita. Tiga sudut pandang: Guru Penggerak, Guru Informatika, dan Guru IPA.</p>
             </div>
-          </div>
-          <a class="btn btn-primary" href="#top">Ulangi Eksplorasi ↑</a>
+            <div class="hero-visual" aria-label="Ekosistem dampak">
+                <div class="orbit-ring r1"></div>
+                <div class="orbit-ring r2"></div>
+                <div class="orbit-ring r3"></div>
+                <div class="core-node">Masalah nyata<br>di kelas</div>
+                <div class="orbit-bubble b1"><span class="emoji">💡</span> Solusi kecil</div>
+                <div class="orbit-bubble b2"><span class="emoji">🧪</span> Uji & revisi</div>
+                <div class="orbit-bubble b3"><span class="emoji">📲</span> Bagikan</div>
+                <div class="orbit-bubble b4"><span class="emoji">🤝</span> Berdayakan</div>
+            </div>
         </div>
-      </div>
-    </section>
-  </main>
+    </header>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <b>Belajar • Berkarya • Berbagi[cite: 1]</b><br>
-      Refleksi Personal dari Artikel Kompas.com tentang Bu Guru Ria (Sidoarjo)[cite: 1].
-    </div>
-  </footer>
-
-  <!-- UTILITY COMPONENTS -->
-  <button class="back-top" id="backTop" aria-label="Top">↑</button>
-  <div class="toast" id="toast">Tersalin!</div>
-  <canvas id="cardCanvas" width="2160" height="2700" hidden></canvas>
-
-  <!-- JS LOGIC -->
-  <script>
-    // 1. DATA SOURCES & STATE MANAGEMENT
-    const storyPoints = [
-      {icon:'🎒', title:'Kebutuhan Kelas', short:'Media hadir untuk membantu semangat murid[cite: 1].', detail:'Dimulai dari kebutuhan belajar di SDN Banjar Kemantren 2 Sidoarjo[cite: 1].', lesson:'Insight: Kebutuhan murid adalah pemicu inovasi terbaik[cite: 1].'},
-      {icon:'📲', title:'Validasi Sosial', short:'Unggahan media direspons rekan guru[cite: 1].', detail:'Membuktikan bahwa kendala kelas dialami oleh pendidik di berbagai tempat[cite: 1].', lesson:'Insight: Dokumentasi mengubah solusi lokal jadi karya bersama[cite: 1].'},
-      {icon:'🛒', title:'Platform E-Commerce', short:'Memperluas jangkauan ke seluruh daerah[cite: 1].', detail:'Fitur video, transaksi aman, dan kurir mempercepat distribusi karya[cite: 1].', lesson:'Insight: Teknologi adalah pengungkit karya[cite: 1].'},
-      {icon:'🏭', title:'Sistem Produksi', short:'Mengubah karya individu jadi UMKM[cite: 1].', detail:'Tim produksi, pengemasan, dan stok dibentuk agar operasional rapi[cite: 1].', lesson:'Insight: Dampak besar butuh pembagian peran[cite: 1].'},
-      {icon:'🤳', title:'Mitra Guru Honorer', short:'Skema afiliasi tanpa modal & stok[cite: 1].', detail:'Membuka komisi bagi guru honorer hanya dengan membagikan ulasan/link[cite: 1].', lesson:'Insight: Pemberdayaan menciptakan kemandirian[cite: 1].'},
-      {icon:'🌏', title:'Dampak Luas', short:'Pesanan hingga ke pelosok & Malaysia[cite: 1].', detail:'Manfaat pendidikan berkembang melampaui batas geografis[cite: 1].', lesson:'Insight: Kualitas karya lokal mampu menembus batas[cite: 1].'},
-      {icon:'🛡️', title:'Etika Profesi', short:'Promosi jujur menjaga integritas[cite: 1].', detail:'Melarang klaim berlebihan demi menjaga martabat profesi guru[cite: 1].', lesson:'Insight: Kepercayaan publik adalah aset utama[cite: 1].'}
-    ];
-
-    const mapData = {
-      problem: { title: 'Masalah Pembelajaran', lead: 'Murid membutuhkan visualisasi konkret[cite: 1].', items: ['Kurangnya media interaktif[cite: 1].', 'Banyak guru mengalami kendala serupa[cite: 1].'], quote: 'Masalah nyata di kelas adalah titik awal karya[cite: 1].' },
-      obstacle: { title: 'Kendala Skala Karya', lead: 'Produksi mandiri terbatas tenaga[cite: 1].', items: ['Pengemasan & pengiriman memakan waktu[cite: 1].', 'Promosi terbatas tanpa ekosistem digital[cite: 1].'], quote: 'Pertumbuhan tanpa sistem menciptakan kelelahan[cite: 1].' },
-      resolution: { title: 'Resolusi Ekosistem', lead: 'Pemanfaatan media sosial & afiliasi[cite: 1].', items: ['Digitalisasi pemasaran di e-commerce[cite: 1].', 'Pemberdayaan honorer sebagai afiliator[cite: 1].'], quote: 'Ekosistem yang adil memberi manfaat menyeluruh[cite: 1].' },
-      impact: { title: 'Dampak Berdampak', lead: 'Manfaat pendidikan & sosial-ekonomi[cite: 1].', items: ['Siswa mendapat media belajar segar[cite: 1].', 'Tambahan penghasilan untuk guru honorer[cite: 1].'], quote: 'Karya terbaik mendatangkan kemanfaatan luas[cite: 1].' }
-    };
-
-    const journeys = {
-      penggerak: {
-        label: 'Guru Penggerak[cite: 1]', accent: '#0ea5a8', soft: '#dff8f5',
-        title: 'Praktik Baik Menuju Gerakan[cite: 1]',
-        nodes: [
-          ['Peka Kebutuhan Siswa[cite: 1]', 'Identifikasi hambatan belajar nyata di kelas[cite: 1].', 'Apa kendala terbesar siswa minggu ini?[cite: 1]'],
-          ['Rancang Solusi Ringan[cite: 1]', 'Buat prototipe alat peraga sederhana[cite: 1].', 'Solusi sederhana apa yang bisa diuji coba?[cite: 1]'],
-          ['Uji Coba & Refleksi[cite: 1]', 'Amati perubahan antusiasme siswa[cite: 1].', 'Apakah media ini membantu pemahaman?[cite: 1]'],
-          ['Dokumentasikan Proses[cite: 1]', 'Foto/video penggunaan media pembelajaran[cite: 1].', 'Sudahkah praktik ini dicatat?[cite: 1]'],
-          ['Bagikan di Komunitas[cite: 1]', 'Unggah di media sosial / Komunitas Belajar[cite: 1].', 'Siapa rekan pendidik yang membutuhkan ini?[cite: 1]'],
-          ['Bangun Kolaborasi[cite: 1]', 'Ajak rekan guru mengembangkan karya[cite: 1].', 'Bagian mana yang bisa dikerjakan bersama?[cite: 1]'],
-          ['Skema Pemberdayaan[cite: 1]', 'Libatkan guru honorer dalam jejaring karya[cite: 1].', 'Bagaimana skema ini memberi dampak finansial?[cite: 1]'],
-          ['Jaga Etika & Nilai[cite: 1]', 'Prioritaskan kejujuran & kemanfaatan[cite: 1].', 'Nilai apa yang dijaga dalam karya ini?[cite: 1]']
-        ],
-        impacts: [['👧','Siswa Aktif','Media bikin belajar seru[cite: 1]'],['📚','Praktik Baik','Berbagi inspirasi guru[cite: 1]'],['🤝','Kolaborasi','Komunitas bergerak bersama[cite: 1]'],['📈','Kemandirian','Manfaat sosial & ekonomi[cite: 1]']]
-      },
-      informatika: {
-        label: 'Guru Informatika[cite: 1]', accent: '#2563eb', soft: '#e6efff',
-        title: 'Prototipe hingga Produk Skalabel[cite: 1]',
-        nodes: [
-          ['Riset Kebutuhan UI/UX[cite: 1]', 'Pahami pengguna utama (guru & murid)[cite: 1].', 'Siapa pengguna dan apa kendalanya?[cite: 1]'],
-          ['Buat Prototipe Digital[cite: 1]', 'Gunakan alat bantu no-code / HTML ringan[cite: 1].', 'Fitur utama apa yang wajib ada?[cite: 1]'],
-          ['Uji Keterpakaian[cite: 1]', 'Amati kemudahan navigasi pengguna[cite: 1].', 'Apakah aplikasi ini mudah digunakan?[cite: 1]'],
-          ['Iterasi UI Mobile-First[cite: 1]', 'Optimalkan tampilan layar smartphone[cite: 1].', 'Apakah tombol nyaman diusap jempol?[cite: 1]'],
-          ['Buat Tutorial & Panduan[cite: 1]', 'Sediakan petunjuk penggunaan ringkas[cite: 1].', 'Dapatkah pengguna paham tanpa diajari?[cite: 1]'],
-          ['Sebarkan via Platform[cite: 1]', 'Distribusikan secara digital[cite: 1].', 'Fitur apa yang paling disukai?[cite: 1]'],
-          ['Integrasikan E-Commerce[cite: 1]', 'Gunakan jalur distribusi otomatis[cite: 1].', 'Bagaimana alur unduh / pengirimannya?[cite: 1]'],
-          ['Sistemasi & Otomasi[cite: 1]', 'Kelola dukungan pengguna dengan sistem[cite: 1].', 'Bagaimana menjaga aplikasi tetap stabil?[cite: 1]']
-        ],
-        impacts: [['💻','Aplikasi Ringan','Mudah diakses di HP[cite: 1]'],['🚀','Produk Skalabel','Siap digandakan luas[cite: 1]'],['🛠️','Solusi Digital','Pendidikan efisien[cite: 1]'],['🌟','Personal Brand','Dikenal lewat inovasi[cite: 1]']]
-      },
-      ipa: {
-        label: 'Guru IPA[cite: 1]', accent: '#16a34a', soft: '#e8f8ed',
-        title: 'Observasi Eksperimental Berdampak[cite: 1]',
-        nodes: [
-          ['Observasi Miskonsepsi[cite: 1]', 'Temukan materi IPA yang sulit dipahami[cite: 1].', 'Konsep sains apa yang paling abstrak?[cite: 1]'],
-          ['Rancang Kit / Alat Peraga[cite: 1]', 'Gunakan bahan sekitar / kit eksperimen[cite: 1].', 'Alat apa yang membuktikan prinsip ini?[cite: 1]'],
-          ['Uji Coba Praktikum[cite: 1]', 'Lakukan pengujian langsung di laboratorium[cite: 1].', 'Apakah siswa memahami fenomena sainsnya?[cite: 1]'],
-          ['Sempurnakan Desain[cite: 1]', 'Perbaiki kepraktisan alat peraga[cite: 1].', 'Apakah alat ini tahan lama dan aman?[cite: 1]'],
-          ['Susun Modul Panduan[cite: 1]', 'Tuliskan langkah praktikum yang jelas[cite: 1].', 'Apakah guru lain dapat mengulanginya?[cite: 1]'],
-          ['Publikasikan Hasil[cite: 1]', 'Bagikan hasil praktikum dalam video[cite: 1].', 'Bagaimana respons guru IPA lainnya?[cite: 1]'],
-          ['Kemas Jadi Kit Siap Pakai[cite: 1]', 'Sediakan paket praktikum terintegrasi[cite: 1].', 'Berapa biaya kit agar tetap terjangkau?[cite: 1]'],
-          ['Gerakkan Pembelajaran IPA[cite: 1]', 'Sebarkan budaya eksperimen sains[cite: 1].', 'Bagaimana membawa sains ke kehidupan?[cite: 1]']
-        ],
-        impacts: [['🔬','Sains Nyata','Praktikum jadi menyenangkan[cite: 1]'],['📦','Kit Praktis','Siap pakai di sekolah[cite: 1]'],['🧪','Budaya Inovasi','Eksperimen berbasis bukti[cite: 1]'],['🌍','Dampak Lingkungan','Solusi sains lokal[cite: 1]']]
-      }
-    };
-
-    const stages = [
-      ['01. Baru Berupa Ide[cite: 1]', 'Fokus identifikasi masalah utama siswa di kelas[cite: 1].'],
-      ['02. Sudah Digunakan di Kelas[cite: 1]', 'Kumpulkan foto & umpan balik pemahaman siswa[cite: 1].'],
-      ['03. Didokumentasikan[cite: 1]', 'Buat panduan 1 halaman agar karya mudah direplikasi[cite: 1].'],
-      ['04. Dibagikan di Komunitas[cite: 1]', 'Amati pertanyaan guru lain untuk validasi kebutuhan[cite: 1].'],
-      ['05. Siap Diberdayakan[cite: 1]', 'Bangun ekosistem distribusi & skema kolaborasi[cite: 1].']
-    ];
-
-    // 2. RENDER FUNCTIONS
-    const storyTrack = document.getElementById('storyTrack');
-    const storyDetail = document.getElementById('storyDetail');
-
-    function renderStory(activeIndex = 0) {
-      storyTrack.innerHTML = storyPoints.map((item, i) => `
-        <button class="story-card ${i === activeIndex ? 'active' : ''}" onclick="renderStory(${i})">
-          <div class="story-step-badge">${i + 1}</div>
-          <h3>${item.title}</h3>
-          <p>${item.short}</p>
-        </button>
-      `).join('');
-
-      const cur = storyPoints[activeIndex];
-      storyDetail.innerHTML = `
-        <div class="story-detail-icon">${cur.icon}</div>
-        <div>
-          <h3>${cur.title}</h3>
-          <p>${cur.detail}</p>
-          <div class="lesson">${cur.lesson}</div>
+    <!-- ===== QUICK NAV ===== -->
+    <nav class="quick-nav-wrap" id="quickNavWrap" aria-label="Navigasi isi">
+        <div class="container quick-nav" id="quickNav">
+            <a href="#ringkasan" class="active">Ringkasan</a>
+            <a href="#peta-resolusi">Peta masalah</a>
+            <a href="#insight-utama">Insight utama</a>
+            <a href="#perspektif">3 perspektif</a>
+            <a href="#refleksi">Refleksi saya</a>
         </div>
-      `;
-    }
+    </nav>
 
-    const mapNodesContainer = document.getElementById('mapNodesContainer');
-    const mapDetail = document.getElementById('mapDetail');
+    <main>
 
-    function renderMapDetail(key = 'problem') {
-      document.querySelectorAll('[data-map]').forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.map === key);
-      });
-      const data = mapData[key];
-      mapDetail.innerHTML = `
-        <h3>${data.title}</h3>
-        <p>${data.lead}</p>
-        <ul>${data.items.map(it => `<li>${it}</li>`).join('')}</ul>
-        <div class="map-detail-quote">“${data.quote}”</div>
-      `;
-    }
+        <!-- ===== STORY ===== -->
+        <section class="story-section" id="ringkasan">
+            <div class="container">
+                <div class="section-head fade-up visible">
+                    <span class="kicker">Kisah dalam 60 detik</span>
+                    <h2>Bukan langsung bisnis besar—<br>semuanya tumbuh bertahap.</h2>
+                    <p>Klik setiap kartu untuk melihat perubahan penting dalam perjalanan Bu Guru Ria, dari kebutuhan murid hingga pemberdayaan guru honorer.</p>
+                </div>
+                <div class="story-track" id="storyTrack"></div>
+                <div class="story-detail" id="storyDetail" aria-live="polite"></div>
+            </div>
+        </section>
 
-    mapNodesContainer.addEventListener('click', (e) => {
-      const btn = e.target.closest('[data-map]');
-      if (btn) renderMapDetail(btn.dataset.map);
-    });
+        <!-- ===== MIND MAP ===== -->
+        <section class="map-section" id="peta-resolusi">
+            <div class="container">
+                <div class="section-head fade-up visible">
+                    <span class="kicker">Mind map problem solving</span>
+                    <h2>Masalah tidak hilang—<br>ia diubah menjadi jalur resolusi.</h2>
+                    <p>Peta ini memperlihatkan hubungan antara masalah, kendala, keputusan strategis, dan dampak yang tercipta.</p>
+                </div>
+                <div class="mindmap-shell">
+                    <svg class="mindmap-svg" viewBox="0 0 1000 620" preserveAspectRatio="none" aria-hidden="true">
+                        <defs>
+                            <marker id="arrowTeal" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#0ea5a8" /></marker>
+                            <marker id="arrowGold" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#f7b731" /></marker>
+                        </defs>
+                        <path class="map-line" marker-end="url(#arrowTeal)" d="M495 285 C390 230 320 180 255 155" />
+                        <path class="map-line alt" marker-end="url(#arrowGold)" d="M505 285 C610 230 680 180 745 155" />
+                        <path class="map-line alt" marker-end="url(#arrowGold)" d="M495 340 C390 390 320 440 255 485" />
+                        <path class="map-line" marker-end="url(#arrowTeal)" d="M505 340 C610 390 680 440 745 485" />
+                    </svg>
+                    <button class="map-core" type="button" data-map="core">
+                        <span>Pusat cerita</span>
+                        <strong>Karya lahir dari ruang kelas</strong>
+                        <small>Klik cabang untuk membedah alur.</small>
+                    </button>
+                    <button class="map-node problem active" type="button" data-map="problem">
+                        <span class="map-label">01 — Masalah</span>
+                        <h3>Pembelajaran butuh media lebih hidup</h3>
+                        <p>Antusiasme dan kebutuhan murid menjadi pemicu awal.</p>
+                    </button>
+                    <button class="map-node obstacle" type="button" data-map="obstacle">
+                        <span class="map-label">02 — Kendala</span>
+                        <h3>Karya sulit menjangkau banyak guru</h3>
+                        <p>Produksi, promosi, stok, transaksi, dan pengiriman menuntut sistem.</p>
+                    </button>
+                    <button class="map-node resolution" type="button" data-map="resolution">
+                        <span class="map-label">03 — Resolusi</span>
+                        <h3>Validasi konten, lalu bangun ekosistem</h3>
+                        <p>MedSos, e-commerce, tim produksi, dan afiliasi saling terhubung.</p>
+                    </button>
+                    <button class="map-node impact-node" type="button" data-map="impact">
+                        <span class="map-label">04 — Dampak</span>
+                        <h3>Nilai pendidikan meluas menjadi sosial-ekonomi</h3>
+                        <p>Murid, guru, honorer, warga, dan produk lokal ikut tumbuh.</p>
+                    </button>
+                </div>
+                <div class="map-detail" id="mapDetail" aria-live="polite"></div>
+            </div>
+        </section>
 
-    // 3. JOURNEY & PERSPECTIVE SWITCHER
-    let activeAudience = 'penggerak';
-    let openedNodes = new Set([0]);
+        <!-- ===== INSIGHT ===== -->
+        <section class="insight-section" id="insight-utama">
+            <div class="container">
+                <div class="section-head fade-up visible">
+                    <span class="kicker">Resume insight penting</span>
+                    <h2>Enam pelajaran yang layak dibawa pulang.</h2>
+                    <p>Jembatan dari cerita Bu Guru Ria menuju praktik kita sendiri sebagai pendidik.</p>
+                </div>
+                <div class="insight-grid" id="insightGrid">
+                    <!-- injected by JS -->
+                </div>
+                <div class="resume-callout fade-up visible">
+                    <div class="icon">💭</div>
+                    <div>
+                        <strong>Resume satu kalimat</strong>
+                        <p>Bu Guru Ria tidak sekadar menjual media belajar; ia mengubah pengalaman kelas menjadi sistem yang membantu murid, guru lain, guru honorer, dan warga sekitar.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    function setPerspective(key) {
-      activeAudience = key;
-      openedNodes = new Set([0]);
-      const data = journeys[key];
+        <!-- ===== PERSPEKTIF ===== -->
+        <section id="perspektif">
+            <div class="container">
+                <div class="section-head fade-up visible">
+                    <span class="kicker">Pilih pintu masuk</span>
+                    <h2>Kamu melihat kisah ini sebagai siapa?</h2>
+                    <p>Pilih satu perspektif. Jalur, contoh, pertanyaan refleksi, dan warna pengalaman akan menyesuaikan.</p>
+                </div>
+                <div class="audiences" id="audienceCards">
+                    <button class="audience-card active" data-audience="penggerak">
+                        <div class="audience-icon">🌱</div>
+                        <h3>Alumni Guru Penggerak</h3>
+                        <p>Dari praktik baik menuju gerakan bersama dan pemberdayaan komunitas.</p>
+                        <span class="select-mark">Jelajahi →</span>
+                    </button>
+                    <button class="audience-card" data-audience="informatika">
+                        <div class="audience-icon">💻</div>
+                        <h3>Guru Informatika</h3>
+                        <p>Dari prototipe sederhana menuju karya digital yang dapat diskalakan.</p>
+                        <span class="select-mark">Jelajahi →</span>
+                    </button>
+                    <button class="audience-card" data-audience="ipa">
+                        <div class="audience-icon">🔬</div>
+                        <h3>Guru IPA</h3>
+                        <p>Dari observasi dan eksperimen menuju solusi yang terbukti bermanfaat.</p>
+                        <span class="select-mark">Jelajahi →</span>
+                    </button>
+                </div>
+            </div>
+        </section>
 
-      // Theme Colors Transition
-      document.documentElement.style.setProperty('--accent', data.accent);
-      document.documentElement.style.setProperty('--accent-soft', data.soft);
+        <!-- ===== JOURNEY ===== -->
+        <section class="journey-wrap" id="perjalanan">
+            <div class="container">
+                <div class="journey-shell">
+                    <aside class="journey-sidebar">
+                        <span class="tag" id="audienceTag">Alumni Guru Penggerak</span>
+                        <h3 id="journeyTitle">Dari praktik baik menuju gerakan bersama</h3>
+                        <p id="journeyIntro">Klik setiap langkah untuk melihat insight dan pertanyaan reflektifnya.</p>
+                        <div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+                        <div class="progress-label" id="progressLabel">0 dari 8 langkah dijelajahi</div>
+                        <div class="small-source">Terinspirasi dari artikel Kompas.com tentang perjalanan Bu Guru Ria di Sidoarjo, 25 Juli 2026.</div>
+                    </aside>
+                    <div>
+                        <div class="flow" id="flow"></div>
+                        <div class="impact-grid" id="impactGrid"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-      document.getElementById('audienceTag').textContent = data.label;
-      document.getElementById('journeyTitle').textContent = data.title;
+        <!-- ===== REFLEKSI ===== -->
+        <section class="reflection-section" id="refleksi">
+            <div class="container">
+                <div class="section-head fade-up visible">
+                    <span class="kicker">Berhenti sejenak</span>
+                    <h2>Karyamu sekarang berada di tahap mana?</h2>
+                    <p>Refleksi ini tidak menilai. Ia hanya membantu melihat langkah berikutnya dengan lebih jernih.</p>
+                </div>
+                <div class="reflection-layout">
+                    <div class="panel fade-up visible">
+                        <h3>Pilih tahapmu</h3>
+                        <p>Klik satu tahap yang paling menggambarkan kondisi karya atau praktik baikmu saat ini.</p>
+                        <div class="stage-list" id="stageList"></div>
+                        <div class="stage-response" id="stageResponse">
+                            <strong>Belum memilih tahap.</strong>
+                            Pilih salah satu tahap di atas untuk mendapatkan saran langkah berikutnya.
+                        </div>
+                    </div>
+                    <div class="panel fade-up visible">
+                        <h3>Satu praktik baik yang layak dibagikan</h3>
+                        <p>Tuliskan singkat. Sistem akan mengubahnya menjadi kartu refleksi yang bisa diunduh atau dibagikan.</p>
+                        <label for="practiceInput">Praktik baik / karya saya</label>
+                        <textarea id="practiceInput" maxlength="240" placeholder="Contoh: Media interaktif tekanan yang membantu siswa memahami konsep melalui simulasi sederhana..."></textarea>
+                        <div class="form-actions">
+                            <button class="btn btn-dark" id="makeCard">Buat kartu refleksi</button>
+                            <button class="btn btn-light" id="sharePage">Bagikan halaman</button>
+                        </div>
+                        <div class="share-card" id="shareCard">
+                            <small>REFLEKSI — DARI KELAS, JADI KARYA</small>
+                            <div class="quote" id="shareQuote"></div>
+                            <small>Rizal Abdurrahman • Guru IPA & Informatika • Santika • SATRIA</small>
+                            <div class="form-actions">
+                                <button class="btn btn-primary" id="downloadCard">Unduh PNG</button>
+                                <button class="btn btn-secondary" id="copyText">Salin teks</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-      renderFlow();
-      renderImpacts();
-    }
+        <!-- ===== BRANDING ===== -->
+        <section class="branding">
+            <div class="container">
+                <div class="branding-card fade-up visible">
+                    <div class="identity">
+                        <div class="avatar">RA</div>
+                        <div>
+                            <h3>Rizal Abdurrahman</h3>
+                            <p>Guru yang belajar dari masalah, membangun solusi, menguji teknologi, dan menggerakkan komunitas.</p>
+                            <div class="brand-tags">
+                                <span>Guru IPA & Informatika</span>
+                                <span>Komunitas Belajar Santika</span>
+                                <span>SATRIA</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="btn btn-primary" href="#top">Ulangi perjalanan ↑</a>
+                </div>
+            </div>
+        </section>
+    </main>
 
-    function renderFlow() {
-      const data = journeys[activeAudience];
-      const flowContainer = document.getElementById('flow');
+    <footer>
+        <div class="container">
+            <b>Belajar • Berkarya • Berbagi</b><br>
+            Refleksi personal berdasarkan artikel Kompas.com tentang Bu Guru Ria.
+        </div>
+    </footer>
 
-      flowContainer.innerHTML = data.nodes.map((node, i) => {
-        const isOpen = openedNodes.has(i);
-        return `
-          <div class="node ${isOpen ? 'active' : ''}" onclick="toggleNode(${i})">
-            <div class="node-num">${i + 1}</div>
+    <button class="back-top" id="backTop" aria-label="Kembali ke atas">↑</button>
+    <div class="toast" id="toast">Tersalin.</div>
+
+    <canvas id="cardCanvas" width="1080" height="1350" hidden></canvas>
+
+    <script>
+        // ===== DATA =====
+        const ARTICLE_URL =
+            'https://regional.kompas.com/read/2026/07/25/153155978/berawal-dari-ruang-kelas-di-sidoarjo-bu-guru-ria-bantu-guru-honorer-petik?page=all#page2';
+
+        const storyPoints = [
+            { icon: '🎒', title: 'Berawal dari kebutuhan kelas', short: 'Media dibuat agar murid lebih antusias belajar.',
+                detail: 'Siti Komariyah memulai bukan dari rencana bisnis, melainkan dari kebutuhan pembelajaran di SDN Banjar Kemantren 2 Buduran.',
+                lesson: '💡 Kebutuhan nyata adalah fondasi produk pendidikan yang paling kuat.' },
+            { icon: '📲', title: 'Unggahan menjadi validasi', short: 'Guru lain ternyata membutuhkan solusi serupa.',
+                detail: 'Setelah media dibagikan di media sosial, permintaan datang dari rekan guru lintas daerah. Konten berfungsi sebagai bukti kebutuhan, bukan hanya promosi.',
+                lesson: '💡 Dokumentasi mengubah praktik pribadi menjadi pengetahuan yang dapat ditemukan.' },
+            { icon: '🛒', title: 'E-commerce melipat jarak', short: 'Transaksi, video, live, dan logistik memperluas jangkauan.',
+                detail: 'Marketplace membantu produk dikenal, diperagakan, ditransaksikan, dan dikirim tanpa harus membuka toko fisik di banyak daerah.',
+                lesson: '💡 Platform adalah pengungkit; kualitas solusi tetap menjadi mesin utamanya.' },
+            { icon: '🏭', title: 'Usaha berubah menjadi sistem', short: 'Produksi dan distribusi tidak lagi ditangani sendirian.',
+                detail: 'Pertumbuhan pesanan menuntut pembagian kerja untuk produksi, stok, pengemasan, dan distribusi. Di sinilah karya guru berkembang menjadi UMKM.',
+                lesson: '💡 Dampak sulit diperbesar bila semua proses bergantung pada satu orang.' },
+            { icon: '🤳', title: 'Guru honorer menjadi mitra', short: 'Sampel dan tautan afiliasi membuka penghasilan fleksibel.',
+                detail: 'Guru honorer dapat membuat ulasan atau membagikan tautan tanpa memproduksi, menyimpan stok, mengemas, maupun mengirim barang.',
+                lesson: '💡 Pemberdayaan memberi peran produktif, bukan hanya bantuan sesaat.' },
+            { icon: '🌏', title: 'Dampak menembus batas', short: 'Pesanan menjangkau Indonesia hingga Malaysia.',
+                detail: 'Jangkauan pasar meluas dari berbagai provinsi di Indonesia sampai Malaysia, sembari membuka lapangan kerja bagi warga sekitar.',
+                lesson: '💡 Inovasi lokal dapat tumbuh global ketika dokumentasi dan distribusinya kuat.' },
+            { icon: '🛡️', title: 'Etika menjadi pagar', short: 'Kejujuran ditempatkan di atas keuntungan sesaat.',
+                detail: 'Mitra diingatkan tidak membuat klaim berlebihan. Kepercayaan konsumen dan muruah pendidikan menjadi modal jangka panjang.',
+                lesson: '💡 Personal branding yang kokoh dibangun dari manfaat dan integritas.' }
+        ];
+
+        const mapData = {
+            core: {
+                title: 'Pusat cerita: karya lahir dari ruang kelas',
+                lead: 'Seluruh perkembangan dimulai dari satu keputusan sederhana: memperbaiki pengalaman belajar murid.',
+                items: ['Guru mengamati kebutuhan nyata.', 'Solusi dibuat dan diuji pada konteks asli.',
+                    'Respons pengguna menentukan langkah berikutnya.'
+                ],
+                quote: 'Bukan mencari produk untuk dijual, tetapi menemukan masalah yang layak diselesaikan.'
+            },
+            problem: {
+                title: 'Masalah yang muncul',
+                lead: 'Masalah awalnya bersifat pedagogis, lalu berkembang menjadi tantangan akses dan kesejahteraan.',
+                items: ['Murid membutuhkan media yang lebih menarik dan mudah dipahami.',
+                    'Banyak guru menghadapi kebutuhan serupa tetapi tidak memiliki waktu membuat media sendiri.',
+                    'Guru honorer membutuhkan sumber penghasilan tambahan yang fleksibel.'
+                ],
+                quote: 'Masalah yang sama dapat memiliki nilai sosial sekaligus nilai ekonomi.'
+            },
+            obstacle: {
+                title: 'Kendala ketika karya mulai tumbuh',
+                lead: 'Permintaan yang meningkat melahirkan pekerjaan baru yang tidak dapat diselesaikan hanya dengan kreativitas.',
+                items: ['Jangkauan promosi terbatas bila hanya mengandalkan jejaring pribadi.',
+                    'Produksi, stok, pengemasan, transaksi, dan pengiriman semakin kompleks.',
+                    'Skala besar berisiko mendorong klaim promosi berlebihan dan menurunkan kepercayaan.'
+                ],
+                quote: 'Pertumbuhan tanpa sistem justru dapat menjadi beban baru.'
+            },
+            resolution: {
+                title: 'Tahapan resolusi',
+                lead: 'Bu Guru Ria menyusun rangkaian solusi yang saling memperkuat, bukan satu tindakan tunggal.',
+                items: ['Dokumentasikan penggunaan media dan bagikan melalui konten.',
+                    'Gunakan marketplace, video, live, proteksi transaksi, dan logistik.',
+                    'Bangun tim produksi dan pengemasan agar operasional tidak bergantung pada satu orang.',
+                    'Buka skema afiliasi tanpa stok bagi guru honorer.',
+                    'Tetapkan etika promosi dan larangan klaim berlebihan.'
+                ],
+                quote: 'Solusi terbaik bukan satu aplikasi, melainkan ekosistem proses yang konsisten.'
+            },
+            impact: {
+                title: 'Dampak yang tercipta',
+                lead: 'Ketika sistem berjalan, manfaat meluas melampaui transaksi penjualan.',
+                items: ['Murid memperoleh media belajar yang lebih segar.',
+                    'Guru di berbagai daerah memperoleh solusi siap pakai.',
+                    'Guru honorer memperoleh peluang komisi yang fleksibel.',
+                    'Warga sekitar terserap dalam produksi dan distribusi.',
+                    'Produk pendidikan lokal menjangkau pasar nasional dan internasional.'
+                ],
+                quote: 'Dampak terbesar terjadi ketika karya membantu orang lain ikut bertumbuh.'
+            }
+        };
+
+        const journeys = {
+            penggerak: {
+                label: 'Alumni Guru Penggerak',
+                accent: '#0ea5a8',
+                soft: '#dff8f5',
+                title: 'Dari praktik baik menuju gerakan bersama',
+                intro: 'Pemimpin pembelajaran melihat masalah sebagai peluang untuk bertumbuh bersama.',
+                nodes: [
+                    ['Peka terhadap kebutuhan murid',
+                        'Inovasi dimulai saat guru sungguh-sungguh melihat hambatan yang dialami murid.',
+                        'Apa kebutuhan murid yang paling sering muncul di kelasmu?'
+                    ],
+                    ['Buat solusi kecil yang nyata',
+                        'Tidak harus canggih. Media sederhana yang tepat sasaran sering lebih bermakna daripada ide besar yang belum diuji.',
+                        'Solusi sederhana apa yang sebenarnya bisa dicoba pekan ini?'
+                    ],
+                    ['Uji, refleksi, dan perbaiki',
+                        'Praktik baik lahir melalui siklus mencoba, mendengar, lalu memperbaiki.',
+                        'Bukti apa yang menunjukkan solusi itu membantu murid?'
+                    ],
+                    ['Dokumentasikan praktik baik',
+                        'Foto, video, catatan proses, dan panduan penggunaan membuat karya tidak hilang setelah satu pertemuan.',
+                        'Apakah praktik baikmu sudah cukup mudah dipahami guru lain?'
+                    ],
+                    ['Bagikan kepada jejaring guru',
+                        'Berbagi membuka ruang umpan balik dan menemukan bahwa masalah yang sama dialami banyak sekolah.',
+                        'Siapa tiga orang pertama yang perlu melihat praktik baikmu?'
+                    ],
+                    ['Bangun kolaborasi', 'Dampak membesar ketika karya tidak lagi bergantung pada satu orang.',
+                        'Bagian mana yang bisa dikerjakan bersama komunitas?'
+                    ],
+                    ['Libatkan guru honorer sebagai mitra',
+                        'Pemberdayaan bukan sekadar memberi bantuan, tetapi membuka peran, kontribusi, dan peluang penghasilan yang bermartabat.',
+                        'Bagaimana skema kolaborasi dapat tetap adil dan transparan?'
+                    ],
+                    ['Jaga etika dan kebermanfaatan',
+                        'Kejujuran, perlindungan murid, dan dampak nyata harus lebih tinggi daripada promosi sesaat.',
+                        'Nilai apa yang tidak boleh dikompromikan ketika karya berkembang?'
+                    ]
+                ],
+                impacts: [
+                    ['👧', 'Murid terbantu', 'Solusi tetap berakar pada kebutuhan belajar.'],
+                    ['📚', 'Guru bertumbuh', 'Praktik baik menjadi pengetahuan bersama.'],
+                    ['🤝', 'Komunitas bergerak', 'Kolaborasi melahirkan daya jangkau.'],
+                    ['📈', 'Ekonomi terangkat', 'Kemandirian memperkuat pengabdian.']
+                ]
+            },
+            informatika: {
+                label: 'Guru Informatika',
+                accent: '#2563eb',
+                soft: '#e6efff',
+                title: 'Dari prototipe menuju ekosistem digital',
+                intro: 'Kelas dapat menjadi laboratorium desain produk yang paling jujur dan relevan.',
+                nodes: [
+                    ['Identifikasi kebutuhan pengguna',
+                        'Mulai dari masalah guru atau siswa, bukan dari teknologi yang sedang tren.',
+                        'Siapa pengguna utama dan apa masalah paling mengganggunya?'
+                    ],
+                    ['Buat prototipe sederhana',
+                        'Gunakan HTML, Canva Code, Apps Script, atau platform ringan untuk membuktikan ide.',
+                        'Fitur minimum apa yang sudah cukup menyelesaikan masalah?'
+                    ],
+                    ['Uji langsung pada siswa atau guru',
+                        'Amati kebingungan, hambatan, dan cara pengguna berinteraksi dengan produk.',
+                        'Bagian mana yang paling sering membuat pengguna berhenti?'
+                    ],
+                    ['Perbaiki UI, alur, dan aksesibilitas',
+                        'Produk pendidikan harus mudah dipakai di HP, jelas, ringan, dan ramah pengguna.',
+                        'Apakah pengguna bisa memahami fungsi utama tanpa dijelaskan panjang?'
+                    ],
+                    ['Dokumentasikan dengan foto dan tutorial',
+                        'Tutorial mengubah produk pribadi menjadi solusi yang dapat direplikasi.',
+                        'Apakah orang lain bisa memakai karyamu tanpa kehadiranmu?'
+                    ],
+                    ['Bagikan untuk validasi kebutuhan',
+                        'Konten bukan hanya promosi; respons pengguna membantu memvalidasi kebutuhan nyata.',
+                        'Komentar atau permintaan apa yang paling sering muncul?'
+                    ],
+                    ['Distribusikan melalui kanal yang tepat',
+                        'GitHub Pages, marketplace, video pendek, dan komunitas dapat menjadi jalur distribusi.',
+                        'Kanal mana yang paling sesuai dengan perilaku pengguna?'
+                    ],
+                    ['Bangun sistem agar dapat diskalakan',
+                        'Pisahkan produk, dokumentasi, layanan, dan dukungan agar karya tidak bergantung pada tenaga satu orang.',
+                        'Proses apa yang dapat diotomatisasi tanpa mengurangi kualitas?'
+                    ]
+                ],
+                impacts: [
+                    ['🌟', 'Personal branding', 'Dikenal karena solusi yang konsisten dan berguna.'],
+                    ['💾', 'Karya bernilai', 'Aset digital dapat digunakan berulang kali.'],
+                    ['🧑‍🏫', 'Guru lain terbantu', 'Solusi mudah diakses dan direplikasi.'],
+                    ['🚀', 'Peluang tumbuh', 'Dampak dan penghasilan dapat berkembang bersama.']
+                ]
+            },
+            ipa: {
+                label: 'Guru IPA',
+                accent: '#16a34a',
+                soft: '#e8f8ed',
+                title: 'Dari observasi menuju solusi yang terbukti',
+                intro: 'Budaya ilmiah—mengamati, menguji, mencatat, dan merevisi—sangat dekat dengan inovasi pendidikan.',
+                nodes: [
+                    ['Amati gejala pembelajaran',
+                        'Perhatikan konsep yang sulit, miskonsepsi, rendahnya keterlibatan, atau kendala alat praktikum.',
+                        'Gejala apa yang paling sering tampak saat siswa belajar IPA?'
+                    ],
+                    ['Rumuskan kebutuhan',
+                        'Ubah keluhan umum menjadi kebutuhan yang jelas dan dapat diuji.',
+                        'Perubahan apa yang ingin terlihat setelah solusi digunakan?'
+                    ],
+                    ['Rancang media atau alat peraga',
+                        'Gunakan bahan sederhana, sensor, IoT, simulasi, atau lingkungan sekitar.',
+                        'Desain paling sederhana apa yang masih menunjukkan konsep inti?'
+                    ],
+                    ['Uji sebagai eksperimen kecil',
+                        'Bandingkan sebelum dan sesudah, amati respons, serta catat kendala penggunaan.',
+                        'Data sederhana apa yang bisa dikumpulkan dari uji coba?'
+                    ],
+                    ['Revisi berdasarkan bukti',
+                        'Perbaikan didasarkan pada pengamatan, bukan sekadar selera pembuat.',
+                        'Bagian mana yang perlu diubah berdasarkan data?'
+                    ],
+                    ['Bagikan praktik baik',
+                        'Dokumentasi memungkinkan guru lain menilai, mengadaptasi, dan mengembangkan karya.',
+                        'Apa yang perlu dicantumkan agar praktik dapat direplikasi?'
+                    ],
+                    ['Produkkan solusi yang terbukti',
+                        'Media yang efektif dapat dikemas menjadi kit, modul, atau panduan yang lebih siap digunakan.',
+                        'Apa yang membuat produk ini benar-benar praktis bagi guru lain?'
+                    ],
+                    ['Tumbuhkan dampak sosial dan ekonomi',
+                        'Produk lokal dapat menggerakkan guru, siswa, komunitas, dan warga sekitar.',
+                        'Siapa saja yang dapat dilibatkan dalam pengembangan berikutnya?'
+                    ]
+                ],
+                impacts: [
+                    ['💡', 'Konsep dipahami', 'Media membantu menghubungkan teori dan pengalaman.'],
+                    ['🧪', 'Guru inovatif', 'Budaya eksperimen tumbuh dalam pembelajaran.'],
+                    ['📦', 'Produk lokal', 'Solusi terbukti dapat dikemas lebih luas.'],
+                    ['🌍', 'Komunitas bergerak', 'Sains menjadi jalan kebermanfaatan.']
+                ]
+            }
+        };
+
+        const stages = [
+            ['Baru berupa ide',
+                'Tuliskan masalah pengguna secara spesifik. Jangan mulai dari fitur; mulai dari perubahan yang ingin terjadi.'
+            ],
+            ['Sudah digunakan di kelas',
+                'Kumpulkan bukti sederhana: respons siswa, foto penggunaan, kendala, dan perubahan pemahaman.'
+            ],
+            ['Sudah didokumentasikan',
+                'Susun panduan satu halaman atau video singkat agar orang lain bisa mereplikasi tanpa banyak bertanya.'
+            ],
+            ['Sudah dibagikan',
+                'Amati respons. Pertanyaan berulang dari orang lain biasanya menunjukkan kebutuhan pasar atau kebutuhan komunitas.'
+            ],
+            ['Sudah digunakan guru lain',
+                'Mulai bangun sistem umpan balik, versi produk, lisensi penggunaan, serta dukungan yang jelas.'
+            ],
+            ['Siap dikembangkan lebih luas',
+                'Tetapkan nilai inti, standar kualitas, pembagian peran, model keberlanjutan, dan etika promosi.'
+            ]
+        ];
+
+        const insights = [
+            { icon: '🎯', title: 'Mulai dari masalah, bukan tren',
+                desc: 'Teknologi dan platform dipilih setelah kebutuhan murid dan guru benar-benar dipahami.',
+                link: '#perjalanan' },
+            { icon: '🧰', title: 'Karya guru adalah aset',
+                desc: 'Media, modul, alat peraga, aplikasi, dan dokumentasi dapat dipakai ulang serta dikembangkan.',
+                link: '#refleksi' },
+            { icon: '📣', title: 'Konten adalah alat validasi',
+                desc: 'Respons guru lain membuktikan bahwa persoalan di satu kelas ternyata dialami banyak orang.',
+                link: '#ringkasan' },
+            { icon: '⚙️', title: 'Sistem membuat dampak berulang',
+                desc: 'Produksi, dokumentasi, transaksi, pengemasan, dan distribusi perlu dipisahkan menjadi proses yang jelas.',
+                link: '#peta-resolusi' },
+            { icon: '🤝', title: 'Afiliasi dapat menjadi pemberdayaan',
+                desc: 'Guru honorer memperoleh peran dan komisi tanpa menanggung stok maupun kerumitan operasional.',
+                link: '#perjalanan' },
+            { icon: '🛡️', title: 'Kepercayaan lebih mahal dari transaksi',
+                desc: 'Promosi yang jujur dan tidak berlebihan menjaga muruah guru serta keberlanjutan usaha.',
+                link: '#refleksi' }
+        ];
+
+        // ===== DOM REFS =====
+        const storyTrack = document.getElementById('storyTrack');
+        const storyDetail = document.getElementById('storyDetail');
+        const mapDetail = document.getElementById('mapDetail');
+        const insightGrid = document.getElementById('insightGrid');
+        const flow = document.getElementById('flow');
+        const impactGrid = document.getElementById('impactGrid');
+        const progressBar = document.getElementById('progressBar');
+        const progressLabel = document.getElementById('progressLabel');
+        const stageList = document.getElementById('stageList');
+        const stageResponse = document.getElementById('stageResponse');
+        const toast = document.getElementById('toast');
+        const backTop = document.getElementById('backTop');
+        const quickNavWrap = document.getElementById('quickNavWrap');
+
+        let currentAudience = 'penggerak';
+        let openedNodes = new Set([0]);
+        let storyIndex = 0;
+
+        // ===== RENDER STORY =====
+        function renderStory(activeIndex = 0) {
+            storyIndex = activeIndex;
+            storyTrack.innerHTML = storyPoints.map((item, i) =>
+                `<button class="story-card ${i === activeIndex ? 'active' : ''}" type="button" data-story="${i}">
+              <span class="story-step">${i + 1}</span>
+              <h3>${item.title}</h3>
+              <p>${item.short}</p>
+            </button>`
+            ).join('');
+            const item = storyPoints[activeIndex];
+            storyDetail.innerHTML = `
+            <div class="story-detail-icon">${item.icon}</div>
             <div>
-              <h4>${node[0]}</h4>
-              <p>${node[1]}</p>
+              <h3>${item.title}</h3>
+              <p>${item.detail}</p>
+              <div class="lesson">${item.lesson}</div>
             </div>
-            <div class="node-btn">${isOpen ? '−' : '＋'}</div>
-            <div class="node-detail">
-              <div class="reflection">Refleksi: “${node[2]}”</div>
-            </div>
-          </div>
-        `;
-      }).join('');
-
-      // Update progress
-      const percent = (openedNodes.size / 8) * 100;
-      document.getElementById('progressBar').style.width = `${percent}%`;
-      document.getElementById('progressLabel').textContent = `${openedNodes.size} dari 8 langkah dijelajahi`;
-    }
-
-    function renderImpacts() {
-      const data = journeys[activeAudience];
-      document.getElementById('impactGrid').innerHTML = data.impacts.map(imp => `
-        <div class="impact">
-          <div class="icon">${imp[0]}</div>
-          <h4>${imp[1]}</h4>
-          <p>${imp[2]}</p>
-        </div>
-      `).join('');
-    }
-
-    window.toggleNode = function(index) {
-      if (openedNodes.has(index)) {
-        if (openedNodes.size > 1) openedNodes.delete(index);
-      } else {
-        openedNodes.add(index);
-      }
-      renderFlow();
-    };
-
-    document.getElementById('audienceCards').addEventListener('click', (e) => {
-      const card = e.target.closest('.audience-card');
-      if (card) {
-        document.querySelectorAll('.audience-card').forEach(c => c.classList.remove('active'));
-        card.classList.add('active');
-        setPerspective(card.dataset.audience);
-      }
-    });
-
-    // 4. REFLECTION STAGES & CARD GENERATOR
-    const stageList = document.getElementById('stageList');
-    stageList.innerHTML = stages.map((st, i) => `
-      <button class="stage-btn ${i === 0 ? 'active' : ''}" onclick="selectStage(${i}, this)">
-        <span>${st[0]}</span>
-        <span>→</span>
-      </button>
-    `).join('');
-
-    window.selectStage = function(idx, btn) {
-      document.querySelectorAll('.stage-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      document.getElementById('stageResponse').innerHTML = `
-        <strong>Rekomendasi Langkah Next Level[cite: 1]:</strong>
-        ${stages[idx][1]}
-      `;
-    };
-
-    // Card Generation Logic (High DPI Canvas)
-    document.getElementById('makeCard').addEventListener('click', () => {
-      const input = document.getElementById('practiceInput').value.trim();
-      if (!input) {
-        showToast("Tuliskan dulu praktik baikmu ✨");
-        return;
-      }
-      document.getElementById('shareQuote').textContent = `“${input}”`;
-      document.getElementById('shareCard').style.display = 'block';
-      document.getElementById('shareCard').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    });
-
-    document.getElementById('downloadCard').addEventListener('click', () => {
-      const text = document.getElementById('practiceInput').value.trim();
-      const canvas = document.getElementById('cardCanvas');
-      const ctx = canvas.getContext('2d');
-      const currentData = journeys[activeAudience];
-
-      // Background Gradient
-      const grad = ctx.createLinearGradient(0, 0, 2160, 2700);
-      grad.addColorStop(0, '#071b3d');
-      grad.addColorStop(1, '#0b2c5b');
-      ctx.fillStyle = grad;
-      ctx.fillRect(0, 0, 2160, 2700);
-
-      // Decorative Circles
-      ctx.globalAlpha = 0.15;
-      ctx.fillStyle = currentData.accent;
-      ctx.beginPath(); ctx.arc(1800, 300, 500, 0, Math.PI * 2); ctx.fill();
-      ctx.globalAlpha = 1.0;
-
-      // Card Header
-      ctx.fillStyle = '#f7b731';
-      ctx.font = '900 68px Inter, system-ui';
-      ctx.fillText('REFLEKSI — DARI KELAS JADI KARYA[cite: 1]', 120, 220);
-
-      ctx.fillStyle = '#a0c4e8';
-      ctx.font = '700 48px Inter, system-ui';
-      ctx.fillText(currentData.label.toUpperCase(), 120, 300);
-
-      // Main Quote Text Wrapping
-      ctx.fillStyle = '#ffffff';
-      ctx.font = '800 90px Inter, system-ui';
-      
-      const words = (`“${text}”`).split(' ');
-      let line = '';
-      let y = 600;
-      const maxWidth = 1920;
-
-      for (let n = 0; n < words.length; n++) {
-        let testLine = line + words[n] + ' ';
-        let metrics = ctx.measureText(testLine);
-        if (metrics.width > maxWidth && n > 0) {
-          ctx.fillText(line, 120, y);
-          line = words[n] + ' ';
-          y += 130;
-        } else {
-          line = testLine;
+          `;
+            storyTrack.querySelectorAll('.story-card').forEach(btn => {
+                btn.addEventListener('click', () => renderStory(Number(btn.dataset.story)));
+            });
         }
-      }
-      ctx.fillText(line, 120, y);
 
-      // Card Footer / Branding
-      ctx.fillStyle = currentData.accent;
-      ctx.fillRect(120, 2250, 240, 16);
+        // ===== RENDER MAP =====
+        function renderMapDetail(key = 'problem') {
+            document.querySelectorAll('[data-map]').forEach(el => {
+                el.classList.toggle('active', el.dataset.map === key);
+            });
+            const item = mapData[key];
+            const labels = { core: 'Inti perjalanan', problem: 'Masalah', obstacle: 'Kendala', resolution: 'Resolusi',
+                impact: 'Dampak' };
+            mapDetail.innerHTML = `
+            <div>
+              <span class="kicker">${labels[key] || ''}</span>
+              <h3>${item.title}</h3>
+              <p>${item.lead}</p>
+              <div class="map-detail-quote">“${item.quote}”</div>
+            </div>
+            <ul>${item.items.map(x => `<li>${x}</li>`).join('')}</ul>
+          `;
+        }
 
-      ctx.fillStyle = '#ffffff';
-      ctx.font = '900 58px Inter, system-ui';
-      ctx.fillText('Rizal Abdurrahman[cite: 1]', 120, 2370);
+        // ===== RENDER INSIGHTS =====
+        function renderInsights() {
+            insightGrid.innerHTML = insights.map((item, i) =>
+                `<article class="insight-card fade-up visible">
+              <span class="insight-no">${i + 1}</span>
+              <div class="insight-icon">${item.icon}</div>
+              <h3>${item.title}</h3>
+              <p>${item.desc}</p>
+              <a class="insight-link" href="${item.link}">Lihat konteks →</a>
+            </article>`
+            ).join('');
+        }
 
-      ctx.fillStyle = '#a8c6e5';
-      ctx.font = '600 42px Inter, system-ui';
-      ctx.fillText('Guru IPA & Informatika • Komunitas Belajar Santika • SATRIA[cite: 1]', 120, 2440);
+        // ===== RENDER JOURNEY =====
+        function applyTheme(data) {
+            document.documentElement.style.setProperty('--accent', data.accent);
+            document.documentElement.style.setProperty('--accent-soft', data.soft);
+        }
 
-      // Trigger Download
-      const link = document.createElement('a');
-      link.download = 'refleksi-karya-guru.png';
-      link.href = canvas.toDataURL('image/png');
-      link.click();
-      showToast("Kartu HD Berhasil Diunduh 🖼️");
-    });
+        function renderJourney(key) {
+            currentAudience = key;
+            const data = journeys[key];
+            applyTheme(data);
+            document.getElementById('audienceTag').textContent = data.label;
+            document.getElementById('journeyTitle').textContent = data.title;
+            document.getElementById('journeyIntro').textContent = data.intro;
 
-    // 5. UTILITY & SCROLL OBSERVERS
-    const toast = document.getElementById('toast');
-    function showToast(msg) {
-      toast.textContent = msg;
-      toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 2000);
-    }
+            openedNodes = new Set([0]);
+            flow.innerHTML = data.nodes.map((n, i) =>
+                `<article class="node ${i === 0 ? 'active' : ''}" data-index="${i}">
+              <div class="node-num">${i + 1}</div>
+              <div>
+                <h4>${n[0]}</h4>
+                <p>${i === 0 ? 'Klik untuk insight & refleksi.' : 'Lanjutkan jalur ini secara berurutan.'}</p>
+              </div>
+              <button class="node-btn" aria-label="Buka langkah ${i + 1}">${i === 0 ? '−' : '＋'}</button>
+              <div class="node-detail">
+                <strong>💡 Insight</strong>
+                ${n[1]}
+                <div class="reflection">“${n[2]}”</div>
+              </div>
+            </article>`
+            ).join('');
 
-    document.getElementById('copyText').addEventListener('click', () => {
-      const text = document.getElementById('practiceInput').value.trim();
-      navigator.clipboard.writeText(`DARI KELAS JADI KARYA[cite: 1]\n\n“${text}”\n\nRefleksi oleh Rizal Abdurrahman[cite: 1]`);
-      showToast("Teks Refleksi Tersalin 📋");
-    });
+            impactGrid.innerHTML = data.impacts.map(x =>
+                `<article class="impact"><div class="icon">${x[0]}</div><h4>${x[1]}</h4><p>${x[2]}</p></article>`
+            ).join('');
 
-    document.getElementById('sharePage').addEventListener('click', () => {
-      if (navigator.share) {
-        navigator.share({ title: 'Dari Kelas Jadi Karya[cite: 1]', url: location.href });
-      } else {
-        navigator.clipboard.writeText(location.href);
-        showToast("Tautan Halaman Tersalin 📲");
-      }
-    });
+            updateProgress();
 
-    // Back to Top & Scroll Reveal Observer
-    const backTop = document.getElementById('backTop');
-    window.addEventListener('scroll', () => {
-      backTop.style.display = window.scrollY > 400 ? 'grid' : 'none';
-    });
-    backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+            flow.querySelectorAll('.node').forEach(node => {
+                node.addEventListener('click', function(e) {
+                    const idx = Number(this.dataset.index);
+                    const isActive = this.classList.contains('active');
+                    this.classList.toggle('active');
+                    const btn = this.querySelector('.node-btn');
+                    btn.textContent = this.classList.contains('active') ? '−' : '＋';
+                    if (this.classList.contains('active')) openedNodes.add(idx);
+                    else openedNodes.delete(idx);
+                    updateProgress();
+                });
+            });
+        }
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('active');
-      });
-    }, { threshold: 0.1 });
+        function updateProgress() {
+            const total = journeys[currentAudience].nodes.length;
+            const count = openedNodes.size;
+            const pct = Math.round((count / total) * 100);
+            progressBar.style.width = `${pct}%`;
+            progressLabel.textContent = `${count} dari ${total} langkah dijelajahi`;
+        }
 
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        // ===== RENDER STAGES =====
+        function renderStages() {
+            stageList.innerHTML = stages.map((s, i) =>
+                `<button class="stage-btn" data-index="${i}">
+              <span>${s[0]}</span>
+              <span>→</span>
+            </button>`
+            ).join('');
+            stageList.querySelectorAll('.stage-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    stageList.querySelectorAll('.stage-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    const s = stages[Number(this.dataset.index)];
+                    stageResponse.innerHTML = `<strong>Langkah berikutnya</strong>${s[1]}`;
+                });
+            });
+        }
 
-    // INIT DEFAULT STATE
-    renderStory(0);
-    renderMapDetail('problem');
-    setPerspective('penggerak');
-    selectStage(0, document.querySelector('.stage-btn'));
-  </script>
+        // ===== TOAST =====
+        function showToast(msg) {
+            toast.textContent = msg;
+            toast.classList.add('show');
+            clearTimeout(toast._timer);
+            toast._timer = setTimeout(() => toast.classList.remove('show'), 2000);
+        }
+
+        // ===== SHARE CARD =====
+        document.getElementById('makeCard').addEventListener('click', function() {
+            const val = document.getElementById('practiceInput').value.trim();
+            if (!val) { showToast('Tulis praktik baikmu dulu, kang 😄'); return; }
+            document.getElementById('shareQuote').textContent = `“${val}”`;
+            document.getElementById('shareCard').style.display = 'block';
+            document.getElementById('shareCard').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+
+        document.getElementById('sharePage').addEventListener('click', async function() {
+            const data = {
+                title: 'Dari Kelas, Jadi Karya',
+                text: 'Refleksi interaktif dari kisah Bu Guru Ria: dari masalah kelas menuju karya yang berdampak.',
+                url: location.href
+            };
+            if (navigator.share) {
+                try { await navigator.share(data); } catch (_) {}
+            } else {
+                try {
+                    await navigator.clipboard.writeText(location.href);
+                    showToast('Tautan halaman tersalin');
+                } catch (_) { showToast('Gagal menyalin tautan'); }
+            }
+        });
+
+        document.getElementById('copyText').addEventListener('click', async function() {
+            const val = document.getElementById('practiceInput').value.trim() || 'Praktik baik yang berdampak.';
+            const text =
+                `DARI KELAS, JADI KARYA\n\n“${val}”\n\nRefleksi Rizal Abdurrahman | Guru IPA & Informatika | Santika | SATRIA\n${location.href}`;
+            try {
+                await navigator.clipboard.writeText(text);
+                showToast('Teks refleksi tersalin');
+            } catch (_) { showToast('Gagal menyalin teks'); }
+        });
+
+        // ===== DOWNLOAD CARD =====
+        function wrapText(ctx, text, maxWidth) {
+            const words = text.split(' ');
+            const lines = [];
+            let line = '';
+            for (const word of words) {
+                const test = line ? line + ' ' + word : word;
+                if (ctx.measureText(test).width > maxWidth && line) {
+                    lines.push(line);
+                    line = word;
+                } else {
+                    line = test;
+                }
+            }
+            if (line) lines.push(line);
+            return lines;
+        }
+
+        document.getElementById('downloadCard').addEventListener('click', function() {
+            const text = document.getElementById('practiceInput').value.trim() || 'Praktik baik yang berdampak.';
+            const canvas = document.getElementById('cardCanvas');
+            const ctx = canvas.getContext('2d');
+            const data = journeys[currentAudience] || journeys.penggerak;
+
+            // Background
+            const grad = ctx.createLinearGradient(0, 0, 1080, 1350);
+            grad.addColorStop(0, '#071b3d');
+            grad.addColorStop(1, '#0b2c5b');
+            ctx.fillStyle = grad;
+            ctx.fillRect(0, 0, 1080, 1350);
+
+            // Decorative blobs
+            ctx.globalAlpha = .12;
+            ctx.fillStyle = data.accent;
+            ctx.beginPath();
+            ctx.arc(930, 160, 280, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(120, 1240, 310, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.globalAlpha = 1;
+
+            // Title
+            ctx.fillStyle = '#f7b731';
+            ctx.font = '900 38px system-ui, sans-serif';
+            ctx.fillText('DARI KELAS, JADI KARYA', 72, 96);
+
+            // Label
+            ctx.fillStyle = '#dceafb';
+            ctx.font = '600 26px system-ui, sans-serif';
+            ctx.fillText(data.label.toUpperCase(), 72, 144);
+
+            // Quote
+            ctx.fillStyle = '#ffffff';
+            ctx.font = '900 54px system-ui, sans-serif';
+            const lines = wrapText(ctx, `“${text}”`, 920);
+            let y = 310;
+            for (const line of lines) {
+                ctx.fillText(line, 72, y);
+                y += 74;
+            }
+
+            // Accent line
+            ctx.fillStyle = data.accent;
+            ctx.fillRect(72, 1050, 180, 12);
+
+            // Author
+            ctx.fillStyle = '#ffffff';
+            ctx.font = '800 32px system-ui, sans-serif';
+            ctx.fillText('Rizal Abdurrahman', 72, 1140);
+
+            ctx.fillStyle = '#c3d5e7';
+            ctx.font = '500 24px system-ui, sans-serif';
+            ctx.fillText('Guru IPA & Informatika • Komunitas Belajar Santika • SATRIA', 72, 1190);
+
+            ctx.fillStyle = '#f7b731';
+            ctx.font = '700 24px system-ui, sans-serif';
+            ctx.fillText('Belajar • Berkarya • Berbagi', 72, 1260);
+
+            const a = document.createElement('a');
+            a.download = 'dari-kelas-jadi-karya.png';
+            a.href = canvas.toDataURL('image/png');
+            a.click();
+            showToast('Kartu PNG berhasil dibuat');
+        });
+
+        // ===== QUICK NAV =====
+        const quickNavLinks = document.querySelectorAll('.quick-nav a');
+        const sections = ['ringkasan', 'peta-resolusi', 'insight-utama', 'perspektif', 'refleksi'];
+
+        function updateQuickNav() {
+            let current = '';
+            const scrollY = window.scrollY + 120;
+            for (const id of sections) {
+                const el = document.getElementById(id);
+                if (el && el.offsetTop <= scrollY) current = id;
+            }
+            quickNavLinks.forEach(a => {
+                const href = a.getAttribute('href').replace('#', '');
+                a.classList.toggle('active', href === current);
+            });
+        }
+
+        quickNavLinks.forEach(a => {
+            a.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // ===== AUDIENCE CARDS =====
+        document.querySelectorAll('.audience-card').forEach(card => {
+            card.addEventListener('click', function() {
+                document.querySelectorAll('.audience-card').forEach(c => c.classList.remove('active'));
+                this.classList.add('active');
+                renderJourney(this.dataset.audience);
+                document.getElementById('perjalanan').scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // ===== BACK TO TOP =====
+        window.addEventListener('scroll', function() {
+            const show = window.scrollY > 500;
+            backTop.style.display = show ? 'grid' : 'none';
+            quickNavWrap.classList.toggle('scrolled', window.scrollY > 60);
+            updateQuickNav();
+        });
+
+        backTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // ===== INTERSECTION OBSERVER (fade-up) =====
+        const observer = new IntersectionObserver((entries) => {
+            for (const entry of entries) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            }
+        }, { threshold: .1, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+        // ===== MAP NODES =====
+        document.querySelectorAll('[data-map]').forEach(node => {
+            node.addEventListener('click', () => renderMapDetail(node.dataset.map));
+        });
+
+        // ===== INIT =====
+        renderStory(0);
+        renderMapDetail('problem');
+        renderInsights();
+        renderJourney('penggerak');
+        renderStages();
+
+        // Set initial progress
+        setTimeout(() => updateProgress(), 100);
+
+        // Make sure quick nav starts correctly
+        setTimeout(updateQuickNav, 200);
+
+        console.log('🚀 Dari Kelas, Jadi Karya — Refleksi interaktif siap digunakan.');
+        console.log('📖 Cerita: Bu Guru Ria — dari masalah kelas menjadi karya berdampak.');
+        console.log('💡 Pilih perspektifmu dan mulai refleksi.');
+    </script>
 </body>
 </html>
