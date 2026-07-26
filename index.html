@@ -758,7 +758,7 @@
             font-size: .92rem;
         }
 
-        /* ===== MIND MAP ===== */
+        /* ===== MIND MAP — RESPONSIVE ORBIT + POPUP ===== */
         .map-section {
             background: #fff;
             border-top: 1px solid var(--line);
@@ -766,242 +766,507 @@
         }
         .mindmap-shell {
             position: relative;
-            min-height: 640px;
+            width: 100%;
             max-width: 1000px;
+            height: 690px;
             margin: 0 auto;
-            border-radius: var(--radius);
+            border-radius: 30px;
             background:
-                radial-gradient(circle at 50% 45%, rgba(14, 165, 168, .06), transparent 18rem),
-                linear-gradient(145deg, #f7fbff, #edf7fb);
+                radial-gradient(circle at 50% 50%, rgba(14, 165, 168, .14), transparent 23%),
+                radial-gradient(circle at 20% 18%, rgba(247, 183, 49, .12), transparent 24%),
+                radial-gradient(circle at 82% 82%, rgba(14, 165, 168, .10), transparent 25%),
+                linear-gradient(145deg, #f9fcff, #eaf5fb);
             border: 1px solid var(--line);
             overflow: hidden;
             box-shadow: var(--shadow-md);
-            padding: 20px;
-            display: grid;
-            gap: 14px;
+            isolation: isolate;
         }
-        @media(min-width:768px) {
-            .mindmap-shell {
-                padding: 32px;
-                min-height: 680px;
-                display: block;
-            }
+        .mindmap-shell::before,
+        .mindmap-shell::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .mindmap-shell::before {
+            width: 240px;
+            height: 240px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            border: 1px solid rgba(14, 165, 168, .16);
+            box-shadow: 0 0 0 34px rgba(14, 165, 168, .035), 0 0 0 74px rgba(247, 183, 49, .025);
+            animation: mapOrbitBreath 5s ease-in-out infinite;
+        }
+        .mindmap-shell::after {
+            inset: 18px;
+            border: 1px dashed rgba(7, 27, 61, .07);
+        }
+        @keyframes mapOrbitBreath {
+            0%, 100% { transform: translate(-50%, -50%) scale(.96); opacity: .7; }
+            50% { transform: translate(-50%, -50%) scale(1.06); opacity: 1; }
         }
         .mindmap-svg {
-            display: none;
-        }
-        @media(min-width:768px) {
-            .mindmap-svg {
-                display: block;
-                position: absolute;
-                inset: 0;
-                width: 100%;
-                height: 100%;
-                pointer-events: none;
-            }
+            display: block;
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+            overflow: visible;
         }
         .map-line {
             fill: none;
             stroke: var(--accent);
             stroke-width: 3;
+            vector-effect: non-scaling-stroke;
             stroke-linecap: round;
             stroke-dasharray: 8 10;
-            opacity: .6;
-            animation: flowDash 5s linear infinite;
+            opacity: .72;
+            filter: drop-shadow(0 0 4px rgba(14, 165, 168, .25));
+            animation: flowDash 4.5s linear infinite;
         }
         .map-line.alt {
             stroke: var(--gold);
-            animation-duration: 7s;
+            filter: drop-shadow(0 0 4px rgba(247, 183, 49, .28));
+            animation-duration: 5.8s;
         }
-        @keyframes flowDash {
-            to {
-                stroke-dashoffset: -120;
-            }
+        .map-pulse-dot {
+            fill: #fff;
+            stroke: var(--teal);
+            stroke-width: 2;
+            vector-effect: non-scaling-stroke;
+            filter: drop-shadow(0 0 5px var(--teal));
         }
+        .map-pulse-dot.gold {
+            stroke: var(--gold);
+            filter: drop-shadow(0 0 5px var(--gold));
+        }
+        @keyframes flowDash { to { stroke-dashoffset: -120; } }
 
+        .map-core,
+        .map-node {
+            position: absolute;
+            z-index: 3;
+            border: 0;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
         .map-core {
-            grid-column: 1 / -1;
-            border-radius: var(--radius);
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 158px;
+            min-height: 150px;
+            border-radius: 36px;
             background: linear-gradient(145deg, var(--navy), var(--navy-2));
             color: #fff;
-            padding: 20px 22px;
+            padding: 20px 16px;
             text-align: center;
-            box-shadow: var(--shadow-md);
-            border: 0;
+            box-shadow: 0 22px 56px rgba(7, 27, 61, .28), 0 0 0 8px rgba(255, 255, 255, .72);
             transition: var(--transition);
-            animation: mapPulse 4s ease-in-out infinite;
+            animation: mapCorePulse 4s ease-in-out infinite;
         }
-        @media(min-width:768px) {
-            .map-core {
-                position: absolute;
-                left: 50%;
-                top: 50%;
-                transform: translate(-50%, -50%);
-                width: 200px;
-                min-height: 160px;
-                padding: 24px;
-                border-radius: 32px;
-                animation: mapPulse 4s ease-in-out infinite;
-            }
-            @keyframes mapPulse {
-                0%,
-                100% {
-                    transform: translate(-50%, -50%) scale(1);
-                    box-shadow: 0 20px 50px rgba(7, 27, 61, .25);
-                }
-                50% {
-                    transform: translate(-50%, -50%) scale(1.03);
-                    box-shadow: 0 28px 64px rgba(7, 27, 61, .32);
-                }
-            }
+        .map-core::before {
+            content: '✦';
+            display: grid;
+            place-items: center;
+            width: 38px;
+            height: 38px;
+            margin: -4px auto 8px;
+            border-radius: 13px;
+            color: var(--navy);
+            background: linear-gradient(145deg, var(--gold), var(--gold-2));
+            font-size: 1.05rem;
+            box-shadow: 0 8px 20px rgba(247, 183, 49, .25);
         }
+        @keyframes mapCorePulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 22px 56px rgba(7, 27, 61, .28), 0 0 0 8px rgba(255, 255, 255, .72); }
+            50% { transform: translate(-50%, -50%) scale(1.035); box-shadow: 0 28px 68px rgba(7, 27, 61, .34), 0 0 0 12px rgba(14, 165, 168, .10); }
+        }
+        .map-core:active { transform: translate(-50%, -50%) scale(.97); }
         .map-core span {
             display: block;
             color: var(--gold);
-            font-size: .7rem;
+            font-size: .62rem;
             text-transform: uppercase;
-            letter-spacing: .12em;
+            letter-spacing: .13em;
             font-weight: 900;
-            margin-bottom: 6px;
+            margin-bottom: 5px;
         }
         .map-core strong {
-            font-size: 1.2rem;
-            line-height: 1.1;
             display: block;
+            font-size: 1rem;
+            line-height: 1.14;
         }
         .map-core small {
             display: block;
             color: #bfd1e2;
-            margin-top: 8px;
-            font-size: .8rem;
+            margin-top: 7px;
+            font-size: .68rem;
+            line-height: 1.35;
         }
 
         .map-node {
-            border-radius: var(--radius-sm);
-            background: #fff;
-            padding: 16px 18px;
-            border: 1px solid var(--line);
+            width: 42%;
+            max-width: 210px;
+            min-height: 132px;
+            border-radius: 22px;
+            background: rgba(255, 255, 255, .94);
+            padding: 14px 13px 13px;
+            border: 1px solid rgba(215, 228, 239, .95);
             text-align: left;
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-            cursor: pointer;
-            width: 100%;
+            box-shadow: 0 10px 26px rgba(7, 27, 61, .10);
+            transition: transform .3s cubic-bezier(.22, 1, .36, 1), border-color .3s, box-shadow .3s, background .3s;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        .map-node.problem { left: 3.5%; top: 7%; }
+        .map-node.obstacle { right: 3.5%; top: 7%; }
+        .map-node.resolution { left: 3.5%; bottom: 7%; }
+        .map-node.impact-node { right: 3.5%; bottom: 7%; }
+        .map-node::after {
+            content: 'Ketuk untuk membuka';
+            display: block;
+            margin-top: 8px;
+            color: var(--muted-light);
+            font-size: .56rem;
+            font-weight: 800;
+            letter-spacing: .02em;
         }
         .map-node:hover,
-        .map-node.active {
-            transform: translateY(-3px);
-            border-color: var(--accent);
-            box-shadow: var(--shadow-md);
+        .map-node.active,
+        .map-node:focus-visible {
+            border-color: var(--node-accent, var(--accent));
+            background: #fff;
+            box-shadow: 0 18px 42px rgba(7, 27, 61, .17), 0 0 0 4px color-mix(in srgb, var(--node-accent, var(--accent)) 13%, transparent);
+            outline: none;
+        }
+        .map-node:active { transform: scale(.97); }
+        .map-node.problem { --node-accent: #e85d75; }
+        .map-node.obstacle { --node-accent: #f59e0b; }
+        .map-node.resolution { --node-accent: #0ea5a8; }
+        .map-node.impact-node { --node-accent: #16a34a; }
+        .map-node-icon {
+            width: 34px;
+            height: 34px;
+            border-radius: 12px;
+            display: grid;
+            place-items: center;
+            margin-bottom: 8px;
+            font-size: 1.05rem;
+            background: color-mix(in srgb, var(--node-accent, var(--accent)) 13%, white);
+            box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--node-accent, var(--accent)) 18%, transparent);
         }
         .map-node .map-label {
-            font-size: .65rem;
+            display: block;
+            font-size: .56rem;
+            line-height: 1.2;
             text-transform: uppercase;
-            letter-spacing: .12em;
-            font-weight: 900;
-            color: var(--accent);
+            letter-spacing: .11em;
+            font-weight: 950;
+            color: var(--node-accent, var(--accent));
         }
         .map-node h3 {
-            font-size: 1.05rem;
-            line-height: 1.15;
-            margin: 4px 0 4px;
-            font-weight: 800;
+            font-size: .82rem;
+            line-height: 1.18;
+            margin: 4px 0 0;
+            font-weight: 850;
         }
-        .map-node p {
-            font-size: .85rem;
-            line-height: 1.4;
+        .map-node p { display: none; }
+
+        .map-mobile-hint {
+            position: absolute;
+            z-index: 2;
+            left: 50%;
+            top: calc(50% + 104px);
+            bottom: auto;
+            transform: translateX(-50%);
+            padding: 7px 12px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, .84);
+            border: 1px solid var(--line);
             color: var(--muted);
-            margin: 0;
+            font-size: .65rem;
+            font-weight: 800;
+            box-shadow: var(--shadow-sm);
+            white-space: nowrap;
+            animation: hintFloat 2.6s ease-in-out infinite;
         }
+        @keyframes hintFloat { 50% { transform: translate(-50%, -4px); } }
+
         @media(min-width:768px) {
-            .map-node {
-                position: absolute;
-                width: 230px;
-                min-height: 140px;
-                padding: 20px 22px;
-                border-radius: var(--radius);
-            }
-            .map-node .map-label {
-                font-size: .7rem;
-            }
-            .map-node h3 {
-                font-size: 1.1rem;
-            }
-            .map-node.problem {
-                left: 4%;
-                top: 8%;
-            }
-            .map-node.obstacle {
-                right: 4%;
-                top: 8%;
-            }
-            .map-node.resolution {
-                left: 4%;
-                bottom: 8%;
-            }
-            .map-node.impact-node {
-                right: 4%;
-                bottom: 8%;
-            }
+            .mindmap-shell { height: 660px; border-radius: 36px; }
+            .map-core { width: 210px; min-height: 176px; padding: 24px; border-radius: 38px; }
+            .map-core::before { width: 46px; height: 46px; font-size: 1.25rem; }
+            .map-core span { font-size: .7rem; }
+            .map-core strong { font-size: 1.25rem; }
+            .map-core small { font-size: .8rem; }
+            .map-node { width: 235px; max-width: none; min-height: 158px; padding: 19px 20px; border-radius: 26px; }
+            .map-node.problem { left: 5%; top: 9%; }
+            .map-node.obstacle { right: 5%; top: 9%; }
+            .map-node.resolution { left: 5%; bottom: 9%; }
+            .map-node.impact-node { right: 5%; bottom: 9%; }
+            .map-node-icon { width: 42px; height: 42px; font-size: 1.25rem; }
+            .map-node .map-label { font-size: .66rem; }
+            .map-node h3 { font-size: 1.08rem; margin-top: 5px; }
+            .map-node p { display: block; margin: 6px 0 0; color: var(--muted); font-size: .82rem; line-height: 1.42; }
+            .map-node::after { font-size: .64rem; }
+            .map-node:hover { transform: translateY(-5px) scale(1.015); }
+            .map-mobile-hint { display: none; }
+        }
+        @media(max-width:390px) {
+            .mindmap-shell { height: 650px; }
+            .map-core { width: 146px; min-height: 142px; }
+            .map-node { width: 43%; padding: 12px 11px; min-height: 126px; }
+            .map-node h3 { font-size: .76rem; }
+            .map-node::after { font-size: .51rem; }
         }
 
-        .map-detail {
-            margin-top: 18px;
-            background: #fff;
-            border: 1px solid var(--line);
-            border-radius: var(--radius);
-            padding: 20px 18px;
-            box-shadow: var(--shadow-sm);
+        /* Mind-map popup / bottom sheet */
+        body.map-modal-open { overflow: hidden; }
+        .map-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 120;
             display: grid;
-            gap: 16px;
-            transition: var(--transition);
+            align-items: end;
+            pointer-events: none;
+            visibility: hidden;
         }
-        @media(min-width:768px) {
-            .map-detail {
-                grid-template-columns: 1fr 1.4fr;
-                padding: 28px 32px;
-                gap: 28px;
-                margin-top: 24px;
-            }
+        .map-modal.open {
+            pointer-events: auto;
+            visibility: visible;
         }
-        .map-detail h3 {
-            font-size: 1.3rem;
-            margin: 0 0 6px;
-            font-weight: 800;
+        .map-modal-backdrop {
+            position: absolute;
+            inset: 0;
+            background: rgba(3, 13, 31, .66);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            opacity: 0;
+            transition: opacity .32s ease;
         }
-        .map-detail p {
-            color: var(--muted);
-            margin: 0;
-            font-size: .95rem;
-        }
-        .map-detail ul {
-            margin: 0;
-            padding-left: 20px;
-            list-style: none;
-        }
-        .map-detail ul li {
+        .map-modal.open .map-modal-backdrop { opacity: 1; }
+        .map-popup {
             position: relative;
-            padding-left: 20px;
-            margin-bottom: 10px;
-            font-size: .92rem;
+            z-index: 2;
+            width: 100%;
+            max-height: min(88dvh, 820px);
+            overflow-y: auto;
+            overscroll-behavior: contain;
+            background: #fff;
+            border-radius: 30px 30px 0 0;
+            box-shadow: 0 -24px 80px rgba(0, 0, 0, .28);
+            transform: translateY(105%);
+            opacity: .6;
+            transition: transform .42s cubic-bezier(.22, 1, .36, 1), opacity .3s;
+        }
+        .map-modal.open .map-popup { transform: translateY(0); opacity: 1; }
+        .map-popup-drag {
+            width: 52px;
+            height: 5px;
+            border-radius: 999px;
+            background: #d7e4ef;
+            margin: 10px auto 4px;
+        }
+        .map-popup-hero {
+            position: relative;
+            padding: 22px 22px 20px;
+            color: #fff;
+            background:
+                radial-gradient(circle at 88% 18%, rgba(255,255,255,.22), transparent 28%),
+                linear-gradient(145deg, var(--popup-accent, var(--teal)), var(--navy));
+            overflow: hidden;
+        }
+        .map-popup-hero::after {
+            content: '';
+            position: absolute;
+            width: 190px;
+            height: 190px;
+            right: -72px;
+            bottom: -110px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,.18);
+            box-shadow: 0 0 0 24px rgba(255,255,255,.035), 0 0 0 50px rgba(255,255,255,.025);
+        }
+        .map-popup-close {
+            position: absolute;
+            z-index: 4;
+            right: 14px;
+            top: 14px;
+            width: 42px;
+            height: 42px;
+            border-radius: 14px;
+            display: grid;
+            place-items: center;
+            color: #fff;
+            background: rgba(255, 255, 255, .14);
+            border: 1px solid rgba(255, 255, 255, .18);
+            font-size: 1.25rem;
+            font-weight: 500;
+            backdrop-filter: blur(6px);
+        }
+        .map-popup-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 11px;
+            border-radius: 999px;
+            background: rgba(255,255,255,.13);
+            border: 1px solid rgba(255,255,255,.16);
+            font-size: .68rem;
+            text-transform: uppercase;
+            letter-spacing: .11em;
+            font-weight: 900;
+        }
+        .map-popup-icon {
+            width: 54px;
+            height: 54px;
+            margin-top: 16px;
+            border-radius: 18px;
+            display: grid;
+            place-items: center;
+            background: rgba(255, 255, 255, .14);
+            border: 1px solid rgba(255,255,255,.18);
+            font-size: 1.7rem;
+            box-shadow: 0 12px 28px rgba(0,0,0,.12);
+        }
+        .map-popup-title {
+            position: relative;
+            z-index: 2;
+            max-width: 90%;
+            margin: 14px 0 6px;
+            font-size: clamp(1.45rem, 7vw, 2.1rem);
+            line-height: 1.05;
+            letter-spacing: -.035em;
+            font-weight: 900;
+        }
+        .map-popup-lead {
+            position: relative;
+            z-index: 2;
+            color: rgba(255,255,255,.82);
+            font-size: .93rem;
+            line-height: 1.55;
+            max-width: 620px;
+        }
+        .map-popup-content { padding: 20px 20px 26px; }
+        .map-popup-content h4 {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 0 0 12px;
+            font-size: .78rem;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            color: var(--muted);
+            font-weight: 900;
+        }
+        .map-popup-list {
+            display: grid;
+            gap: 10px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .map-popup-list li {
+            position: relative;
+            padding: 13px 14px 13px 42px;
+            border-radius: 16px;
+            background: #f5f9fc;
+            border: 1px solid #e5eef5;
+            font-size: .9rem;
+            line-height: 1.45;
             color: var(--ink);
         }
-        .map-detail ul li::before {
-            content: '◆';
+        .map-popup-list li::before {
+            content: '✓';
             position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-size: .5rem;
-            top: .45em;
+            left: 13px;
+            top: 12px;
+            width: 20px;
+            height: 20px;
+            border-radius: 7px;
+            display: grid;
+            place-items: center;
+            background: color-mix(in srgb, var(--popup-accent, var(--teal)) 14%, white);
+            color: var(--popup-accent, var(--teal));
+            font-size: .7rem;
+            font-weight: 950;
         }
-        .map-detail-quote {
-            margin-top: 14px;
-            padding: 14px 18px;
-            border-left: 4px solid var(--gold);
-            background: #fff8e7;
-            border-radius: 0 14px 14px 0;
-            font-weight: 700;
-            font-size: .95rem;
+        .map-popup-quote,
+        .map-popup-reflection {
+            margin-top: 16px;
+            border-radius: 18px;
+            padding: 16px;
+        }
+        .map-popup-quote {
+            background: linear-gradient(135deg, #fff8df, #fffdf7);
+            border: 1px solid #f3dda0;
             color: var(--navy);
+            font-weight: 800;
+            line-height: 1.5;
+        }
+        .map-popup-reflection {
+            background: linear-gradient(135deg, var(--accent-soft), #fff);
+            border: 1px solid color-mix(in srgb, var(--popup-accent, var(--teal)) 28%, #d7e4ef);
+        }
+        .map-popup-reflection span {
+            display: block;
+            margin-bottom: 4px;
+            color: var(--popup-accent, var(--teal));
+            font-size: .68rem;
+            text-transform: uppercase;
+            letter-spacing: .11em;
+            font-weight: 950;
+        }
+        .map-popup-reflection strong {
+            display: block;
+            color: var(--navy);
+            font-size: 1rem;
+            line-height: 1.42;
+        }
+        .map-popup-footer {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 10px;
+            align-items: center;
+            margin-top: 18px;
+        }
+        .map-popup-nav {
+            min-height: 44px;
+            padding: 10px 12px;
+            border-radius: 14px;
+            background: #eef5fa;
+            color: var(--navy);
+            font-weight: 850;
+            font-size: .82rem;
+            transition: var(--transition);
+        }
+        .map-popup-nav:last-child { background: var(--navy); color: #fff; }
+        .map-popup-nav:disabled { opacity: .35; cursor: default; }
+        .map-popup-count {
+            color: var(--muted);
+            font-size: .76rem;
+            font-weight: 850;
+            white-space: nowrap;
+        }
+        @media(min-width:768px) {
+            .map-modal { align-items: center; justify-items: center; padding: 24px; }
+            .map-popup {
+                width: min(720px, calc(100% - 48px));
+                max-height: min(88vh, 820px);
+                border-radius: 32px;
+                transform: translateY(22px) scale(.94);
+            }
+            .map-modal.open .map-popup { transform: translateY(0) scale(1); }
+            .map-popup-drag { display: none; }
+            .map-popup-hero { padding: 28px 30px 26px; }
+            .map-popup-content { padding: 26px 30px 30px; }
+            .map-popup-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .map-popup-list li:last-child:nth-child(odd) { grid-column: 1 / -1; }
         }
 
         /* ===== INSIGHT ===== */
@@ -1933,48 +2198,88 @@
                 <div class="section-head fade-up visible">
                     <span class="kicker">Mind map problem solving</span>
                     <h2>Masalah tidak hilang—<br>ia diubah menjadi jalur resolusi.</h2>
-                    <p>Peta ini memperlihatkan hubungan antara masalah, kendala, keputusan strategis, dan dampak yang tercipta.</p>
+                    <p>Ketuk setiap cabang. Garis bergerak menunjukkan bahwa masalah, kendala, resolusi, dan dampak adalah satu perjalanan yang saling terhubung.</p>
                 </div>
-                <div class="mindmap-shell">
-                    <svg class="mindmap-svg" viewBox="0 0 1000 620" preserveAspectRatio="none" aria-hidden="true">
+                <div class="mindmap-shell" aria-label="Peta interaktif transformasi karya dari ruang kelas">
+                    <svg class="mindmap-svg" viewBox="0 0 100 100" preserveAspectRatio="none" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true">
                         <defs>
-                            <marker id="arrowTeal" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#0ea5a8" /></marker>
-                            <marker id="arrowGold" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#f7b731" /></marker>
+                            <marker id="arrowTeal" markerWidth="5" markerHeight="5" refX="4.1" refY="2.5" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,5 L4.8,2.5 z" fill="#0ea5a8" /></marker>
+                            <marker id="arrowGold" markerWidth="5" markerHeight="5" refX="4.1" refY="2.5" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,5 L4.8,2.5 z" fill="#f7b731" /></marker>
+                            <path id="pathProblem" d="M46 45 C39 37, 31 27, 23 21" />
+                            <path id="pathObstacle" d="M54 45 C61 37, 69 27, 77 21" />
+                            <path id="pathResolution" d="M46 55 C39 63, 31 73, 23 79" />
+                            <path id="pathImpact" d="M54 55 C61 63, 69 73, 77 79" />
                         </defs>
-                        <path class="map-line" marker-end="url(#arrowTeal)" d="M495 285 C390 230 320 180 255 155" />
-                        <path class="map-line alt" marker-end="url(#arrowGold)" d="M505 285 C610 230 680 180 745 155" />
-                        <path class="map-line alt" marker-end="url(#arrowGold)" d="M495 340 C390 390 320 440 255 485" />
-                        <path class="map-line" marker-end="url(#arrowTeal)" d="M505 340 C610 390 680 440 745 485" />
+                        <use href="#pathProblem" xlink:href="#pathProblem" class="map-line" marker-end="url(#arrowTeal)" />
+                        <use href="#pathObstacle" xlink:href="#pathObstacle" class="map-line alt" marker-end="url(#arrowGold)" />
+                        <use href="#pathResolution" xlink:href="#pathResolution" class="map-line alt" marker-end="url(#arrowGold)" />
+                        <use href="#pathImpact" xlink:href="#pathImpact" class="map-line" marker-end="url(#arrowTeal)" />
+                        <circle r="1.15" class="map-pulse-dot"><animateMotion dur="3.2s" repeatCount="indefinite"><mpath href="#pathProblem" xlink:href="#pathProblem" /></animateMotion></circle>
+                        <circle r="1.15" class="map-pulse-dot gold"><animateMotion dur="3.8s" begin="-.8s" repeatCount="indefinite"><mpath href="#pathObstacle" xlink:href="#pathObstacle" /></animateMotion></circle>
+                        <circle r="1.15" class="map-pulse-dot gold"><animateMotion dur="4.1s" begin="-1.4s" repeatCount="indefinite"><mpath href="#pathResolution" xlink:href="#pathResolution" /></animateMotion></circle>
+                        <circle r="1.15" class="map-pulse-dot"><animateMotion dur="3.5s" begin="-1.9s" repeatCount="indefinite"><mpath href="#pathImpact" xlink:href="#pathImpact" /></animateMotion></circle>
                     </svg>
-                    <button class="map-core" type="button" data-map="core">
+                    <button class="map-core" type="button" data-map="core" aria-label="Buka inti perjalanan">
                         <span>Pusat cerita</span>
                         <strong>Karya lahir dari ruang kelas</strong>
-                        <small>Klik cabang untuk membedah alur.</small>
+                        <small>Ketuk untuk melihat fondasinya.</small>
                     </button>
-                    <button class="map-node problem active" type="button" data-map="problem">
+                    <button class="map-node problem" type="button" data-map="problem" aria-label="Buka popup masalah">
+                        <span class="map-node-icon">🎯</span>
                         <span class="map-label">01 — Masalah</span>
                         <h3>Pembelajaran butuh media lebih hidup</h3>
                         <p>Antusiasme dan kebutuhan murid menjadi pemicu awal.</p>
                     </button>
-                    <button class="map-node obstacle" type="button" data-map="obstacle">
+                    <button class="map-node obstacle" type="button" data-map="obstacle" aria-label="Buka popup kendala">
+                        <span class="map-node-icon">🧩</span>
                         <span class="map-label">02 — Kendala</span>
                         <h3>Karya sulit menjangkau banyak guru</h3>
                         <p>Produksi, promosi, stok, transaksi, dan pengiriman menuntut sistem.</p>
                     </button>
-                    <button class="map-node resolution" type="button" data-map="resolution">
+                    <button class="map-node resolution" type="button" data-map="resolution" aria-label="Buka popup resolusi">
+                        <span class="map-node-icon">⚙️</span>
                         <span class="map-label">03 — Resolusi</span>
                         <h3>Validasi konten, lalu bangun ekosistem</h3>
-                        <p>MedSos, e-commerce, tim produksi, dan afiliasi saling terhubung.</p>
+                        <p>Media sosial, e-commerce, tim produksi, dan afiliasi saling terhubung.</p>
                     </button>
-                    <button class="map-node impact-node" type="button" data-map="impact">
+                    <button class="map-node impact-node" type="button" data-map="impact" aria-label="Buka popup dampak">
+                        <span class="map-node-icon">🌱</span>
                         <span class="map-label">04 — Dampak</span>
                         <h3>Nilai pendidikan meluas menjadi sosial-ekonomi</h3>
                         <p>Murid, guru, honorer, warga, dan produk lokal ikut tumbuh.</p>
                     </button>
+                    <div class="map-mobile-hint">Sentuh salah satu node ✦</div>
                 </div>
-                <div class="map-detail" id="mapDetail" aria-live="polite"></div>
             </div>
         </section>
+
+        <div class="map-modal" id="mapModal" role="dialog" aria-modal="true" aria-labelledby="mapPopupTitle" aria-hidden="true">
+            <div class="map-modal-backdrop" data-map-close></div>
+            <article class="map-popup" id="mapPopup" tabindex="-1">
+                <div class="map-popup-drag" aria-hidden="true"></div>
+                <header class="map-popup-hero">
+                    <button class="map-popup-close" type="button" data-map-close aria-label="Tutup popup">×</button>
+                    <span class="map-popup-badge" id="mapPopupBadge">01 — Masalah</span>
+                    <div class="map-popup-icon" id="mapPopupIcon">🎯</div>
+                    <h3 class="map-popup-title" id="mapPopupTitle"></h3>
+                    <p class="map-popup-lead" id="mapPopupLead"></p>
+                </header>
+                <div class="map-popup-content">
+                    <h4>✦ Poin yang perlu diperhatikan</h4>
+                    <ul class="map-popup-list" id="mapPopupList"></ul>
+                    <div class="map-popup-quote" id="mapPopupQuote"></div>
+                    <div class="map-popup-reflection">
+                        <span>Pertanyaan reflektif</span>
+                        <strong id="mapPopupReflection"></strong>
+                    </div>
+                    <div class="map-popup-footer">
+                        <button class="map-popup-nav" type="button" id="mapPrev">← Sebelumnya</button>
+                        <span class="map-popup-count" id="mapPopupCount">1 / 5</span>
+                        <button class="map-popup-nav" type="button" id="mapNext">Berikutnya →</button>
+                    </div>
+                </div>
+            </article>
+        </div>
 
         <!-- ===== INSIGHT ===== -->
         <section class="insight-section" id="insight-utama">
@@ -2159,7 +2464,8 @@
                 items: ['Guru mengamati kebutuhan nyata.', 'Solusi dibuat dan diuji pada konteks asli.',
                     'Respons pengguna menentukan langkah berikutnya.'
                 ],
-                quote: 'Bukan mencari produk untuk dijual, tetapi menemukan masalah yang layak diselesaikan.'
+                quote: 'Bukan mencari produk untuk dijual, tetapi menemukan masalah yang layak diselesaikan.',
+                reflection: 'Masalah nyata apa di kelasmu yang paling layak diselesaikan lebih dulu?'
             },
             problem: {
                 title: 'Masalah yang muncul',
@@ -2168,7 +2474,8 @@
                     'Banyak guru menghadapi kebutuhan serupa tetapi tidak memiliki waktu membuat media sendiri.',
                     'Guru honorer membutuhkan sumber penghasilan tambahan yang fleksibel.'
                 ],
-                quote: 'Masalah yang sama dapat memiliki nilai sosial sekaligus nilai ekonomi.'
+                quote: 'Masalah yang sama dapat memiliki nilai sosial sekaligus nilai ekonomi.',
+                reflection: 'Kebutuhan siapa saja yang sebenarnya tersentuh oleh masalah tersebut?'
             },
             obstacle: {
                 title: 'Kendala ketika karya mulai tumbuh',
@@ -2177,7 +2484,8 @@
                     'Produksi, stok, pengemasan, transaksi, dan pengiriman semakin kompleks.',
                     'Skala besar berisiko mendorong klaim promosi berlebihan dan menurunkan kepercayaan.'
                 ],
-                quote: 'Pertumbuhan tanpa sistem justru dapat menjadi beban baru.'
+                quote: 'Pertumbuhan tanpa sistem justru dapat menjadi beban baru.',
+                reflection: 'Jika karyamu dipakai seratus orang besok, bagian mana yang paling cepat kewalahan?'
             },
             resolution: {
                 title: 'Tahapan resolusi',
@@ -2188,7 +2496,8 @@
                     'Buka skema afiliasi tanpa stok bagi guru honorer.',
                     'Tetapkan etika promosi dan larangan klaim berlebihan.'
                 ],
-                quote: 'Solusi terbaik bukan satu aplikasi, melainkan ekosistem proses yang konsisten.'
+                quote: 'Solusi terbaik bukan satu aplikasi, melainkan ekosistem proses yang konsisten.',
+                reflection: 'Satu proses apa yang perlu kamu dokumentasikan atau otomatisasi mulai sekarang?'
             },
             impact: {
                 title: 'Dampak yang tercipta',
@@ -2199,7 +2508,8 @@
                     'Warga sekitar terserap dalam produksi dan distribusi.',
                     'Produk pendidikan lokal menjangkau pasar nasional dan internasional.'
                 ],
-                quote: 'Dampak terbesar terjadi ketika karya membantu orang lain ikut bertumbuh.'
+                quote: 'Dampak terbesar terjadi ketika karya membantu orang lain ikut bertumbuh.',
+                reflection: 'Siapa yang dapat ikut bertumbuh bila karyamu dibagikan lebih luas?'
             }
         };
 
@@ -2391,7 +2701,18 @@
         // ===== DOM REFS =====
         const storyTrack = document.getElementById('storyTrack');
         const storyDetail = document.getElementById('storyDetail');
-        const mapDetail = document.getElementById('mapDetail');
+        const mapModal = document.getElementById('mapModal');
+        const mapPopup = document.getElementById('mapPopup');
+        const mapPopupBadge = document.getElementById('mapPopupBadge');
+        const mapPopupIcon = document.getElementById('mapPopupIcon');
+        const mapPopupTitle = document.getElementById('mapPopupTitle');
+        const mapPopupLead = document.getElementById('mapPopupLead');
+        const mapPopupList = document.getElementById('mapPopupList');
+        const mapPopupQuote = document.getElementById('mapPopupQuote');
+        const mapPopupReflection = document.getElementById('mapPopupReflection');
+        const mapPopupCount = document.getElementById('mapPopupCount');
+        const mapPrev = document.getElementById('mapPrev');
+        const mapNext = document.getElementById('mapNext');
         const insightGrid = document.getElementById('insightGrid');
         const flow = document.getElementById('flow');
         const impactGrid = document.getElementById('impactGrid');
@@ -2406,6 +2727,16 @@
         let currentAudience = 'penggerak';
         let openedNodes = new Set([0]);
         let storyIndex = 0;
+        const mapOrder = ['core', 'problem', 'obstacle', 'resolution', 'impact'];
+        const mapMeta = {
+            core: { label: 'Inti perjalanan', badge: '00 — Fondasi', icon: '✦', accent: '#0ea5a8' },
+            problem: { label: 'Masalah', badge: '01 — Masalah', icon: '🎯', accent: '#e85d75' },
+            obstacle: { label: 'Kendala', badge: '02 — Kendala', icon: '🧩', accent: '#f59e0b' },
+            resolution: { label: 'Resolusi', badge: '03 — Resolusi', icon: '⚙️', accent: '#0ea5a8' },
+            impact: { label: 'Dampak', badge: '04 — Dampak', icon: '🌱', accent: '#16a34a' }
+        };
+        let currentMapKey = 'problem';
+        let lastMapTrigger = null;
 
         // ===== RENDER STORY =====
         function renderStory(activeIndex = 0) {
@@ -2431,23 +2762,54 @@
             });
         }
 
-        // ===== RENDER MAP =====
-        function renderMapDetail(key = 'problem') {
+        // ===== RESPONSIVE MIND MAP POPUP =====
+        function setActiveMapNode(key) {
             document.querySelectorAll('[data-map]').forEach(el => {
                 el.classList.toggle('active', el.dataset.map === key);
             });
+        }
+
+        function openMapPopup(key, trigger = null) {
+            if (!mapData[key]) return;
+            currentMapKey = key;
+            lastMapTrigger = trigger || document.querySelector(`[data-map="${key}"]`);
+            setActiveMapNode(key);
+
             const item = mapData[key];
-            const labels = { core: 'Inti perjalanan', problem: 'Masalah', obstacle: 'Kendala', resolution: 'Resolusi',
-                impact: 'Dampak' };
-            mapDetail.innerHTML = `
-            <div>
-              <span class="kicker">${labels[key] || ''}</span>
-              <h3>${item.title}</h3>
-              <p>${item.lead}</p>
-              <div class="map-detail-quote">“${item.quote}”</div>
-            </div>
-            <ul>${item.items.map(x => `<li>${x}</li>`).join('')}</ul>
-          `;
+            const meta = mapMeta[key];
+            const index = mapOrder.indexOf(key);
+            mapPopup.style.setProperty('--popup-accent', meta.accent);
+            mapPopupBadge.textContent = meta.badge;
+            mapPopupIcon.textContent = meta.icon;
+            mapPopupTitle.textContent = item.title;
+            mapPopupLead.textContent = item.lead;
+            mapPopupList.innerHTML = item.items.map(x => `<li>${x}</li>`).join('');
+            mapPopupQuote.textContent = `“${item.quote}”`;
+            mapPopupReflection.textContent = item.reflection || 'Apa langkah kecil yang dapat dilakukan setelah memahami bagian ini?';
+            mapPopupCount.textContent = `${index + 1} / ${mapOrder.length}`;
+            mapPrev.disabled = index === 0;
+            mapNext.disabled = index === mapOrder.length - 1;
+
+            mapModal.classList.add('open');
+            mapModal.setAttribute('aria-hidden', 'false');
+            document.body.classList.add('map-modal-open');
+            requestAnimationFrame(() => mapPopup.focus({ preventScroll: true }));
+        }
+
+        function closeMapPopup() {
+            mapModal.classList.remove('open');
+            mapModal.setAttribute('aria-hidden', 'true');
+            document.body.classList.remove('map-modal-open');
+            if (lastMapTrigger) lastMapTrigger.focus({ preventScroll: true });
+        }
+
+        function moveMapPopup(direction) {
+            const currentIndex = mapOrder.indexOf(currentMapKey);
+            const targetIndex = currentIndex + direction;
+            if (targetIndex < 0 || targetIndex >= mapOrder.length) return;
+            const targetKey = mapOrder[targetIndex];
+            openMapPopup(targetKey, document.querySelector(`[data-map="${targetKey}"]`));
+            mapPopup.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         // ===== RENDER INSIGHTS =====
@@ -2727,14 +3089,25 @@
 
         document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-        // ===== MAP NODES =====
+        // ===== MAP NODES & POPUP CONTROLS =====
         document.querySelectorAll('[data-map]').forEach(node => {
-            node.addEventListener('click', () => renderMapDetail(node.dataset.map));
+            node.addEventListener('click', () => openMapPopup(node.dataset.map, node));
+        });
+        document.querySelectorAll('[data-map-close]').forEach(el => {
+            el.addEventListener('click', closeMapPopup);
+        });
+        mapPrev.addEventListener('click', () => moveMapPopup(-1));
+        mapNext.addEventListener('click', () => moveMapPopup(1));
+        document.addEventListener('keydown', (event) => {
+            if (!mapModal.classList.contains('open')) return;
+            if (event.key === 'Escape') closeMapPopup();
+            if (event.key === 'ArrowLeft') moveMapPopup(-1);
+            if (event.key === 'ArrowRight') moveMapPopup(1);
         });
 
         // ===== INIT =====
         renderStory(0);
-        renderMapDetail('problem');
+        setActiveMapNode('problem');
         renderInsights();
         renderJourney('penggerak');
         renderStages();
